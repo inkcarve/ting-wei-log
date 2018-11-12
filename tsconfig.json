@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    "outDir": "./",
+    "module": "esnext",
+    "baseUrl": "./",
+    "target": "es5",
+    "lib": ["es5","es6","es2015","dom"],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    // "rootDir": "./src",
+    // "rootDirs":[
+    // "./src/stores",
+    // "./src/pages",
+    // "./src/components",
+    // "./src/static",
+    // ],
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "declaration": false,
+    "noImplicitAny": false,
+    "noLib": false,
+    "removeComments": true,
+    "experimentalDecorators": true
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "*.js",
+    "*.css",
+    "*.scss",
+  ],
+  "typingOptions": {
+"enableAutoDiscovery": false,
+},
+"enableAutoDiscoveryDefinition": true
+  // "include":[
+   
+  // ]
+}

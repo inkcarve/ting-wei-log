@@ -1,0 +1,6 @@
+{
+  "verbose": true,
+  "ignore": ["node_modules/*", ".next/*", "pages/*", "components/*", "store/*", "static/*", "*.scss", "*.css", "*.ts"],
+  "execMap": {
+  }
+}
