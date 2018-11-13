@@ -23,9 +23,7 @@ export default class Counter extends React.Component<any, any> {
       <div>
 {/*      <Head></Head>
       <Nav></Nav>*/}
-      <div className="main">
       <Resume/>
-      </div>
       </div>
       {/*</Page>*/}
       </Provider>

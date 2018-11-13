@@ -73,7 +73,7 @@ export default class extends React.Component<any, any>{
                 <NavLink href="/about">About Here</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/resume">About Author</NavLink>
+                <NavLink href="/resume">Author</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="https://github.com/inkcarve">Github</NavLink>

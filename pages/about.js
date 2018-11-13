@@ -27,9 +27,8 @@ var Counter = (function (_super) {
     Counter.prototype.render = function () {
         return (React.createElement(Provider, { store: this.store },
             React.createElement("div", null,
-                React.createElement("div", { className: "main" },
-                    React.createElement("div", { className: "container mt-3" },
-                        React.createElement("h1", null, "React + NextJs + reactstrap + typescript + bootstrap4"))))));
+                React.createElement("div", { className: "container mt-3" },
+                    React.createElement("h1", null, "React + NextJs + reactstrap + typescript + bootstrap4")))));
     };
     return Counter;
 }(React.Component));

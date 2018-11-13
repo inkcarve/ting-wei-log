@@ -36,7 +36,7 @@ var default_1 = (function (_super) {
                         React.createElement(NavItem, null,
                             React.createElement(NavLink, { href: "/about" }, "About Here")),
                         React.createElement(NavItem, null,
-                            React.createElement(NavLink, { href: "/resume" }, "About Author")),
+                            React.createElement(NavLink, { href: "/resume" }, "Author")),
                         React.createElement(NavItem, null,
                             React.createElement(NavLink, { href: "https://github.com/inkcarve" }, "Github")))))));
     };

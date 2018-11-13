@@ -24,11 +24,9 @@ export default class Counter extends React.Component<any, any> {
       <div>
 {/*      <Head></Head>
       <Nav></Nav>*/}
-      <div className="main">
       <div className="container mt-3">
         {/*<Page title='' linkTo='/other' />*/}
         <h1>React + NextJs + reactstrap + typescript + bootstrap4</h1>
-      </div>
       </div>
       </div>
       {/*</Page>*/}
