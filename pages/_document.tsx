@@ -1,9 +1,9 @@
 //** ../d.ts/_style_d.ts
 
 import * as React from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
 import Document, { Main, NextScript} from 'next/document'
-import { inject, observer } from 'mobx-react';
+// import { inject, observer } from 'mobx-react';
 // import  Clock  from './Clock';
 import  Head from '../components/Head';
 import  Nav from '../components/Nav';
@@ -11,7 +11,7 @@ import  Nav from '../components/Nav';
 import '../scss/core.scss';
 
 // @inject('store') @observer
-class MyDocument extends Document<any, any> {
+class MyDocument extends Document {
 
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx)

@@ -19,7 +19,7 @@ var HeadCustom = (function (_super) {
         console.log("headcustom");
         return (React.createElement(Head, null,
             React.createElement("title", null,
-                "Next - ",
+                "Ting-Wei Log - ",
                 this.props.title),
             React.createElement("meta", { charSet: "utf-8" }),
             React.createElement("meta", { httpEquiv: "x-ua-compatible", content: "ie=edge" }),

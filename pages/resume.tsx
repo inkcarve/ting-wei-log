@@ -1,9 +1,8 @@
   import * as React from 'react';
 import { Provider } from 'mobx-react';
 import { initStore } from '../store/store';
-// import Head from '../components/Head';
-// import Nav from '../components/Nav';
-// import Page from '../components/Page'
+import Resume from '../components/Resume';
+
 export default class Counter extends React.Component<any, any> {
   private store:any;
   static getInitialProps ({ req }) {
@@ -25,10 +24,7 @@ export default class Counter extends React.Component<any, any> {
 {/*      <Head></Head>
       <Nav></Nav>*/}
       <div className="main">
-      <div className="container mt-3">
-        {/*<Page title='' linkTo='/other' />*/}
-        <h1>React + NextJs + reactstrap + typescript + bootstrap4</h1>
-      </div>
+      <Resume/>
       </div>
       </div>
       {/*</Page>*/}

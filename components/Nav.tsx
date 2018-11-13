@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
 // import {Navbar,Nav,NavItem,NavDropdown,MenuItem} from 'react-bootstrap-4';
 // import {Nav} from 'react-bootstrap-4';
 // import {Nav} from 'react-bootstrap-4';
@@ -36,10 +36,11 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  // UncontrolledDropdown,
+  // DropdownToggle,
+  // DropdownMenu,
+  // DropdownItem, 
+} from 'reactstrap';
 
 export default class extends React.Component<any, any>{
   constructor(props:any) {
@@ -64,13 +65,16 @@ export default class extends React.Component<any, any>{
     return (
       <div>
         <Navbar className="fixed-top" color="faded" light expand="md">
-          <NavbarBrand href="/">Next-Test</NavbarBrand>
+          <NavbarBrand href="/">Ting-Wei Log</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              {<NavItem>
-                <NavLink href="/about">About</NavLink>
-              </NavItem>}
+              <NavItem>
+                <NavLink href="/about">About Here</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/resume">About Author</NavLink>
+              </NavItem>
               <NavItem>
                 <NavLink href="https://github.com/inkcarve">Github</NavLink>
               </NavItem>

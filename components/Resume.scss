@@ -1,0 +1,27 @@
+.resume{
+	.image-box{
+		flex: 0 0 auto;
+		width:200px;
+		img.img-me{
+			height:auto;
+			width:100%;
+		}
+	}
+	.detail-list{
+		.detail-list-title{
+			
+		}
+		.title{
+			/*display: flex;*/
+			font-weight: 400;
+			margin-bottom: 1rem;
+			.small{
+				padding-right: 1rem;
+				font-size: 50%;
+				font-style: italic;
+			}
+		}
+		
+	}
+	
+}

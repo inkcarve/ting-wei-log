@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { Provider } from 'mobx-react'
 import { initStore } from '../store/store'
-import Page from '../components/Page'
-import  Head from '../components/Head';
-import  Nav from '../components/Nav';
+// import Page from '../components/Page'
+// import  Head from '../components/Head';
+// import  Nav from '../components/Nav';
 
 export default class Index extends React.Component<any, any> {
   // private jj:string='ll';

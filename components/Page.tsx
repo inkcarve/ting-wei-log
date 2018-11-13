@@ -1,11 +1,11 @@
 //** ../d.ts/_style_d.ts
 
 import * as React from 'react';
-import Link from 'next/link';
-import { inject, observer } from 'mobx-react';
-import  Clock  from './Clock';
-import  Head from './Head';
-import  Nav from './Nav';
+// import Link from 'next/link';
+// import { inject, observer } from 'mobx-react';
+// import  Clock  from './Clock';
+// import  Head from './Head';
+// import  Nav from './Nav';
 
 
 class Page extends React.Component<any, any> {

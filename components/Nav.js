@@ -9,7 +9,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import * as React from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, } from 'reactstrap';
 var default_1 = (function (_super) {
     __extends(default_1, _super);
     function default_1(props) {
@@ -29,12 +29,14 @@ var default_1 = (function (_super) {
     default_1.prototype.render = function () {
         return (React.createElement("div", null,
             React.createElement(Navbar, { className: "fixed-top", color: "faded", light: true, expand: "md" },
-                React.createElement(NavbarBrand, { href: "/" }, "Next-Test"),
+                React.createElement(NavbarBrand, { href: "/" }, "Ting-Wei Log"),
                 React.createElement(NavbarToggler, { onClick: this.toggle }),
                 React.createElement(Collapse, { isOpen: this.state.isOpen, navbar: true },
                     React.createElement(Nav, { className: "ml-auto", navbar: true },
                         React.createElement(NavItem, null,
-                            React.createElement(NavLink, { href: "/about" }, "About")),
+                            React.createElement(NavLink, { href: "/about" }, "About Here")),
+                        React.createElement(NavItem, null,
+                            React.createElement(NavLink, { href: "/resume" }, "About Author")),
                         React.createElement(NavItem, null,
                             React.createElement(NavLink, { href: "https://github.com/inkcarve" }, "Github")))))));
     };
