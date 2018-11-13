@@ -79,7 +79,8 @@ var MyDocument = (function (_super) {
             React.createElement(Head, null),
             React.createElement("body", null,
                 React.createElement(Nav, null),
-                React.createElement(Main, null),
+                React.createElement("div", { className: "main" },
+                    React.createElement(Main, null)),
                 React.createElement(NextScript, null))));
     };
     return MyDocument;

@@ -1,3 +1,6 @@
+@import "../scss/_var.scss";
+@import "../scss/_mixin.scss";
 .navbar{
 	background: #fff;	
+	@include boxShadowLargeBlur;
 }

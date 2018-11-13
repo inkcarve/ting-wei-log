@@ -33,7 +33,9 @@ class MyDocument extends Document {
       <Head />
       <body>
       <Nav />
+      <div className="main">
       <Main />
+      </div>
       <NextScript />
       {/*{this.props.children}*/}
         {/*<h1>{this.props.title}</h1>*/}
