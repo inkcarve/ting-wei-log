@@ -21,7 +21,7 @@ export default {
             listGroup: [
                 {
                     title: 'React',
-                    content: 'mobx、NextJs、reactstrap'
+                    content: 'mobx-react、NextJs、reactstrap'
                 }, {
                     title: 'Angular7',
                     content: 'ng-bootstrap、ng-inline-svg、angular-cropperjs'
@@ -47,7 +47,7 @@ export default {
         }, {
             title: '其他',
             titleEn: 'Other',
-            detail: 'Webpack、Jquery、NodeJs+Express',
+            detail: 'Webpack、Jquery、NodeJs+Express、mobx...還有其他插件',
             listGroup: [
                 // {
                 //     title:'ReactNative',

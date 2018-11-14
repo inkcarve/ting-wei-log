@@ -4,6 +4,10 @@ body{
 	font-family: Microsoft JhengHei, BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
+.container-fluid{
+	min-width:80vw;
+}
+
 .main{
 	padding-top: 90px;
 }

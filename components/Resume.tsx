@@ -60,7 +60,7 @@ export default class Resume extends React.Component<any, any> {
       <Provider store={this.store}>
         <div className="resume">
           <section className="header">
-            <div className="container">
+            <div className="container-fluid">
               <div className="row">
                 <div className="col-12 mb-4 text-right">
                   <h2 className="d-inline-block">關於我</h2>

@@ -62,7 +62,7 @@ var Resume = (function (_super) {
         return (React.createElement(Provider, { store: this.store },
             React.createElement("div", { className: "resume" },
                 React.createElement("section", { className: "header" },
-                    React.createElement("div", { className: "container" },
+                    React.createElement("div", { className: "container-fluid" },
                         React.createElement("div", { className: "row" },
                             React.createElement("div", { className: "col-12 mb-4 text-right" },
                                 React.createElement("h2", { className: "d-inline-block" }, "\u95DC\u65BC\u6211")),
