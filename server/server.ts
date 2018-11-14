@@ -10,7 +10,12 @@ const app = next({dev})
 const handle = app.getRequestHandler()
 
 mobxReact.useStaticRendering(true)
-
+if(typeof global.window==undefined){
+  // global.window = {}
+  global.window = {document: {createElementNS: () => {return {}} }};
+  global.navigator = {};
+  global.btoa = () => {};
+}
 app.prepare().then(() => {
 	const server = express();
 

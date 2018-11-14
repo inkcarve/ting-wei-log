@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "nodejs_10.13.2",
   "scripts": {
-    "dev": "set NODE_ENV=dev && concurrently \"tsc --pretty --watch\" \"nodemon ./server/server.js\" ",
+    "dev-w": "set NODE_ENV=dev && concurrently \"tsc --pretty --watch\" \"nodemon ./server/server.js\" ",
+    "dev": "export NODE_ENV=dev && concurrently \"tsc --pretty --watch\" \"nodemon ./server/server.js\" ",
     "prebuild": "yarn tsc",
     "build": "next build",
-    "start": "set NODE_ENV=production && node server/server.js"
+    "start": "export NODE_ENV=production && node server/server.js"
   },
   "dependencies": {
     "@zeit/next-sass": "^0.2.0",

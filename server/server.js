@@ -9,6 +9,11 @@ var mobxReact = require('mobx-react');
 var app = next({ dev: dev });
 var handle = app.getRequestHandler();
 mobxReact.useStaticRendering(true);
+if (typeof global.window == undefined) {
+    global.window = { document: { createElementNS: function () { return {}; } } };
+    global.navigator = {};
+    global.btoa = function () { };
+}
 app.prepare().then(function () {
     var server = express();
     server.get('*', function (req, res) {

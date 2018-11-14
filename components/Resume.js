@@ -8,12 +8,12 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import * as React from 'react';
-import { Provider } from 'mobx-react';
-import './Resume.scss';
-import { ListGroup, ListGroupItem } from 'reactstrap';
-import { initStore } from '../store/store';
-import { dangeriousHtmlMarkup } from '../common/html-service';
+import * as React from "react";
+import { Provider } from "mobx-react";
+import "./Resume.scss";
+import { ListGroup, ListGroupItem, } from "reactstrap";
+import { initStore } from "../store/store";
+import { dangeriousHtmlMarkup } from "../common/html-service";
 var Resume = (function (_super) {
     __extends(Resume, _super);
     function Resume(props) {
@@ -55,25 +55,28 @@ var Resume = (function (_super) {
                         React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(obj.detail) }))),
                 React.createElement("div", { className: "detail-list" },
                     React.createElement("h5", null, obj.listGroupTitle),
-                    obj.listGroup ? (React.createElement(ListGroup, { className: "mb-4" }, _this.mapListGroupItem(obj.listGroup))) : '')));
+                    obj.listGroup ? (React.createElement(ListGroup, { className: "mb-4" }, _this.mapListGroupItem(obj.listGroup))) : (""))));
         });
     };
     Resume.prototype.render = function () {
+        var _this = this;
         return (React.createElement(Provider, { store: this.store },
             React.createElement("div", { className: "resume" },
                 React.createElement("section", { className: "header" },
                     React.createElement("div", { className: "container-fluid" },
-                        React.createElement("div", { className: "row" },
+                        React.createElement("div", { className: "row", id: "resume1" },
                             React.createElement("div", { className: "col-12 mb-4 text-right" },
-                                React.createElement("h2", { className: "d-inline-block" }, "\u95DC\u65BC\u6211")),
-                            React.createElement("div", { className: "col-12 d-flex align-items-center flex-column flex-md-row" },
-                                React.createElement("div", { className: "image-box mb-5" },
-                                    React.createElement("img", { src: "static/image/me.jpg", className: "img-fluid img-me img-thumbnail rounded-circle" })),
-                                React.createElement("div", { className: "pl-md-4 detail-list flex-grow-1" },
-                                    React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u57FA\u672C\u8CC7\u6599"),
-                                    React.createElement("div", { className: "row" },
-                                        React.createElement("div", { className: "col-12 col-md-6 col-lg-4 col-xl-3" }, this.mapDetailListItems(this.authorData.basic)),
-                                        React.createElement("div", { className: "col-12 col-md-6 col-lg-4 col-xl-3" }, this.mapDetailListItems(this.authorData.contact))))),
+                                React.createElement("h2", { className: "d-inline-block" }, "\u95DC\u65BC\u6211"),
+                                React.createElement("button", { className: "btn btn-primary", onClick: function () { return _this.html2pdf('resume1'); } })),
+                            React.createElement("div", { className: "col-12" },
+                                React.createElement("div", { className: "row align-items-md-center" },
+                                    React.createElement("div", { className: "col-12 col-md-4 col-lg-3 col-xl-2 image-box mb-5" },
+                                        React.createElement("img", { src: "static/image/me.jpg", className: "img-fluid img-me img-thumbnail rounded-circle" })),
+                                    React.createElement("div", { className: "pl-md-4 col-12 col-md-8 col-lg-9 col-xl-10 detail-list" },
+                                        React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u57FA\u672C\u8CC7\u6599"),
+                                        React.createElement("div", { className: "row" },
+                                            React.createElement("div", { className: "col-12 col-sm-4 col-md-6 col-lg-4 col-xl-3" }, this.mapDetailListItems(this.authorData.basic)),
+                                            React.createElement("div", { className: "col-12 col-sm-4 col-md-6 col-lg-4 col-xl-3" }, this.mapDetailListItems(this.authorData.contact)))))),
                             React.createElement("div", { className: "col-12" },
                                 React.createElement("hr", { className: "my-4 mx-2" })),
                             React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
