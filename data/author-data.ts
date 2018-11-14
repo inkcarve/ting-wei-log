@@ -7,6 +7,9 @@ export default {
         { title: '行動電話', titleEn: 'Mobile', detail: ' <a href="tel:+886982783047">+886 982783047</a>' },
         { title: '電子信箱', titleEn: 'Email', detail: ' <a href="mailto:inlcarve@gmail.com">inkcarve@gmail.com</a>' },
     ],
+    education: [
+        { title: '學歷', titleEn: 'Education', detail: '元智大學通訊工程學系學士' },
+    ],
     skill: [
         { title: '基本語言', titleEn: 'Basic', detail: ' HTML、CSS、Javascript、TypeScript' },
         { title: '樣式相關', titleEn: 'Style', detail: ' Bootstrap(3、4)、Scss、ng-Bootstrap(Angular)、Bootstrap-Vue(Vue)、reactstrap(react)、UI-Bootstrap(AngularJs)、font-awesome' },
@@ -57,5 +60,8 @@ export default {
     ],
     otherSkill: [
         { title: '繪圖工具', titleEn: 'Art tools', detail: ' Photoshop、Illustractor' },
+    ],
+    jobs: [
+        { title: '景丞科技股份有限公司', titleEn: '', detail: ' Photoshop、Illustractor' },
     ]
 }
