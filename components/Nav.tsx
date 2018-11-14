@@ -70,7 +70,7 @@ export default class extends React.Component<any, any>{
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/about">About Here</NavLink>
+                <NavLink href="/about">Here</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/resume">Author</NavLink>

@@ -1,5 +1,5 @@
 import { action, observable } from 'mobx'
-
+import authorData from '../data/author-data';
 let store ;
 
 class Store {
@@ -7,9 +7,10 @@ class Store {
   @observable light = false
 
   private timer;
-
+  public authorData;
   constructor (isServer, lastUpdate) {
     this.lastUpdate = lastUpdate
+    this.authorData = authorData
   }
 
   @action start = () => {

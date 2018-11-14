@@ -34,7 +34,7 @@ var default_1 = (function (_super) {
                 React.createElement(Collapse, { isOpen: this.state.isOpen, navbar: true },
                     React.createElement(Nav, { className: "ml-auto", navbar: true },
                         React.createElement(NavItem, null,
-                            React.createElement(NavLink, { href: "/about" }, "About Here")),
+                            React.createElement(NavLink, { href: "/about" }, "Here")),
                         React.createElement(NavItem, null,
                             React.createElement(NavLink, { href: "/resume" }, "Author")),
                         React.createElement(NavItem, null,

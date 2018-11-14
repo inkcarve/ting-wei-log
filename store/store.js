@@ -5,6 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { action, observable } from 'mobx';
+import authorData from '../data/author-data';
 var store;
 var Store = (function () {
     function Store(isServer, lastUpdate) {
@@ -19,6 +20,7 @@ var Store = (function () {
         };
         this.stop = function () { return clearInterval(_this.timer); };
         this.lastUpdate = lastUpdate;
+        this.authorData = authorData;
     }
     __decorate([
         observable

@@ -1,24 +1,27 @@
+@import "../scss/_var.scss";
 .resume{
 	.image-box{
 		flex: 0 0 auto;
-		width:200px;
+		// width:200px;
 		img.img-me{
 			height:auto;
-			width:100%;
+			width:200px;
 		}
 	}
 	.detail-list{
 		.detail-list-title{
-			
+			font-weight: 600;
 		}
 		.title{
 			/*display: flex;*/
 			font-weight: 400;
-			margin-bottom: 1rem;
+			margin-bottom: 1.5rem;
+
 			.small{
 				padding-right: 1rem;
-				font-size: 50%;
-				font-style: italic;
+				// padding-left: 1rem;
+				font-size: 75%;
+				// color:$primary;
 			}
 		}
 		
