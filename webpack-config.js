@@ -1,8 +1,8 @@
 const path = require('path');
 const glob = require('glob');
 var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var CleanWebpackPlugin = require('clean-webpack-plugin');
+// var ExtractTextPlugin = require("extract-text-webpack-plugin");
+// var CleanWebpackPlugin = require('clean-webpack-plugin');
 var env = process.env.NODE_ENV.trim();
 
 const outputPath = '/';
