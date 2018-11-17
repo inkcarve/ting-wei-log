@@ -24,7 +24,6 @@ var HeadCustom = (function (_super) {
             React.createElement("meta", { charSet: "utf-8" }),
             React.createElement("meta", { httpEquiv: "x-ua-compatible", content: "ie=edge" }),
             React.createElement("meta", { name: "viewport", content: "initial-scale=1.0, width=device-width" }),
-            React.createElement("link", { href: "static/bootstrap/css/bootstrap.min.css", rel: "stylesheet" }),
             React.createElement("link", { rel: "stylesheet", href: "/_next/static/style.css" })));
     };
     return HeadCustom;

@@ -52,37 +52,37 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import * as React from 'react';
-import Document, { Main, NextScript } from 'next/document';
-import Head from '../components/Head';
-import Nav from '../components/Nav';
-var MyDocument = (function (_super) {
-    __extends(MyDocument, _super);
-    function MyDocument() {
+import App, { Container } from 'next/app';
+import '../scss/core.scss';
+var MyApp = (function (_super) {
+    __extends(MyApp, _super);
+    function MyApp() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    MyDocument.getInitialProps = function (ctx) {
+    MyApp.getInitialProps = function (_a) {
+        var Component = _a.Component, router = _a.router, ctx = _a.ctx;
         return __awaiter(this, void 0, void 0, function () {
-            var initialProps;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4, Document.getInitialProps(ctx)];
+            var pageProps;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        pageProps = {};
+                        if (!Component.getInitialProps) return [3, 2];
+                        return [4, Component.getInitialProps(ctx)];
                     case 1:
-                        initialProps = _a.sent();
-                        return [2, __assign({}, initialProps)];
+                        pageProps = _b.sent();
+                        _b.label = 2;
+                    case 2: return [2, { pageProps: pageProps }];
                 }
             });
         });
     };
-    MyDocument.prototype.render = function () {
-        return (React.createElement("html", null,
-            React.createElement(Head, null),
-            React.createElement("body", null,
-                React.createElement(Nav, null),
-                React.createElement("div", { className: "main" },
-                    React.createElement(Main, null)),
-                React.createElement(NextScript, null))));
+    MyApp.prototype.render = function () {
+        var _a = this.props, Component = _a.Component, pageProps = _a.pageProps;
+        return (React.createElement(Container, null,
+            React.createElement(Component, __assign({}, pageProps))));
     };
-    return MyDocument;
-}(Document));
-export default MyDocument;
-//# sourceMappingURL=_document.js.map
+    return MyApp;
+}(App));
+export default MyApp;
+//# sourceMappingURL=_app.js.map

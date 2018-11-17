@@ -8,8 +8,6 @@ import Document, { Main, NextScript} from 'next/document'
 import  Head from '../components/Head';
 import  Nav from '../components/Nav';
 
-import '../scss/core.scss';
-
 // @inject('store') @observer
 class MyDocument extends Document {
 

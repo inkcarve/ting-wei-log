@@ -7,7 +7,7 @@
     "dev": "export NODE_ENV=dev && concurrently \"tsc --pretty --watch\" \"nodemon ./server/server.js\" ",
     "prebuild": "yarn tsc",
     "build": "next build",
-    "start": "export NODE_ENV=production && node server/server.js"
+    "start": "export NODE_ENV=production && next build && node server/server.js"
   },
   "dependencies": {
     "@zeit/next-sass": "^0.2.0",

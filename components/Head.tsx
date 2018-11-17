@@ -16,7 +16,7 @@ render () {
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       {/*<meta name="description" content={description} />*/}
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+      {/* <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" /> */}
       <link rel="stylesheet" href="/_next/static/style.css" />
       {/*<link href={core_scss} rel="stylesheet" />*/}
       {/*<style link={core_scss}></style>*/}
