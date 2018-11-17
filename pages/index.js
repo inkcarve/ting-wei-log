@@ -27,17 +27,16 @@ var Index = (function (_super) {
     };
     Index.prototype.render = function () {
         return (React.createElement(Provider, { store: this.store },
-            React.createElement("div", null,
-                React.createElement("div", { className: "container-fluid" },
-                    React.createElement("div", { className: "row justify-content-center" },
-                        React.createElement("div", { className: "col-12 position-relative" },
-                            React.createElement("div", { className: "embed-responsive embed-responsive-16by9 position-relative index-bg-box d-flex align-items-center" },
-                                React.createElement("div", { className: "d-none d-md-block col-md-4 text-right" },
-                                    React.createElement("a", { className: "btn btn-outline-light mr-4 px-md-5 py-md-4", href: "/resume" },
-                                        React.createElement("h2", null, "More")))),
-                            React.createElement("div", { className: "d-md-none text-center my-5" },
-                                React.createElement("a", { className: "btn btn-outline-primary px-5 py-2", href: "/resume" },
-                                    React.createElement("h2", null, "More")))))))));
+            React.createElement("div", { className: "container-fluid" },
+                React.createElement("div", { className: "row justify-content-center" },
+                    React.createElement("div", { className: "col-12 p-0 position-relative" },
+                        React.createElement("div", { className: "embed-responsive embed-responsive-16by9 position-relative index-bg-box d-flex align-items-center" },
+                            React.createElement("div", { className: "d-none d-md-block col-md-4 text-right" },
+                                React.createElement("a", { className: "btn btn-outline-light mr-4 px-md-5 py-md-4", href: "/resume" },
+                                    React.createElement("h2", null, "More")))),
+                        React.createElement("div", { className: "d-md-none text-center my-5" },
+                            React.createElement("a", { className: "btn btn-outline-primary px-5 py-2", href: "/resume" },
+                                React.createElement("h2", null, "More"))))))));
     };
     return Index;
 }(React.Component));

@@ -27,7 +27,7 @@ var Counter = (function (_super) {
     };
     Counter.prototype.render = function () {
         return (React.createElement(Provider, { store: this.store },
-            React.createElement("div", null,
+            React.createElement("div", { className: "pt-4" },
                 React.createElement(Resume, null))));
     };
     return Counter;

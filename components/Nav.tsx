@@ -51,8 +51,11 @@ export default class extends React.Component<any, any>{
           <NavbarToggler className="border-0" onClick={()=>this.toggle()} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
+            <NavItem>
+                <NavLink href="/about" className="text-center">Index</NavLink>
+              </NavItem>
               <NavItem>
-                <NavLink href="/about" className="text-center">Here</NavLink>
+                <NavLink href="/about" className="text-center">About Here</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/resume" className="text-center">Author</NavLink>

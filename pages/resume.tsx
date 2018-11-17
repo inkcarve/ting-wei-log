@@ -20,7 +20,7 @@ export default class Counter extends React.Component<any, any> {
     return (
       <Provider store={this.store}>
       {/*<Page title='about' linkTo='/about' >*/}
-      <div>
+      <div className="pt-4">
 {/*      <Head></Head>
       <Nav></Nav>*/}
       <Resume/>

@@ -24,12 +24,11 @@ export default class Index extends React.Component<any, any> {
     return (
       <Provider store={this.store}>
         {/*<Page title='index' linkTo='/other' >*/}
-        <div>
           <div className="container-fluid">
             {/*<Page title='' linkTo='/other' />*/}
 
             <div className="row justify-content-center">
-              <div className="col-12 position-relative">
+              <div className="col-12 p-0 position-relative">
                 {/* <div className="embed-responsive embed-responsive-16by9 position-relative">
                   <video
                     autoPlay={true}
@@ -67,7 +66,6 @@ export default class Index extends React.Component<any, any> {
               </div>
             </div>
           </div>
-        </div>
       </Provider>
     );
   }
