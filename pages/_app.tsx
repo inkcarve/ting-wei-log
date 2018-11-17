@@ -1,6 +1,6 @@
 import * as  React from 'react'
 import App, { Container } from 'next/app'
-
+import  Nav from '../components/Nav';
 import '../scss/core.scss';
 
 export default class MyApp extends App {
@@ -19,6 +19,7 @@ export default class MyApp extends App {
 
     return (
       <Container>
+        <Nav />
         <Component {...pageProps} />
       </Container>
     )

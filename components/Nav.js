@@ -12,11 +12,10 @@ import * as React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, } from 'reactstrap';
 var default_1 = (function (_super) {
     __extends(default_1, _super);
-    function default_1(props) {
-        var _this = _super.call(this, props) || this;
-        _this.toggle = _this.toggle.bind(_this);
+    function default_1() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.state = {
-            isOpen: _this.props.nav,
+            isOpen: false,
         };
         return _this;
     }
@@ -27,18 +26,25 @@ var default_1 = (function (_super) {
         });
     };
     default_1.prototype.render = function () {
-        return (React.createElement("div", null,
-            React.createElement(Navbar, { className: "fixed-top", color: "faded", light: true, expand: "md" },
-                React.createElement(NavbarBrand, { href: "/" }, "Ting-Wei Log"),
-                React.createElement(NavbarToggler, { onClick: this.toggle }),
-                React.createElement(Collapse, { isOpen: this.state.isOpen, navbar: true },
-                    React.createElement(Nav, { className: "ml-auto", navbar: true },
-                        React.createElement(NavItem, null,
-                            React.createElement(NavLink, { href: "/about" }, "Here")),
-                        React.createElement(NavItem, null,
-                            React.createElement(NavLink, { href: "/resume" }, "Author")),
-                        React.createElement(NavItem, null,
-                            React.createElement(NavLink, { href: "https://github.com/inkcarve" }, "Github")))))));
+        var _this = this;
+        return (React.createElement(Navbar, { className: "fixed-top", color: "faded", light: true, expand: "md" },
+            React.createElement(NavbarBrand, { href: "/", className: "d-flex align-items-center" },
+                React.createElement("span", { className: "small text-warning", style: { fontSize: '40px', paddingRight: 3 } }, "Road"),
+                " ",
+                React.createElement("div", null,
+                    React.createElement("div", { style: { fontSize: '12px' } },
+                        " ",
+                        React.createElement("div", { className: "text-muted" }, "of"),
+                        React.createElement("div", { className: "text-primary" }, "Ting Wei")))),
+            React.createElement(NavbarToggler, { className: "border-0", onClick: function () { return _this.toggle(); } }),
+            React.createElement(Collapse, { isOpen: this.state.isOpen, navbar: true },
+                React.createElement(Nav, { className: "ml-auto", navbar: true },
+                    React.createElement(NavItem, null,
+                        React.createElement(NavLink, { href: "/about", className: "text-center" }, "Here")),
+                    React.createElement(NavItem, null,
+                        React.createElement(NavLink, { href: "/resume", className: "text-center" }, "Author")),
+                    React.createElement(NavItem, null,
+                        React.createElement(NavLink, { href: "https://github.com/inkcarve", className: "text-center" }, "Github"))))));
     };
     return default_1;
 }(React.Component));

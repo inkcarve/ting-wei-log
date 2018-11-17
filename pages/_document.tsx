@@ -6,7 +6,6 @@ import Document, { Main, NextScript} from 'next/document'
 // import { inject, observer } from 'mobx-react';
 // import  Clock  from './Clock';
 import  Head from '../components/Head';
-import  Nav from '../components/Nav';
 
 // @inject('store') @observer
 class MyDocument extends Document {
@@ -30,7 +29,7 @@ class MyDocument extends Document {
      <html>
       <Head />
       <body>
-      <Nav />
+      {/* <Nav /> */}
       <div className="main">
       <Main />
       </div>

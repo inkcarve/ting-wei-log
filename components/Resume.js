@@ -30,9 +30,9 @@ var Resume = (function (_super) {
     };
     Resume.prototype.mapListGroupItem = function (lists) {
         return lists.map(function (obj, i) {
-            return (React.createElement(ListGroupItem, null,
+            return (React.createElement(ListGroupItem, { key: i },
                 React.createElement("h5", { className: "font-weight-normal title" },
-                    React.createElement("h5", null,
+                    React.createElement("div", null,
                         obj.title,
                         React.createElement("small", { className: "pl-1" },
                             obj.titleEn,
@@ -44,7 +44,7 @@ var Resume = (function (_super) {
     Resume.prototype.mapDetailListItems = function (lists) {
         var _this = this;
         return lists.map(function (obj, i) {
-            return (React.createElement("div", null,
+            return (React.createElement("div", { key: i },
                 React.createElement("h5", { className: "font-weight-normal title" },
                     obj.title ||
                         (obj.titleEn && (React.createElement("h5", null,

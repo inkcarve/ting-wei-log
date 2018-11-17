@@ -53,6 +53,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 import * as React from 'react';
 import App, { Container } from 'next/app';
+import Nav from '../components/Nav';
 import '../scss/core.scss';
 var MyApp = (function (_super) {
     __extends(MyApp, _super);
@@ -80,6 +81,7 @@ var MyApp = (function (_super) {
     MyApp.prototype.render = function () {
         var _a = this.props, Component = _a.Component, pageProps = _a.pageProps;
         return (React.createElement(Container, null,
+            React.createElement(Nav, null),
             React.createElement(Component, __assign({}, pageProps))));
     };
     return MyApp;

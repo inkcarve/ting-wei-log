@@ -52,12 +52,12 @@ export default class Index extends React.Component<any, any> {
                     alt=""
                   /> */}
                   <div className="d-none d-md-block col-md-4 text-right">
-                  <a className="btn btn-outline-light mr-4 px-md-5 py-md-4" href="/resume"><h2>More</h2></button>
+                  <a className="btn btn-outline-light mr-4 px-md-5 py-md-4" href="/resume"><h2>More</h2></a>
                   </div>
                 </div>
 
                 <div className="d-md-none text-center my-5">
-                  <a className="btn btn-outline-primary px-5 py-2" href="/resume"><h2>More</h2></button>
+                  <a className="btn btn-outline-primary px-5 py-2" href="/resume"><h2>More</h2></a>
                   </div>
                 {/* <div className="abs-full">
                   <div className="col-12 d-flex justify-content-center">

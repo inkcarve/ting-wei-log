@@ -33,12 +33,12 @@ export default class Resume extends React.Component<any, any> {
   private mapListGroupItem(lists) {
     return lists.map((obj, i) => {
       return (
-        <ListGroupItem>
+        <ListGroupItem key={i}>
           <h5 className="font-weight-normal title">
-            <h5>
+            <div>
               {obj.title}
               <small className="pl-1">{obj.titleEn} :</small>
-            </h5>
+            </div>
             <div className="small">
               <div
                 dangerouslySetInnerHTML={dangeriousHtmlMarkup(obj.content)}
@@ -53,7 +53,7 @@ export default class Resume extends React.Component<any, any> {
   private mapDetailListItems(lists) {
     return lists.map((obj, i) => {
       return (
-        <div>
+        <div key={i}>
           <h5 className="font-weight-normal title">
             {obj.title ||
               (obj.titleEn && (

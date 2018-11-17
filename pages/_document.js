@@ -54,7 +54,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 import * as React from 'react';
 import Document, { Main, NextScript } from 'next/document';
 import Head from '../components/Head';
-import Nav from '../components/Nav';
 var MyDocument = (function (_super) {
     __extends(MyDocument, _super);
     function MyDocument() {
@@ -77,7 +76,6 @@ var MyDocument = (function (_super) {
         return (React.createElement("html", null,
             React.createElement(Head, null),
             React.createElement("body", null,
-                React.createElement(Nav, null),
                 React.createElement("div", { className: "main" },
                     React.createElement(Main, null)),
                 React.createElement(NextScript, null))));
