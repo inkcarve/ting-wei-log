@@ -3,7 +3,7 @@ import { Provider } from "mobx-react";
 import "./Resume.scss";
 import {
   ListGroup,
-  ListGroupItem,
+  ListGroupItem
   // ListGroupItemHeading,
   // ListGroupItemText
 } from "reactstrap";
@@ -55,10 +55,13 @@ export default class Resume extends React.Component<any, any> {
       return (
         <div>
           <h5 className="font-weight-normal title">
-            <h5>
-              {obj.title}
-              <small className="pl-1">{obj.titleEn} :</small>
-            </h5>
+            {obj.title ||
+              (obj.titleEn && (
+                <h5>
+                  {obj.title}
+                  <small className="pl-1">{obj.titleEn} :</small>
+                </h5>
+              ))}
             <div className="small detail">
               <div dangerouslySetInnerHTML={dangeriousHtmlMarkup(obj.detail)} />
             </div>
@@ -95,6 +98,9 @@ export default class Resume extends React.Component<any, any> {
               <div className="row" id="resume1">
                 <div className="col-12 mb-4 text-right">
                   <h2 className="d-inline-block">關於我</h2>
+                  <h6 className="text-muted font-weight-light">
+                    一個想跨足React-Native的網頁前端工程師
+                  </h6>
                   {/* <button className="btn btn-primary" onClick={()=>this.html2pdf('resume1')}></button> */}
                 </div>
                 <div className="col-12">
@@ -107,49 +113,69 @@ export default class Resume extends React.Component<any, any> {
                     </div>
                     <div className="pl-md-4 col-12 col-md-8 col-lg-9 col-xl-10 detail-list">
                       <h4 className="mb-3 detail-list-title section-title">
-                        基本資料 / Personal Data
+                        基本資料 / PERSONAL DATA
                       </h4>
                       <div className="row">
-                        <div className="col-12 col-sm-4 col-md-6 col-lg-4 col-xl-3">
+                        <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
                           {this.mapDetailListItems(this.authorData.basic)}
                         </div>
-                        <div className="col-12 col-sm-4 col-md-6 col-lg-4 col-xl-3">
+                        <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
                           {this.mapDetailListItems(this.authorData.contact)}
                         </div>
                       </div>
                     </div>
                   </div>
+                  <hr className="my-4 mx-0" />
                 </div>
-                <div className="col-12">
-                  <hr className="my-4 mx-2" />
-                </div>
-
+              </div>
+              <div className="row">
+                <div className="col-12 col-lg-6">
                 <div className="col-12 d-flex flex-column justify-content-center detail-list">
-                  <h4 className="mb-3 detail-list-title section-title">
-                    學歷 / Education
-                  </h4>
-                  {this.mapDetailListItems(this.authorData.education)}
-                </div>
-                <div className="col-12">
-                  <hr className="my-4 mx-2" />
-                </div>
+                    <h4 className="mb-3 detail-list-title section-title">
+                      自述 / ABOUT ME
+                    </h4>
+                    {this.mapDetailListItems(this.authorData.info)}
+                    <hr className="my-4 mx-0" />
+                  </div>
+                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                    <h4 className="mb-3 detail-list-title section-title">
+                      學歷 / EDUCATION
+                    </h4>
+                    {this.mapDetailListItems(this.authorData.education)}
+                    <hr className="my-4 mx-0" />
+                  </div>
+                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                    <h4 className="mb-3 detail-list-title section-title">
+                      公開作品或專案 / ＷORKS OR PROJECTS
+                    </h4>
+                    {this.mapDetailListItems(this.authorData.projects)}
 
-                <div className="col-12 d-flex flex-column justify-content-center detail-list">
-                  <h4 className="mb-3 detail-list-title section-title">
-                    前端相關技能 / Frontend skill
-                  </h4>
-                  {this.mapDetailListItems(this.authorData.skill)}
-                </div>
+                    <hr className="my-4 mx-0" />
+                  </div>
 
-                <div className="col-12">
-                  <hr className="my-4 mx-2" />
+                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                    <h4 className="mb-3 detail-list-title section-title">
+                      工作經驗 / WORK EXPERIENCE
+                    </h4>
+                    {this.mapDetailListItems(this.authorData.jobs)}
+                  </div>
                 </div>
+                <div className="col-12 col-lg-6">
+                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                    <h4 className="mb-3 detail-list-title section-title">
+                      前端相關技能 / FRONTEND SKILL
+                    </h4>
+                    {this.mapDetailListItems(this.authorData.skill)}
+                    <hr className="my-4 mx-0" />
+                  </div>
 
-                <div className="col-12 d-flex flex-column justify-content-center detail-list">
-                  <h4 className="mb-3 detail-list-title section-title">
-                    非前端相關技能 / Other skill
-                  </h4>
-                  {this.mapDetailListItems(this.authorData.otherSkill)}
+                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                    <h4 className="mb-3 detail-list-title section-title">
+                      非前端相關技能 / OTHER SKILL
+                    </h4>
+                    {this.mapDetailListItems(this.authorData.otherSkill)}
+                    <hr className="my-4 mx-0" />
+                  </div>
                 </div>
               </div>
             </div>
