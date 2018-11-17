@@ -8,7 +8,7 @@ export default {
         { title: '電子信箱', titleEn: 'Email', detail: ' <a href="mailto:inlcarve@gmail.com">inkcarve@gmail.com</a>' },
     ],
     education: [
-        { title: '學歷', titleEn: 'Education', detail: '元智大學通訊工程學系學士' },
+        { title: '大學', titleEn: 'University', detail: '元智大學通訊工程學系學士' },
     ],
     skill: [
         { title: '基本語言', titleEn: 'Basic', detail: ' HTML、CSS、Javascript、TypeScript' },

@@ -95,7 +95,7 @@ export default class Resume extends React.Component<any, any> {
               <div className="row" id="resume1">
                 <div className="col-12 mb-4 text-right">
                   <h2 className="d-inline-block">關於我</h2>
-                  <button className="btn btn-primary" onClick={()=>this.html2pdf('resume1')}></button>
+                  {/* <button className="btn btn-primary" onClick={()=>this.html2pdf('resume1')}></button> */}
                 </div>
                 <div className="col-12">
                   <div className="row align-items-md-center">
@@ -107,7 +107,7 @@ export default class Resume extends React.Component<any, any> {
                     </div>
                     <div className="pl-md-4 col-12 col-md-8 col-lg-9 col-xl-10 detail-list">
                       <h4 className="mb-3 detail-list-title section-title">
-                        基本資料
+                        基本資料 / Personal Data
                       </h4>
                       <div className="row">
                         <div className="col-12 col-sm-4 col-md-6 col-lg-4 col-xl-3">
@@ -120,7 +120,16 @@ export default class Resume extends React.Component<any, any> {
                     </div>
                   </div>
                 </div>
+                <div className="col-12">
+                  <hr className="my-4 mx-2" />
+                </div>
 
+                <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                  <h4 className="mb-3 detail-list-title section-title">
+                    學歷 / Education
+                  </h4>
+                  {this.mapDetailListItems(this.authorData.education)}
+                </div>
                 <div className="col-12">
                   <hr className="my-4 mx-2" />
                 </div>
