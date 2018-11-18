@@ -62,18 +62,15 @@ var Resume = (function (_super) {
         });
     };
     Resume.prototype.print = function (e) {
-        if (document.execCommand) {
-            document.execCommand('print');
-        }
-        else {
-            window.print();
-        }
+        if (document.execCommand('print'))
+            return;
+        window.print();
     };
     Resume.prototype.render = function () {
         var _this = this;
         return (React.createElement(Provider, { store: this.store },
             React.createElement("div", { className: "resume pt-4 print-pt-0" },
-                React.createElement("button", { className: "btn btn-outline-primary btn-print", onClick: function (e) { return _this.print(e); } },
+                React.createElement("button", { className: "btn btn-outline-primary btn-print print-d-none", onClick: function (e) { return _this.print(e); } },
                     React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(printSvg) })),
                 React.createElement("section", { className: "header" },
                     React.createElement(PrintTopNav, null),

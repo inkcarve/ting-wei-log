@@ -90,19 +90,15 @@ export default class Resume extends React.Component<any, any> {
   // }
 
   print(e){
-    // window.print();
-    if(document.execCommand){
-    document.execCommand('print')
-  }else{
+    if(document.execCommand('print'))return;
     window.print();
-  }
   }
 
   render() {
     return (
       <Provider store={this.store}>
         <div className="resume pt-4 print-pt-0">
-        <button className="btn btn-outline-primary btn-print" onClick={(e)=>this.print(e)}>
+        <button className="btn btn-outline-primary btn-print print-d-none" onClick={(e)=>this.print(e)}>
         <div
                 dangerouslySetInnerHTML={dangeriousHtmlMarkup(printSvg)}
               />
