@@ -9,6 +9,8 @@ import {
 } from "reactstrap";
 import { initStore } from "../store/store";
 import { dangeriousHtmlMarkup } from "../common/html-service";
+import PrintTopNav from "../components/PrintTopNav";
+const printSvg  = require("../static/image/_ionicons_svg_md-print.svg");
 // import { html2pdf } from "../common/html2pdf";
 // import Page from '../components/Page'
 // import  Head from '../components/Head';
@@ -68,12 +70,10 @@ export default class Resume extends React.Component<any, any> {
           </h5>
           <div className="detail-list">
             <h5>{obj.listGroupTitle}</h5>
-            {obj.listGroup ? (
+            {obj.listGroup && (
               <ListGroup className="mb-4">
                 {this.mapListGroupItem(obj.listGroup)}
               </ListGroup>
-            ) : (
-              ""
             )}
           </div>
         </div>
@@ -89,11 +89,26 @@ export default class Resume extends React.Component<any, any> {
   //   });
   // }
 
+  print(e){
+    // window.print();
+    if(document.execCommand){
+    document.execCommand('print')
+  }else{
+    window.print();
+  }
+  }
+
   render() {
     return (
       <Provider store={this.store}>
-        <div className="resume">
+        <div className="resume pt-4 print-pt-0">
+        <button className="btn btn-outline-primary btn-print" onClick={(e)=>this.print(e)}>
+        <div
+                dangerouslySetInnerHTML={dangeriousHtmlMarkup(printSvg)}
+              />
+        </button>
           <section className="header">
+          <PrintTopNav />
             <div className="container-fluid">
               <div className="row" id="resume1">
                 <div className="col-12 mb-4 text-right">
@@ -128,7 +143,7 @@ export default class Resume extends React.Component<any, any> {
                   <hr className="my-4 mx-0" />
                 </div>
               </div>
-              <div className="row">
+              <div className="row page-break-box">
                 <div className="col-12 col-lg-6">
                 <div className="col-12 d-flex flex-column justify-content-center detail-list">
                     <h4 className="mb-3 detail-list-title section-title">
@@ -160,6 +175,7 @@ export default class Resume extends React.Component<any, any> {
                     {this.mapDetailListItems(this.authorData.jobs)}
                   </div>
                 </div>
+                <PrintTopNav />
                 <div className="col-12 col-lg-6">
                   <div className="col-12 d-flex flex-column justify-content-center detail-list">
                     <h4 className="mb-3 detail-list-title section-title">

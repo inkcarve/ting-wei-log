@@ -19,8 +19,11 @@ export default class MyApp extends App {
 
     return (
       <Container>
+        
         <Nav />
+        <div className="main print-pt-0 print-mt-5">
         <Component {...pageProps} />
+        </div>
       </Container>
     )
   }

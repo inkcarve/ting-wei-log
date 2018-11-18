@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 import {
   Collapse,
@@ -7,14 +7,14 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
+  NavLink
   // UncontrolledDropdown,
   // DropdownToggle,
   // DropdownMenu,
-  // DropdownItem, 
-} from 'reactstrap';
-
-export default class extends React.Component<any, any>{
+  // DropdownItem,
+} from "reactstrap";
+import Logo from "./Logo";
+export default class extends React.Component<any, any> {
   // constructor(props:any) {
   //   super(props);
   //   // this.props.isOpen=false;
@@ -29,14 +29,14 @@ export default class extends React.Component<any, any>{
   // }
 
   state = {
-    isOpen: false,
+    isOpen: false
     // nav: this.props.nav,
     // inNavbar: this.props.inNavbar
     // isOpen: this.props.isOpen
   };
-  
+
   toggle() {
-    console.log('toggle');
+    console.log("toggle");
     this.setState({
       isOpen: !this.state.isOpen
     });
@@ -44,26 +44,37 @@ export default class extends React.Component<any, any>{
 
   render() {
     return (
-
-        
-        <Navbar className="fixed-top" color="faded" light expand="md">
-          <NavbarBrand href="/" className="d-flex align-items-center"><span className="small text-warning"  style={{fontSize:'40px', paddingRight:3}}>Road</span> <div><div style={{fontSize:'12px'}}> <div className="text-muted">of</div><div className="text-primary">Ting Wei</div></div></div></NavbarBrand>
-          <NavbarToggler className="border-0" onClick={()=>this.toggle()} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+      <Navbar className={`fixed-top print-d-none${this.state.isOpen ? ' open':''}`} color="light" light expand="md">
+        <NavbarBrand href="/" className="d-flex align-items-center">
+          <Logo />
+        </NavbarBrand>
+        <NavbarToggler className="border-0" onClick={() => this.toggle()} />
+        <Collapse isOpen={this.state.isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            <NavItem className="print-d-none">
+              <NavLink href="/index" className="text-center">
+                Index
+              </NavLink>
+            </NavItem>
             <NavItem>
-                <NavLink href="/index" className="text-center">Index</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/about" className="text-center">About Here</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/resume" className="text-center">Author</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/inkcarve" className="text-center">Github</NavLink>
-              </NavItem>
-              {/*<UncontrolledDropdown >
+              <NavLink href="/about" className="text-center">
+                About Here
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/resume" className="text-center">
+                Author
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                href="https://github.com/inkcarve"
+                className="text-center"
+              >
+                Github
+              </NavLink>
+            </NavItem>
+            {/*<UncontrolledDropdown >
                 <DropdownToggle nav caret>
                   Options
                 </DropdownToggle>
@@ -80,10 +91,9 @@ export default class extends React.Component<any, any>{
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>*/}
-            </Nav>
-          </Collapse>
-        </Navbar>
-      
+          </Nav>
+        </Collapse>
+      </Navbar>
     );
   }
 }

@@ -1,10 +1,7 @@
 //** ../d.ts/_style_d.ts
 
 import * as React from 'react';
-// import Link from 'next/link';
 import Document, { Main, NextScript} from 'next/document'
-// import { inject, observer } from 'mobx-react';
-// import  Clock  from './Clock';
 import  Head from '../components/Head';
 
 // @inject('store') @observer
@@ -24,22 +21,12 @@ class MyDocument extends Document {
   // }
 
   render () {
-    // console.log(this)
     return (
      <html>
       <Head />
       <body>
-      {/* <Nav /> */}
-      <div className="main">
       <Main />
-      </div>
       <NextScript />
-      {/*{this.props.children}*/}
-        {/*<h1>{this.props.title}</h1>*/}
-        {/*<Clock lastUpdate={this.props.store.lastUpdate} light={this.props.store.light} />*/}
-        {/*<nav>
-          <Link href={this.props.linkTo}><a>Navigate</a></Link>
-        </nav>*/}
        </body>
      
      </html>

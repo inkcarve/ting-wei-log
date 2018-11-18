@@ -1,31 +1,88 @@
-
-body{
-	color:#3a3a3a;
+body {
+	color: #3a3a3a;
 	font-family: Microsoft JhengHei, BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
-.container-fluid{
-	min-width:80vw;
+.container-fluid {
+	min-width: 80vw;
 }
 
-.main{
+.main {
 	padding-top: 86px;
 }
 
-.page-title{
-	border-left:3px solid $primary; 
+.page-title {
+	border-left: 3px solid $primary;
 }
 
-.section-title{
+.section-title {
 	// border-bottom:3px solid $secondary;
-	border-left:3px solid $primary;
+	border-left: 3px solid $primary;
 	padding-left: 0.5rem;
 }
 
-.abs-full{
+.abs-full {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	top:0;
-	left:0;
+	top: 0;
+	left: 0;
+}
+
+@media print {
+
+	body{
+		padding: 0 50px;
+	}
+
+	body,
+	a,
+	span,
+	div,
+	p {
+		-webkit-print-color-adjust: exact !important;
+	}
+
+	.print {
+		&-d-none {
+			display: none !important;
+		}
+
+		&-d-block {
+			display: block !important;
+		}
+
+		&-position-relative {
+			position: relative !important;
+		}
+
+		&-mt-0 {
+			margin-top: 0 !important;
+		}
+
+		&-pt-0 {
+			padding-top: 0 !important;
+		}
+
+		&-mt-5 {
+			margin-top: 50px !important;
+		}
+
+	}
+
+	.page-break-box {
+		display: block;
+	}
+
+	.page-break-before {
+		page-break-before: always;
+		flex: none;
+	}
+
+	.page-break-after {
+		page-break-after: always;
+		flex: none;
+	}
+
+
 }

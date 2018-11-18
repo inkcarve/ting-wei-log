@@ -1,0 +1,28 @@
+.btn-primary{
+    svg{
+        path{
+            fill:$primary;
+        }
+    }
+    &:hover{
+        svg{
+            path{
+                fill:#fff;
+            }
+        }
+    }
+}
+
+@media(hover:none){
+    .btn-primary{
+
+        :hover{
+            color:$primary;
+        }
+
+        &:hover:active{
+            color:#fff;
+        }
+
+    }
+}

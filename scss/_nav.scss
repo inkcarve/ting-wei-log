@@ -1,7 +1,7 @@
-@import "../scss/_var.scss";
-@import "../scss/_mixin.scss";
 .navbar{
+	-webkit-print-color-adjust:exact; 
+	-webkit-filter:opacity(1);
 	background: #fff;	
 	@include boxShadowLargeBlur;
-	height:86px;
+	min-height:86px;
 }

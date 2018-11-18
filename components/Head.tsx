@@ -11,7 +11,7 @@ render () {
   console.log("headcustom")
   return (
     <Head>
-      <title>Ting-Wei Log - {this.props.title}</title>
+      <title>Road of Ting-Wei {this.props.title && '-' + this.props.title}</title>
       <meta charSet="utf-8" />
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       {/*<meta name="description" content={description} />*/}

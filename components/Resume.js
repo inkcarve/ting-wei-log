@@ -14,6 +14,8 @@ import "./Resume.scss";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import { initStore } from "../store/store";
 import { dangeriousHtmlMarkup } from "../common/html-service";
+import PrintTopNav from "../components/PrintTopNav";
+var printSvg = require("../static/image/_ionicons_svg_md-print.svg");
 var Resume = (function (_super) {
     __extends(Resume, _super);
     function Resume(props) {
@@ -56,13 +58,25 @@ var Resume = (function (_super) {
                         React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(obj.detail) }))),
                 React.createElement("div", { className: "detail-list" },
                     React.createElement("h5", null, obj.listGroupTitle),
-                    obj.listGroup ? (React.createElement(ListGroup, { className: "mb-4" }, _this.mapListGroupItem(obj.listGroup))) : (""))));
+                    obj.listGroup && (React.createElement(ListGroup, { className: "mb-4" }, _this.mapListGroupItem(obj.listGroup))))));
         });
     };
+    Resume.prototype.print = function (e) {
+        if (document.execCommand) {
+            document.execCommand('print');
+        }
+        else {
+            window.print();
+        }
+    };
     Resume.prototype.render = function () {
+        var _this = this;
         return (React.createElement(Provider, { store: this.store },
-            React.createElement("div", { className: "resume" },
+            React.createElement("div", { className: "resume pt-4 print-pt-0" },
+                React.createElement("button", { className: "btn btn-outline-primary btn-print", onClick: function (e) { return _this.print(e); } },
+                    React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(printSvg) })),
                 React.createElement("section", { className: "header" },
+                    React.createElement(PrintTopNav, null),
                     React.createElement("div", { className: "container-fluid" },
                         React.createElement("div", { className: "row", id: "resume1" },
                             React.createElement("div", { className: "col-12 mb-4 text-right" },
@@ -78,7 +92,7 @@ var Resume = (function (_super) {
                                             React.createElement("div", { className: "col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" }, this.mapDetailListItems(this.authorData.basic)),
                                             React.createElement("div", { className: "col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" }, this.mapDetailListItems(this.authorData.contact))))),
                                 React.createElement("hr", { className: "my-4 mx-0" }))),
-                        React.createElement("div", { className: "row" },
+                        React.createElement("div", { className: "row page-break-box" },
                             React.createElement("div", { className: "col-12 col-lg-6" },
                                 React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
                                     React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u81EA\u8FF0 / ABOUT ME"),
@@ -95,6 +109,7 @@ var Resume = (function (_super) {
                                 React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
                                     React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u5DE5\u4F5C\u7D93\u9A57 / WORK EXPERIENCE"),
                                     this.mapDetailListItems(this.authorData.jobs))),
+                            React.createElement(PrintTopNav, null),
                             React.createElement("div", { className: "col-12 col-lg-6" },
                                 React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
                                     React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u524D\u7AEF\u76F8\u95DC\u6280\u80FD / FRONTEND SKILL"),

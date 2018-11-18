@@ -38,7 +38,7 @@ const config = {
         rules: [
         { test: /\.tsx?$/, loader: 'ts-loader' },
         {
-                test: /\.(png|jpg|gif|woff|woff2|svg|ttf|eot)$/,
+                test: /\.(png|jpg|gif|woff|woff2|ttf|eot)$/,
                 loaders: [
                     'file-loader?name=dist/file/[name]-[hash:6].[ext]',
                     {
@@ -73,9 +73,9 @@ const config = {
                     }
                 ]
                 // ,include: path.resolve( '/img' )
-                // }, {
-                //     test: /\.svg$/,
-                //     loader: 'svg-inline-loader?name=/[name].[ext]'
+                }, {
+                    test: /\.svg$/,
+                    loader: 'raw-loader'
             }, {
                 test: /favicon.ico$/,
                 loader: 'file-loader?name=/[name].[ext]'

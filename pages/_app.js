@@ -82,7 +82,8 @@ var MyApp = (function (_super) {
         var _a = this.props, Component = _a.Component, pageProps = _a.pageProps;
         return (React.createElement(Container, null,
             React.createElement(Nav, null),
-            React.createElement(Component, __assign({}, pageProps))));
+            React.createElement("div", { className: "main print-pt-0 print-mt-5" },
+                React.createElement(Component, __assign({}, pageProps)))));
     };
     return MyApp;
 }(App));
