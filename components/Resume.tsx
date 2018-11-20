@@ -12,9 +12,6 @@ import { dangeriousHtmlMarkup } from "../common/html-service";
 import PrintTopNav from "../components/PrintTopNav";
 const printSvg  = require("../static/image/_ionicons_svg_md-print.svg");
 // import { html2pdf } from "../common/html2pdf";
-// import Page from '../components/Page'
-// import  Head from '../components/Head';
-// import  Nav from '../components/Nav';
 
 export default class Resume extends React.Component<any, any> {
   // private jj:string='ll';
@@ -141,7 +138,7 @@ export default class Resume extends React.Component<any, any> {
               </div>
               <div className="row page-break-box">
                 <div className="col-12 col-lg-6">
-                <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                    <div className="col-12 d-flex flex-column justify-content-center detail-list">
                     <h4 className="mb-3 detail-list-title section-title">
                       自述 / ABOUT ME
                     </h4>
@@ -155,24 +152,15 @@ export default class Resume extends React.Component<any, any> {
                     {this.mapDetailListItems(this.authorData.education)}
                     <hr className="my-4 mx-0" />
                   </div>
-                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
-                    <h4 className="mb-3 detail-list-title section-title">
-                      公開作品或專案 / ＷORKS OR PROJECTS
-                    </h4>
-                    {this.mapDetailListItems(this.authorData.projects)}
-
-                    <hr className="my-4 mx-0" />
-                  </div>
-
+                  <PrintTopNav />
                   <div className="col-12 d-flex flex-column justify-content-center detail-list">
                     <h4 className="mb-3 detail-list-title section-title">
                       工作經驗 / WORK EXPERIENCE
                     </h4>
                     {this.mapDetailListItems(this.authorData.jobs)}
+                    <hr className="my-4 mx-0" />
                   </div>
-                </div>
-                <PrintTopNav />
-                <div className="col-12 col-lg-6">
+                  <PrintTopNav />
                   <div className="col-12 d-flex flex-column justify-content-center detail-list">
                     <h4 className="mb-3 detail-list-title section-title">
                       前端相關技能 / FRONTEND SKILL
@@ -180,7 +168,6 @@ export default class Resume extends React.Component<any, any> {
                     {this.mapDetailListItems(this.authorData.skill)}
                     <hr className="my-4 mx-0" />
                   </div>
-
                   <div className="col-12 d-flex flex-column justify-content-center detail-list">
                     <h4 className="mb-3 detail-list-title section-title">
                       非前端相關技能 / OTHER SKILL
@@ -189,6 +176,34 @@ export default class Resume extends React.Component<any, any> {
                     <hr className="my-4 mx-0" />
                   </div>
                 </div>
+                <PrintTopNav />
+                <div className="col-12 col-lg-6">
+                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                    <h4 className="mb-3 detail-list-title section-title">
+                      公開作品或專案 / ＷORKS OR PROJECTS
+                    </h4>
+                    {this.mapDetailListItems(this.authorData.projects)}
+                    <hr className="my-4 mx-0" />
+                  </div>
+                  <PrintTopNav />
+                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                    <h4 className="mb-3 detail-list-title section-title">
+                      自傳 / AUTOBIOGRAPHY
+                    </h4>
+                    {this.mapDetailListItems(this.authorData.autobiography)}
+                    <hr className="my-4 mx-0" />
+                  </div>
+                </div>
+                
+{/*                <div className="col-12 col-lg-6 d-none print-d-block">
+                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                    <h4 className="mb-3 detail-list-title section-title">
+                      自傳 / AUTOBIOGRAPHY
+                    </h4>
+                    {this.mapDetailListItems(this.authorData.autobiography)}
+                    <hr className="my-4 mx-0" />
+                  </div>
+                </div>*/}
               </div>
             </div>
           </section>
