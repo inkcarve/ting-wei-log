@@ -10,7 +10,7 @@ import {
 import { initStore } from "../store/store";
 import { dangeriousHtmlMarkup } from "../common/html-service";
 import PrintTopNav from "../components/PrintTopNav";
-const printSvg  = require("../static/image/_ionicons_svg_md-print.svg");
+const printSvg = require("../static/image/_ionicons_svg_md-print.svg");
 // import { html2pdf } from "../common/html2pdf";
 
 export default class Resume extends React.Component<any, any> {
@@ -35,8 +35,10 @@ export default class Resume extends React.Component<any, any> {
         <ListGroupItem key={i}>
           <h5 className="font-weight-normal title">
             <div>
-              {obj.title}
-              <small className="pl-1">{obj.titleEn} :</small>
+              <h5 className="mb-1">
+                {obj.title}
+                <small className="pl-2 text-warning">{obj.titleEn} </small>
+              </h5>
             </div>
             <div className="small">
               <div
@@ -54,13 +56,15 @@ export default class Resume extends React.Component<any, any> {
       return (
         <div key={i}>
           <h5 className="font-weight-normal title">
-            {obj.title ||
-              (obj.titleEn && (
-                <h5>
-                  {obj.title}
-                  <small className="pl-1">{obj.titleEn} :</small>
-                </h5>
-              ))}
+            <h5 className="mb-1">
+              {obj.title ||
+                (obj.titleEn && (
+                  <span>
+                    {obj.title}
+                    <small className="pl-1">{obj.titleEn} :</small>
+                  </span>
+                ))}
+            </h5>
             <div className="small detail">
               <div dangerouslySetInnerHTML={dangeriousHtmlMarkup(obj.detail)} />
             </div>
@@ -86,8 +90,8 @@ export default class Resume extends React.Component<any, any> {
   //   });
   // }
 
-  print(e){
-    if(document.execCommand('print'))return;
+  print(e) {
+    if (document.execCommand("print")) return;
     window.print();
   }
 
@@ -95,15 +99,16 @@ export default class Resume extends React.Component<any, any> {
     return (
       <Provider store={this.store}>
         <div className="resume pt-4 print-pt-0">
-        <button className="btn btn-outline-primary btn-print print-d-none" onClick={(e)=>this.print(e)}>
-        <div
-                dangerouslySetInnerHTML={dangeriousHtmlMarkup(printSvg)}
-              />
-        </button>
+          <button
+            className="btn btn-outline-primary btn-print print-d-none"
+            onClick={e => this.print(e)}
+          >
+            <div dangerouslySetInnerHTML={dangeriousHtmlMarkup(printSvg)} />
+          </button>
           <section className="header">
-          <PrintTopNav />
+            <PrintTopNav />
             <div className="container-fluid">
-              <div className="row" id="resume1">
+              <div className="row">
                 <div className="col-12 mb-4 text-right">
                   <h2 className="d-inline-block">關於我</h2>
                   <h6 className="text-muted font-weight-light">
@@ -111,25 +116,25 @@ export default class Resume extends React.Component<any, any> {
                   </h6>
                   {/* <button className="btn btn-primary" onClick={()=>this.html2pdf('resume1')}></button> */}
                 </div>
-                <div className="col-12">
-                  <div className="row align-items-md-center">
-                    <div className="col-12 col-md-4 col-lg-3 col-xl-2 image-box mb-5">
-                      <img
-                        src="static/image/me.jpg"
-                        className="img-fluid img-me img-thumbnail rounded-circle"
-                      />
-                    </div>
-                    <div className="pl-md-4 col-12 col-md-8 col-lg-9 col-xl-10 detail-list">
-                      <h4 className="mb-3 detail-list-title section-title">
-                        基本資料 / PERSONAL DATA
-                      </h4>
-                      <div className="row">
-                        <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                          {this.mapDetailListItems(this.authorData.basic)}
-                        </div>
-                        <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                          {this.mapDetailListItems(this.authorData.contact)}
-                        </div>
+              </div>
+              <div className="row">
+                <div className="col-12 d-flex align-items-md-center">
+                  <div className="col-12 col-md-4 col-lg-3 col-xl-2 image-box mb-5">
+                    <img
+                      src="static/image/me.jpg"
+                      className="img-fluid img-me img-thumbnail rounded-circle"
+                    />
+                  </div>
+                  <div className="pl-md-4 col-12 col-md-8 col-lg-9 col-xl-10 detail-list">
+                    <h4 className="mb-3 detail-list-title section-title">
+                      基本資料 / PERSONAL DATA
+                    </h4>
+                    <div className="row">
+                      <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        {this.mapDetailListItems(this.authorData.basic)}
+                      </div>
+                      <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        {this.mapDetailListItems(this.authorData.contact)}
                       </div>
                     </div>
                   </div>
@@ -138,7 +143,7 @@ export default class Resume extends React.Component<any, any> {
               </div>
               <div className="row page-break-box">
                 <div className="col-12 col-lg-6">
-                    <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
                     <h4 className="mb-3 detail-list-title section-title">
                       自述 / ABOUT ME
                     </h4>
@@ -194,8 +199,8 @@ export default class Resume extends React.Component<any, any> {
                     <hr className="my-4 mx-0" />
                   </div>
                 </div>
-                
-{/*                <div className="col-12 col-lg-6 d-none print-d-block">
+
+                {/*                <div className="col-12 col-lg-6 d-none print-d-block">
                   <div className="col-12 d-flex flex-column justify-content-center detail-list">
                     <h4 className="mb-3 detail-list-title section-title">
                       自傳 / AUTOBIOGRAPHY

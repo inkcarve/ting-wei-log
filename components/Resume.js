@@ -35,10 +35,11 @@ var Resume = (function (_super) {
             return (React.createElement(ListGroupItem, { key: i },
                 React.createElement("h5", { className: "font-weight-normal title" },
                     React.createElement("div", null,
-                        obj.title,
-                        React.createElement("small", { className: "pl-1" },
-                            obj.titleEn,
-                            " :")),
+                        React.createElement("h5", { className: "mb-1" },
+                            obj.title,
+                            React.createElement("small", { className: "pl-2 text-warning" },
+                                obj.titleEn,
+                                " "))),
                     React.createElement("div", { className: "small" },
                         React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(obj.content) })))));
         });
@@ -48,12 +49,12 @@ var Resume = (function (_super) {
         return lists.map(function (obj, i) {
             return (React.createElement("div", { key: i },
                 React.createElement("h5", { className: "font-weight-normal title" },
-                    obj.title ||
-                        (obj.titleEn && (React.createElement("h5", null,
+                    React.createElement("h5", { className: "mb-1" }, obj.title ||
+                        (obj.titleEn && (React.createElement("span", null,
                             obj.title,
                             React.createElement("small", { className: "pl-1" },
                                 obj.titleEn,
-                                " :")))),
+                                " :"))))),
                     React.createElement("div", { className: "small detail" },
                         React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(obj.detail) }))),
                 React.createElement("div", { className: "detail-list" },
@@ -62,7 +63,7 @@ var Resume = (function (_super) {
         });
     };
     Resume.prototype.print = function (e) {
-        if (document.execCommand('print'))
+        if (document.execCommand("print"))
             return;
         window.print();
     };
@@ -75,19 +76,19 @@ var Resume = (function (_super) {
                 React.createElement("section", { className: "header" },
                     React.createElement(PrintTopNav, null),
                     React.createElement("div", { className: "container-fluid" },
-                        React.createElement("div", { className: "row", id: "resume1" },
+                        React.createElement("div", { className: "row" },
                             React.createElement("div", { className: "col-12 mb-4 text-right" },
                                 React.createElement("h2", { className: "d-inline-block" }, "\u95DC\u65BC\u6211"),
-                                React.createElement("h6", { className: "text-muted font-weight-light" }, "\u4E00\u500B\u60F3\u8DE8\u8DB3React-Native\u7684\u7DB2\u9801\u524D\u7AEF\u5DE5\u7A0B\u5E2B")),
-                            React.createElement("div", { className: "col-12" },
-                                React.createElement("div", { className: "row align-items-md-center" },
-                                    React.createElement("div", { className: "col-12 col-md-4 col-lg-3 col-xl-2 image-box mb-5" },
-                                        React.createElement("img", { src: "static/image/me.jpg", className: "img-fluid img-me img-thumbnail rounded-circle" })),
-                                    React.createElement("div", { className: "pl-md-4 col-12 col-md-8 col-lg-9 col-xl-10 detail-list" },
-                                        React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u57FA\u672C\u8CC7\u6599 / PERSONAL DATA"),
-                                        React.createElement("div", { className: "row" },
-                                            React.createElement("div", { className: "col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" }, this.mapDetailListItems(this.authorData.basic)),
-                                            React.createElement("div", { className: "col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" }, this.mapDetailListItems(this.authorData.contact))))),
+                                React.createElement("h6", { className: "text-muted font-weight-light" }, "\u4E00\u500B\u60F3\u8DE8\u8DB3React-Native\u7684\u7DB2\u9801\u524D\u7AEF\u5DE5\u7A0B\u5E2B"))),
+                        React.createElement("div", { className: "row" },
+                            React.createElement("div", { className: "col-12 d-flex align-items-md-center" },
+                                React.createElement("div", { className: "col-12 col-md-4 col-lg-3 col-xl-2 image-box mb-5" },
+                                    React.createElement("img", { src: "static/image/me.jpg", className: "img-fluid img-me img-thumbnail rounded-circle" })),
+                                React.createElement("div", { className: "pl-md-4 col-12 col-md-8 col-lg-9 col-xl-10 detail-list" },
+                                    React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u57FA\u672C\u8CC7\u6599 / PERSONAL DATA"),
+                                    React.createElement("div", { className: "row" },
+                                        React.createElement("div", { className: "col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" }, this.mapDetailListItems(this.authorData.basic)),
+                                        React.createElement("div", { className: "col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" }, this.mapDetailListItems(this.authorData.contact)))),
                                 React.createElement("hr", { className: "my-4 mx-0" }))),
                         React.createElement("div", { className: "row page-break-box" },
                             React.createElement("div", { className: "col-12 col-lg-6" },

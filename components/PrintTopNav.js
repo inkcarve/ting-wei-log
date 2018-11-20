@@ -17,8 +17,12 @@ var PrintTopNav = (function (_super) {
     }
     PrintTopNav.prototype.render = function () {
         return (React.createElement("div", { className: "d-none col-12 print-d-block page-break-before my-5" },
-            React.createElement("div", { className: "border-bottom" },
-                React.createElement(Logo, null))));
+            React.createElement("div", { className: "border-bottom d-flex justify-content-between align-items-end flex-wrap" },
+                React.createElement(Logo, null),
+                React.createElement("div", { className: "small pb-2 text-muted" },
+                    "This PDF build from ",
+                    React.createElement("a", { href: "https://road-of-ting-wei.herokuapp.com/" }, "road-of-ting-wei.herokuapp.com"),
+                    " using printing servive of chrome browser."))));
     };
     return PrintTopNav;
 }(React.Component));

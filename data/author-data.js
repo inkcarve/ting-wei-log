@@ -111,27 +111,27 @@ export default {
             listGroup: [
                 {
                     title: "景丞科技股份有限公司",
-                    titleEn: "網頁前端工程師，2016/08 ~ present(在職)",
-                    content: '參與過<a href="https://card.apply.hsbc.com.tw/hsbcoa/credit_card/select_your_card" target="_blank">HSBC信用卡線上開戶</a>、王道銀行行動對帳單、深圳農商銀行對帳單（中國）、成都農商銀行對帳單（中國）、上海裕順內部對帳單專案（中國）...還有一些正在進行項目'
+                    titleEn: "網頁前端工程師，2016/08 ~ Present(在職)",
+                    content: '參與過<a href="https://card.apply.hsbc.com.tw/hsbcoa/credit_card/select_your_card" target="_blank">HSBC信用卡線上開戶</a>、王道銀行行動對帳單、深圳農商銀行對帳單（中國）、成都農商銀行對帳單（中國）、上海裕順內部對帳單專案（中國）...還有一些正在進行項目。<br>除了一般網頁製作，亦參與過 Web Accessibility 專案。'
                 },
                 {
                     title: "精銳合威股份有限公司",
-                    titleEn: "網頁前端工程師，2016/03 ~ 2016/06",
+                    titleEn: "網頁前端工程師，2016/04 ~ 2016/06",
                     content: '參與過台灣自由行網站(由於網站變動已經很大，就不再提供連結)'
                 },
                 {
                     title: "采霆科技有限公司",
-                    titleEn: "網頁前端工程師，2015/11 ~ 2016/02",
+                    titleEn: "網頁前端工程師，2015/11 ~ 2016/01",
                     content: '負責公司承接專案前端製作'
                 },
                 {
                     title: "事必得科技有限公司",
-                    titleEn: "網頁前端助理工程師，2015/07 ~ 2015/09",
+                    titleEn: "網頁前端助理工程師，2015/08 ~ 2015/10",
                     content: '負責公司專案協助'
                 },
                 {
                     title: "侏儸紀股份有限公司",
-                    titleEn: "網站美編/行銷專員專員，2012/01 ~ 2015/02",
+                    titleEn: "網站美編/行銷專員專員，2012/03 ~ 2015/02",
                     content: '負責網站管理、banner與活動頁製作維護，協助平面美編事務'
                 },
                 {
@@ -144,7 +144,6 @@ export default {
                     titleEn: "美編，2011/03 ~ 2011/07",
                     content: '平面美編事務'
                 },
-                { title: "其他", titleEn: "other", content: "請洽本人", onlyScreen: true, }
             ]
         }
     ],
