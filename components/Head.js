@@ -24,7 +24,8 @@ var HeadCustom = (function (_super) {
             React.createElement("meta", { charSet: "utf-8" }),
             React.createElement("meta", { httpEquiv: "x-ua-compatible", content: "ie=edge" }),
             React.createElement("meta", { name: "viewport", content: "initial-scale=1.0, width=device-width" }),
-            React.createElement("link", { rel: "stylesheet", href: "/_next/static/style.css" })));
+            React.createElement("link", { rel: "stylesheet", href: "/_next/static/style.css" }),
+            React.createElement("link", { href: "static/image/favicon.ico", rel: "icon", type: "image/x-icon" })));
     };
     return HeadCustom;
 }(React.Component));

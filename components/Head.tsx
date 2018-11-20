@@ -18,6 +18,7 @@ render () {
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       {/* <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" /> */}
       <link rel="stylesheet" href="/_next/static/style.css" />
+      <link href="static/image/favicon.ico" rel="icon" type="image/x-icon"/>
       {/*<link href={core_scss} rel="stylesheet" />*/}
       {/*<style link={core_scss}></style>*/}
     </Head>
