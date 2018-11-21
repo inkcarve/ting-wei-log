@@ -94,6 +94,13 @@ export default {
       detail: " Photoshop、Illustractor"
     }
   ],
+  pay: [
+    {
+      title: "",
+      titleEn: "",
+      detail: "800K ~ 900K / year"
+    }
+  ],
   projects: [
     {
       title: "ReactNative Demo App",

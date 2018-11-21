@@ -16,6 +16,7 @@ import { initStore } from "../store/store";
 import { dangeriousHtmlMarkup } from "../common/html-service";
 import PrintTopNav from "../components/PrintTopNav";
 var printSvg = require("../static/image/_ionicons_svg_md-print.svg");
+var downloadSvg = require("../static/image/_ionicons_svg_md-download.svg");
 var Resume = (function (_super) {
     __extends(Resume, _super);
     function Resume(props) {
@@ -71,7 +72,9 @@ var Resume = (function (_super) {
         var _this = this;
         return (React.createElement(Provider, { store: this.store },
             React.createElement("div", { className: "resume pt-4 print-pt-0" },
-                React.createElement("button", { className: "btn btn-outline-primary btn-print print-d-none", onClick: function (e) { return _this.print(e); } },
+                React.createElement("a", { className: "btn btn-outline-primary btn-tools btn-download print-d-none", href: "static/file/Road of Ting-Wei.pdf?" + Date.now(), target: "_blank" },
+                    React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(downloadSvg) })),
+                React.createElement("button", { className: "btn btn-outline-primary btn-tools btn-print print-d-none", onClick: function (e) { return _this.print(e); } },
                     React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(printSvg) })),
                 React.createElement("section", { className: "header" },
                     React.createElement(PrintTopNav, null),
@@ -119,6 +122,10 @@ var Resume = (function (_super) {
                                 React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
                                     React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u516C\u958B\u4F5C\u54C1\u6216\u5C08\u6848 / \uFF37ORKS OR PROJECTS"),
                                     this.mapDetailListItems(this.authorData.projects),
+                                    React.createElement("hr", { className: "my-4 mx-0" })),
+                                React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
+                                    React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u5E0C\u671B\u5F85\u9047 / EXPECTED SALARY"),
+                                    this.mapDetailListItems(this.authorData.pay),
                                     React.createElement("hr", { className: "my-4 mx-0" })),
                                 React.createElement(PrintTopNav, null),
                                 React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },

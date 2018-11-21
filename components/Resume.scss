@@ -1,10 +1,8 @@
 @import "../scss/_var.scss";
 @import "../scss/_mixin.scss";
 .resume{
-	.btn-print{
+	.btn-tools{
 		position: fixed;
-		bottom: 50px;
-		right: 50px;
 		z-index: 100;
 		border-radius: 50%;
 		padding: 10px;
@@ -12,6 +10,13 @@
 		height:50px;
 		background: #fff;
 		box-shadow: 0px 6px 5px 1px rgba(90, 53, 53, 0.1);
+		right: 2vw;
+		&.btn-download{
+		bottom: 120px;	
+		}
+		&.btn-print{
+		bottom: 50px;
+		}
 		svg{
 			width:20px;
 			height:20px;

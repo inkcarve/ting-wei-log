@@ -11,6 +11,7 @@ import { initStore } from "../store/store";
 import { dangeriousHtmlMarkup } from "../common/html-service";
 import PrintTopNav from "../components/PrintTopNav";
 const printSvg = require("../static/image/_ionicons_svg_md-print.svg");
+const downloadSvg = require("../static/image/_ionicons_svg_md-download.svg");
 // import { html2pdf } from "../common/html2pdf";
 
 export default class Resume extends React.Component<any, any> {
@@ -97,10 +98,19 @@ export default class Resume extends React.Component<any, any> {
 
   render() {
     return (
+      
       <Provider store={this.store}>
         <div className="resume pt-4 print-pt-0">
+        <a
+            className="btn btn-outline-primary btn-tools btn-download print-d-none"
+      
+            href={"static/file/Road of Ting-Wei.pdf?"+Date.now()}
+            target="_blank"
+          >
+            <div dangerouslySetInnerHTML={dangeriousHtmlMarkup(downloadSvg)} />
+          </a>
           <button
-            className="btn btn-outline-primary btn-print print-d-none"
+            className="btn btn-outline-primary btn-tools btn-print print-d-none"
             onClick={e => this.print(e)}
           >
             <div dangerouslySetInnerHTML={dangeriousHtmlMarkup(printSvg)} />
@@ -188,6 +198,13 @@ export default class Resume extends React.Component<any, any> {
                       公開作品或專案 / ＷORKS OR PROJECTS
                     </h4>
                     {this.mapDetailListItems(this.authorData.projects)}
+                    <hr className="my-4 mx-0" />
+                  </div>
+                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                    <h4 className="mb-3 detail-list-title section-title">
+                      希望待遇 / EXPECTED SALARY
+                    </h4>
+                    {this.mapDetailListItems(this.authorData.pay)}
                     <hr className="my-4 mx-0" />
                   </div>
                   <PrintTopNav />
