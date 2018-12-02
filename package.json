@@ -2,6 +2,11 @@
   "name": "with-mobx",
   "version": "1.0.0",
   "description": "nodejs_10.13.2",
+  "engines": {
+    "node": "10.14.1"
+  },
+  "author": "Ting-Wei Lin"
+  ,
   "scripts": {
     "dev-w": "set NODE_ENV=dev && concurrently \"tsc --pretty --watch\" \"nodemon ./server/server.js\" ",
     "dev": "export NODE_ENV=dev && concurrently \"tsc --pretty --watch\" \"nodemon ./server/server.js\" ",
