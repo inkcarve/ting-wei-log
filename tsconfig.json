@@ -24,7 +24,6 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "declaration": false,
-    "noImplicitAny": false,
     "noLib": false,
     "removeComments": true,
     "experimentalDecorators": true
