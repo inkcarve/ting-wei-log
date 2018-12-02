@@ -127,15 +127,18 @@ export default class Resume extends React.Component<any, any> {
                   {/* <button className="btn btn-primary" onClick={()=>this.html2pdf('resume1')}></button> */}
                 </div>
               </div>
-              <div className="row">
-                <div className="col-12 d-flex align-items-md-center">
+              <div className="row align-items-center">
+                
                   <div className="col-12 col-md-4 col-lg-3 col-xl-2 image-box mb-5">
+                  <div className="col-12">
                     <img
                       src="static/image/me.jpg"
                       className="img-fluid img-me img-thumbnail rounded-circle"
                     />
+                    </div>
                   </div>
                   <div className="pl-md-4 col-12 col-md-8 col-lg-9 col-xl-10 detail-list">
+                  <div className="col-12">
                     <h4 className="mb-3 detail-list-title section-title">
                       基本資料 / PERSONAL DATA
                     </h4>
@@ -146,10 +149,11 @@ export default class Resume extends React.Component<any, any> {
                       <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
                         {this.mapDetailListItems(this.authorData.contact)}
                       </div>
+                      </div>
                     </div>
                   </div>
                   <hr className="my-4 mx-0" />
-                </div>
+              
               </div>
               <div className="row page-break-box">
                 <div className="col-12 col-lg-6">
