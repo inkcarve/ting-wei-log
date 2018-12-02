@@ -63,5 +63,8 @@
     "typings-for-css-modules-loader": "^1.7.0"
   },
   "devDependencies": {},
+  "resolutions": {
+    "**/event-stream": "^4.0.1"
+  },
   "license": "ISC"
 }
