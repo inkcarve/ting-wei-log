@@ -1,14 +1,14 @@
 import { action, observable } from 'mobx'
 import authorData from '../data/author-data';
-let store ;
+let store:any ;
 
 class Store {
   @observable lastUpdate = 0
   @observable light = false
 
-  private timer;
-  public authorData;
-  constructor (isServer, lastUpdate) {
+  private timer:any;
+  public authorData:any;
+  constructor (isServer:boolean, lastUpdate:any) {
     this.lastUpdate = lastUpdate
     this.authorData = authorData
   }
@@ -23,7 +23,7 @@ class Store {
   stop = () => clearInterval(this.timer)
 }
 
-export function initStore (isServer, lastUpdate = Date.now()) {
+export function initStore (isServer:boolean, lastUpdate = Date.now()) {
   if (isServer) {
     return new Store(isServer, lastUpdate)
   } else {

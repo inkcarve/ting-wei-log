@@ -5,8 +5,7 @@
   "engines": {
     "node": "10.14.1"
   },
-  "author": "Ting-Wei Lin"
-  ,
+  "author": "Ting-Wei Lin",
   "scripts": {
     "dev-w": "set NODE_ENV=dev && concurrently \"tsc --pretty --watch\" \"nodemon ./server/server.js\" ",
     "dev": "export NODE_ENV=dev && concurrently \"tsc --pretty --watch\" \"nodemon ./server/server.js\" ",

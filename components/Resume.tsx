@@ -57,7 +57,7 @@ export default class Resume extends React.Component<any, any> {
       return (
         <div key={i}>
           <h5 className="font-weight-normal title">
-            <h5 className="mb-1">
+            <div className="mb-1">
               {obj.title ||
                 (obj.titleEn && (
                   <span>
@@ -65,7 +65,7 @@ export default class Resume extends React.Component<any, any> {
                     <small className="pl-1">{obj.titleEn} :</small>
                   </span>
                 ))}
-            </h5>
+            </div>
             <div className="small detail">
               <div dangerouslySetInnerHTML={dangeriousHtmlMarkup(obj.detail)} />
             </div>
@@ -119,8 +119,8 @@ export default class Resume extends React.Component<any, any> {
             <PrintTopNav />
             <div className="container-fluid">
               <div className="row">
-                <div className="col-12 mb-4 text-right">
-                  <h2 className="d-inline-block">關於我</h2>
+                <div className="col-12 mb-3 text-right">
+                  <h2 className="d-inline-block print-d-none">關於我</h2>
                   <h6 className="text-muted font-weight-light">
                     一個想跨足React-Native的網頁前端工程師
                   </h6>
@@ -128,7 +128,6 @@ export default class Resume extends React.Component<any, any> {
                 </div>
               </div>
               <div className="row align-items-center">
-                
                   <div className="col-12 col-md-4 col-lg-3 col-xl-2 image-box mb-5">
                   <div className="col-12">
                     <img
@@ -171,7 +170,7 @@ export default class Resume extends React.Component<any, any> {
                     {this.mapDetailListItems(this.authorData.education)}
                     <hr className="my-4 mx-0" />
                   </div>
-                  <PrintTopNav />
+                  
                   <div className="col-12 d-flex flex-column justify-content-center detail-list">
                     <h4 className="mb-3 detail-list-title section-title">
                       工作經驗 / WORK EXPERIENCE
@@ -179,7 +178,11 @@ export default class Resume extends React.Component<any, any> {
                     {this.mapDetailListItems(this.authorData.jobs)}
                     <hr className="my-4 mx-0" />
                   </div>
-                  <PrintTopNav />
+                  
+                </div>
+                <PrintTopNav />
+                <div className="col-12 col-lg-6">
+                
                   <div className="col-12 d-flex flex-column justify-content-center detail-list">
                     <h4 className="mb-3 detail-list-title section-title">
                       前端相關技能 / FRONTEND SKILL
@@ -211,7 +214,6 @@ export default class Resume extends React.Component<any, any> {
                     {this.mapDetailListItems(this.authorData.pay)}
                     <hr className="my-4 mx-0" />
                   </div>
-                  <PrintTopNav />
                   <div className="col-12 d-flex flex-column justify-content-center detail-list">
                     <h4 className="mb-3 detail-list-title section-title">
                       自傳 / AUTOBIOGRAPHY
