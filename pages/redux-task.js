@@ -9,28 +9,31 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import * as React from 'react';
-import { Provider } from 'mobx-react';
-import { initStore } from '../store/store';
-var PageAbout = (function (_super) {
-    __extends(PageAbout, _super);
-    function PageAbout(props) {
+import { Provider } from 'react-redux';
+import { initStore } from '../redux/redux-store';
+import CatchCat from '../components/catch-cat';
+var ReduxTask = (function (_super) {
+    __extends(ReduxTask, _super);
+    function ReduxTask(props) {
         var _this = _super.call(this, props) || this;
-        _this.store = initStore(props.isServer, props.lastUpdate);
+        _this.store = initStore();
+        console.log(initStore());
         return _this;
     }
-    PageAbout.getInitialProps = function (_a) {
+    ReduxTask.getInitialProps = function (_a) {
         var req = _a.req;
         var isServer = !!req;
-        var store = initStore(isServer);
-        return { lastUpdate: store.lastUpdate, isServer: isServer };
+        return { isServer: isServer };
     };
-    PageAbout.prototype.render = function () {
-        return (React.createElement(Provider, { store: this.store },
-            React.createElement("div", null,
+    ReduxTask.prototype.render = function () {
+        console.log('render');
+        console.log(this);
+        return (React.createElement("div", null,
+            React.createElement(Provider, { store: this.store },
                 React.createElement("div", { className: "container-fluid pt-4" },
-                    React.createElement("h1", null, "React + NextJs + reactstrap + typescript + bootstrap4")))));
+                    React.createElement(CatchCat, null)))));
     };
-    return PageAbout;
+    return ReduxTask;
 }(React.Component));
-export default PageAbout;
-//# sourceMappingURL=about.js.map
+export default ReduxTask;
+//# sourceMappingURL=redux-task.js.map

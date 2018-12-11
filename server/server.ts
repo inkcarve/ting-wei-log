@@ -39,14 +39,14 @@ app.prepare().then(() => {
   //   return app.render(req, res)
   // })
 
-	server.get('*', (req, res) => {
+	server.get('*', (req:any, res:any) => {
     return handle(req, res)
   });
 
   // server.use('/',router);
   // server.use(express.static('static'));
 
-	server.listen(port, (err) => {
+	server.listen(port, (err:any) => {
     if (err) throw err
     console.log(`> Ready on http://localhost:${port}`)
   })

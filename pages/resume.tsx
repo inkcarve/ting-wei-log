@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react';
 import { initStore } from '../store/store';
 import Resume from '../components/Resume';
 
-export default class Counter extends React.Component<any, any> {
+export default class PageResume extends React.Component<any, any> {
   private store:any;
   static getInitialProps ({ req }) {
     const isServer = !!req

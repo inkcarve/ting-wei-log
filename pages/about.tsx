@@ -4,7 +4,7 @@ import { initStore } from '../store/store';
 // import Head from '../components/Head';
 // import Nav from '../components/Nav';
 // import Page from '../components/Page'
-export default class Counter extends React.Component<any, any> {
+export default class PageAbout extends React.Component<any, any> {
   private store:any;
   static getInitialProps ({ req }) {
     const isServer = !!req

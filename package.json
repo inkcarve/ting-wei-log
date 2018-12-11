@@ -5,22 +5,25 @@
   "engines": {
     "node": "10.14.1"
   },
-  "author": "Ting-Wei Lin"
-  ,
+  "author": "Ting-Wei Lin",
   "scripts": {
     "dev-w": "set NODE_ENV=dev && concurrently \"tsc --pretty --watch\" \"nodemon ./server/server.js\" ",
     "dev": "export NODE_ENV=dev && concurrently \"tsc --pretty --watch\" \"nodemon ./server/server.js\" ",
     "prebuild": "yarn tsc",
     "build": "next build",
-    "start": "export NODE_ENV=production && next build && node server/server.js"
+    "start": "export NODE_ENV=production && yarn prebuild && next build && node server/server.js"
   },
   "dependencies": {
     "@types/css": "^0.0.31",
     "@types/express": "^4.0.39",
     "@types/next": "^7.0.4",
+    "@types/next-redux-wrapper": "^2.0.2",
     "@types/node": "^8.5.1",
     "@types/node-sass": "^3.10.32",
+    "@types/react-redux": "^6.0.10",
     "@types/reactstrap": "^5.0.12",
+    "@types/redux-devtools-extension": "^2.13.2",
+    "@types/redux-thunk": "^2.1.0",
     "@zeit/next-sass": "^0.2.0",
     "babel-plugin-inline-import": "^2.0.6",
     "babel-plugin-module-resolver": "^3.0.0",
@@ -42,6 +45,7 @@
     "mobx": "^2.7.0",
     "mobx-react": "^4.0.4",
     "next": "^6.1.1",
+    "next-redux-wrapper": "^2.1.0",
     "node-sass": "^4.9.3",
     "nodemon": "^1.13.3",
     "nprogress": "^0.2.0",
@@ -50,8 +54,12 @@
     "react": "^16.2.0",
     "react-bootstrap-4": "^0.29.1",
     "react-dom": "^16.2.0",
+    "react-redux": "^6.0.0",
     "react-transition-group": "^2.2.1",
     "reactstrap": "^6.5.0",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.7",
+    "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.22.1",
     "svgo": "^0.7.2",

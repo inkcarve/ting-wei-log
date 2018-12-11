@@ -6,7 +6,7 @@ import { initStore } from "../store/store";
 // import  Nav from '../components/Nav';
 import './index.scss';
 
-export default class Index extends React.Component<any, any> {
+export default class PageIndex extends React.Component<any, any> {
   // private jj:string='ll';
   private store: any;
   static getInitialProps({ req }: { req: any }) {

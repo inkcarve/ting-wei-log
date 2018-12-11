@@ -4,7 +4,7 @@
     "module": "esnext",
     "baseUrl": "./",
     "target": "es5",
-    "lib": ["es5","es6","es2015","dom"],
+    "lib": ["es7","es5","es6","es2015","dom"],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",

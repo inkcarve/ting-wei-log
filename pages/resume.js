@@ -12,24 +12,24 @@ import * as React from 'react';
 import { Provider } from 'mobx-react';
 import { initStore } from '../store/store';
 import Resume from '../components/Resume';
-var Counter = (function (_super) {
-    __extends(Counter, _super);
-    function Counter(props) {
+var PageResume = (function (_super) {
+    __extends(PageResume, _super);
+    function PageResume(props) {
         var _this = _super.call(this, props) || this;
         _this.store = initStore(props.isServer, props.lastUpdate);
         return _this;
     }
-    Counter.getInitialProps = function (_a) {
+    PageResume.getInitialProps = function (_a) {
         var req = _a.req;
         var isServer = !!req;
         var store = initStore(isServer);
         return { lastUpdate: store.lastUpdate, isServer: isServer };
     };
-    Counter.prototype.render = function () {
+    PageResume.prototype.render = function () {
         return (React.createElement(Provider, { store: this.store },
             React.createElement(Resume, null)));
     };
-    return Counter;
+    return PageResume;
 }(React.Component));
-export default Counter;
+export default PageResume;
 //# sourceMappingURL=resume.js.map
