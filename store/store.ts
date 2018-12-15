@@ -1,5 +1,6 @@
 import { action, observable } from "mobx";
 import authorData from "../data/author-data";
+
 let store: Store;
 
 class Store {
