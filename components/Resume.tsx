@@ -12,7 +12,7 @@ import { dangeriousHtmlMarkup } from "../common/html-service";
 import PrintTopNav from "../components/PrintTopNav";
 const printSvg = require("../static/image/_ionicons_svg_md-print.svg");
 const downloadSvg = require("../static/image/_ionicons_svg_md-download.svg");
-// import { html2pdf } from "../common/html2pdf";
+// import { html2pdf } from '../common/html2pdf';
 
 export default class Resume extends React.Component<any, any> {
   // private jj:string='ll';
@@ -91,20 +91,18 @@ export default class Resume extends React.Component<any, any> {
   //   });
   // }
 
-  print(e) {
-    if (document.execCommand("print")) return;
+  print() {
+    if ( document.execCommand( 'print' ) ) {return;}
     window.print();
   }
 
   render() {
     return (
-      
       <Provider store={this.store}>
         <div className="resume pt-4 print-pt-0">
-        <a
+          <a
             className="btn btn-outline-primary btn-tools btn-download print-d-none"
-      
-            href={"static/file/Road of Ting-Wei.pdf?"+Date.now()}
+            href={"static/file/Road of Ting-Wei.pdf?" + Date.now()}
             target="_blank"
           >
             <div dangerouslySetInnerHTML={dangeriousHtmlMarkup(downloadSvg)} />
@@ -128,16 +126,15 @@ export default class Resume extends React.Component<any, any> {
                 </div>
               </div>
               <div className="row align-items-center">
-                
-                  <div className="col-12 col-md-4 col-lg-3 col-xl-2 image-box mb-5">
+                <div className="col-12 col-md-4 col-lg-3 col-xl-2 image-box mb-5">
                   <div className="col-12">
                     <img
                       src="static/image/me.jpg"
                       className="img-fluid img-me img-thumbnail rounded-circle"
                     />
-                    </div>
                   </div>
-                  <div className="pl-md-4 col-12 col-md-8 col-lg-9 col-xl-10 detail-list">
+                </div>
+                <div className="pl-md-4 col-12 col-md-8 col-lg-9 col-xl-10 detail-list">
                   <div className="col-12">
                     <h4 className="mb-3 detail-list-title section-title">
                       基本資料 / PERSONAL DATA
@@ -149,11 +146,10 @@ export default class Resume extends React.Component<any, any> {
                       <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
                         {this.mapDetailListItems(this.authorData.contact)}
                       </div>
-                      </div>
                     </div>
                   </div>
-                  <hr className="my-4 mx-0" />
-              
+                </div>
+                <hr className="my-4 mx-0" />
               </div>
               <div className="row page-break-box">
                 <div className="col-12 col-lg-6">

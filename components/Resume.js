@@ -63,9 +63,10 @@ var Resume = (function (_super) {
                     obj.listGroup && (React.createElement(ListGroup, { className: "mb-4" }, _this.mapListGroupItem(obj.listGroup))))));
         });
     };
-    Resume.prototype.print = function (e) {
-        if (document.execCommand("print"))
+    Resume.prototype.print = function () {
+        if (document.execCommand('print')) {
             return;
+        }
         window.print();
     };
     Resume.prototype.render = function () {
