@@ -23,46 +23,19 @@ export default class PageIndex extends React.Component<any, any> {
   render() {
     return (
       <Provider store={this.store}>
-        {/*<Page title='index' linkTo='/other' >*/}
           <div className="container-fluid">
-            {/*<Page title='' linkTo='/other' />*/}
-
             <div className="row justify-content-center">
               <div className="col-12 p-0 position-relative">
-                {/* <div className="embed-responsive embed-responsive-16by9 position-relative">
-                  <video
-                    autoPlay={true}
-                    loop
-                    className="embed-responsive-item"
-                    controls={false}
-                  >
-                    <source
-                      src="static/video/Lamp-small.mp4"
-                      type="video/mp4"
-                    />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                 */}
                 <div className="embed-responsive embed-responsive-16by9 position-relative index-bg-box d-flex align-items-center">
-                  {/* <img
-                    className="image-fluid col-12 p-0"
-                    src="static/image/index-door-open.jpg"
-                    alt=""
-                  /> */}
                   <div className="d-none d-md-block col-md-4 text-right">
-                  <a className="btn btn-outline-light mr-4 px-md-5 py-md-4" href="/resume"><h2>More</h2></a>
+                  <a className="btn btn-outline-light mr-4 px-md-5 py-md-4 mb-3 col-md-12 col-lg-10 col-xl-8" href="/redux-game"><h2>A Screct Cat</h2></a>
+                  <a className="btn btn-outline-light mr-4 px-md-5 py-md-4 col-md-12 col-lg-10 col-xl-8" href="/resume"><h2>More about Me</h2></a>
                   </div>
                 </div>
-
                 <div className="d-md-none text-center my-5">
-                  <a className="btn btn-outline-primary px-5 py-2" href="/resume"><h2>More</h2></a>
+                  <a className="btn btn-outline-primary px-2 py-2 mb-3 col-8" href="/redux-game"><h3>A Screct Cat</h3></a>
+                  <a className="btn btn-outline-primary px-2 py-2 col-8" href="/resume"><h3>More</h3></a>
                   </div>
-                {/* <div className="abs-full">
-                  <div className="col-12 d-flex justify-content-center">
-                    button.btn.btn-outline
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>

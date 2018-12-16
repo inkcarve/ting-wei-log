@@ -8,9 +8,9 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import * as React from 'react';
-import { Provider } from 'mobx-react';
-import { initStore } from '../store/store';
+import * as React from "react";
+import { Provider } from "mobx-react";
+import { initStore } from "../store/store";
 var PageAbout = (function (_super) {
     __extends(PageAbout, _super);
     function PageAbout(props) {
@@ -28,7 +28,10 @@ var PageAbout = (function (_super) {
         return (React.createElement(Provider, { store: this.store },
             React.createElement("div", null,
                 React.createElement("div", { className: "container-fluid pt-4" },
-                    React.createElement("h1", null, "React + NextJs + reactstrap + typescript + bootstrap4")))));
+                    React.createElement("h3", null, "Website :"),
+                    React.createElement("h5", { className: "text-primary font-weight-normal mb-4" }, "ReactJs + NextJs + reactstrap + typescript + bootstrap4 + mobx + mobx-react"),
+                    React.createElement("h3", null, "The Shining Cat : "),
+                    React.createElement("h5", { className: "text-primary font-weight-normal" }, "ReactJs + NextJs + reactstrap + typescript + bootstrap4 + redux + react-redux")))));
     };
     return PageAbout;
 }(React.Component));

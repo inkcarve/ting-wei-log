@@ -1,5 +1,5 @@
 const appLink = 'https://drive.google.com/open?id=1ixrg8WhWQChR_KTav5_e2EvtQomoCQ_D';
-
+const badgeNew = ' <span class=\"badge badge-primary text-white\">new</span>';
 export default {
   basic: [
     { title: "姓名", titleEn: "Name", detail: " 林庭瑋 / Ting Wei Lin" },
@@ -46,7 +46,7 @@ export default {
       listGroup: [
         {
           title: "React",
-          content: "mobx-react、NextJs、reactstrap"
+          content: `react-redux${badgeNew}、mobx-react、NextJs、reactstrap`
         },
         {
           title: "Angular7",
@@ -71,14 +71,14 @@ export default {
         {
           title: "ReactNative",
           content:
-            "react-native-router-flux、native-base、lottie-react-native、victory-native、react-native-fast-image、react-native-splash-screen、react-native-blur、react-native-collapsible、react-native-deck-swiper、react-native-code-push"
+            `react-native-code-push${badgeNew}、react-native-router-flux、native-base、lottie-react-native、victory-native、react-native-fast-image、react-native-splash-screen、react-native-blur、react-native-collapsible、react-native-deck-swiper`
         }
       ]
     },
     {
       title: "其他",
       titleEn: "Other",
-      detail: "Webpack、Jquery、NodeJs+Express、mobx...還有其他插件",
+      detail: `redux${badgeNew}、Webpack、Jquery、NodeJs+Express、mobx...還有其他插件`,
       listGroup: [
         // {
         //     title:'ReactNative',

@@ -17,7 +17,6 @@ var ReduxTask = (function (_super) {
     function ReduxTask(props) {
         var _this = _super.call(this, props) || this;
         _this.store = initStore();
-        console.log(initStore());
         return _this;
     }
     ReduxTask.getInitialProps = function (_a) {
@@ -26,14 +25,21 @@ var ReduxTask = (function (_super) {
         return { isServer: isServer };
     };
     ReduxTask.prototype.render = function () {
-        console.log('render');
-        console.log(this);
         return (React.createElement("div", null,
             React.createElement(Provider, { store: this.store },
                 React.createElement("div", { className: "container-fluid pt-4" },
+                    React.createElement("div", { className: "row" },
+                        React.createElement("div", { className: "col-12 mb-md-4 text-right" },
+                            React.createElement("h2", { className: "d-inline-block print-d-none text-primary" }, "\u4EAE\u6676\u6676\u7684\u5C0F\u8C93"),
+                            React.createElement("br", null),
+                            React.createElement("h6", { className: "text-muted font-weight-light d-inline-block border-bottom pl-4 pb-2" },
+                                React.createElement("span", { className: "text-warning" }, "The Shining Cat"),
+                                React.createElement("br", null),
+                                React.createElement("small", null, "\u4E00\u500B\u5EFA\u7ACB\u5728 Redux \u8207 React-Redux \u904A\u6232"),
+                                React.createElement("div", { className: "" })))),
                     React.createElement(CatchCat, null)))));
     };
     return ReduxTask;
 }(React.Component));
 export default ReduxTask;
-//# sourceMappingURL=redux-task.js.map
+//# sourceMappingURL=redux-game.js.map

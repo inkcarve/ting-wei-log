@@ -39,6 +39,8 @@ var default_1 = (function (_super) {
                     React.createElement(NavItem, null,
                         React.createElement(NavLink, { href: "/about", className: "text-center" }, "About Here")),
                     React.createElement(NavItem, null,
+                        React.createElement(NavLink, { href: "/redux-game", className: "text-center font-weight-bold" }, "Redux-Game \u300AThe Shining Cat\u300B")),
+                    React.createElement(NavItem, null,
                         React.createElement(NavLink, { href: "/resume", className: "text-center" }, "Author")),
                     React.createElement(NavItem, null,
                         React.createElement(NavLink, { href: "https://github.com/inkcarve", className: "text-center" }, "Github"))))));

@@ -62,6 +62,11 @@ export default class extends React.Component<any, any> {
               </NavLink>
             </NavItem>
             <NavItem>
+              <NavLink href="/redux-game" className="text-center font-weight-bold">
+                Redux-Game 《The Shining Cat》
+              </NavLink>
+            </NavItem>
+            <NavItem>
               <NavLink href="/resume" className="text-center">
                 Author
               </NavLink>

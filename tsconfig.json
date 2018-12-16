@@ -9,13 +9,6 @@
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
-    // "rootDir": "./src",
-    // "rootDirs":[
-    // "./src/stores",
-    // "./src/pages",
-    // "./src/components",
-    // "./src/static",
-    // ],
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -43,7 +36,4 @@
 "enableAutoDiscovery": false,
 },
 "enableAutoDiscoveryDefinition": true
-  // "include":[
-   
-  // ]
 }
