@@ -177,7 +177,7 @@ const catchAction = (state: any, action: any) => {
     state.items = 1;
     state.log.push({
       ...logDefault,
-      text: "＊ 你獲得道具卡一張（可從使用道具按鈕使用）",
+      text: "＊ 你獲得道具卡一張（可從使用道具按鈕使用）",
       color
     });
   }
