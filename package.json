@@ -12,7 +12,7 @@
     "dev": "export NODE_ENV=dev && concurrently \"tsc --pretty --watch\" \"nodemon ./server/server.js\" ",
     "prebuild": "yarn tsc",
     "build": "next build",
-    "start": "export NODE_ENV=production && yarn prebuild && next build && node server/server.js"
+    "start": "next build && export NODE_ENV=production && node server/server.js"
   },
   "dependencies": {
     "@types/css": "^0.0.31",
