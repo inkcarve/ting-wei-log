@@ -35,7 +35,7 @@ var ReduxTask = (function (_super) {
                             React.createElement("h6", { className: "text-muted font-weight-light d-inline-block border-bottom pl-4 pb-2" },
                                 React.createElement("span", { className: "text-warning" }, "The Shining Cat"),
                                 React.createElement("br", null),
-                                React.createElement("small", null, "\u4E00\u500B\u5EFA\u7ACB\u5728 Redux \u8207 React-Redux \u904A\u6232"),
+                                React.createElement("small", null, "\u4E00\u500B\u5EFA\u7ACB\u5728 Redux \u8207 React-Redux \u7684\u904A\u6232"),
                                 React.createElement("div", { className: "" })))),
                     React.createElement(CatchCat, null)))));
     };

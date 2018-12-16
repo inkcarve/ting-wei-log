@@ -31,16 +31,16 @@ var PageIndex = (function (_super) {
                 React.createElement("div", { className: "row justify-content-center" },
                     React.createElement("div", { className: "col-12 p-0 position-relative" },
                         React.createElement("div", { className: "embed-responsive embed-responsive-16by9 position-relative index-bg-box d-flex align-items-center" },
-                            React.createElement("div", { className: "d-none d-md-block col-md-4 text-right" },
+                            React.createElement("div", { className: "d-none d-md-block col-md-5 text-right" },
                                 React.createElement("a", { className: "btn btn-outline-light mr-4 px-md-5 py-md-4 mb-3 col-md-12 col-lg-10 col-xl-8", href: "/redux-game" },
-                                    React.createElement("h2", null, "A Screct Cat")),
+                                    React.createElement("h3", null, "The Shining Cat")),
                                 React.createElement("a", { className: "btn btn-outline-light mr-4 px-md-5 py-md-4 col-md-12 col-lg-10 col-xl-8", href: "/resume" },
-                                    React.createElement("h2", null, "More about Me")))),
+                                    React.createElement("h3", null, "More about Me")))),
                         React.createElement("div", { className: "d-md-none text-center my-5" },
                             React.createElement("a", { className: "btn btn-outline-primary px-2 py-2 mb-3 col-8", href: "/redux-game" },
-                                React.createElement("h3", null, "A Screct Cat")),
+                                React.createElement("h4", null, "The Shining Cat")),
                             React.createElement("a", { className: "btn btn-outline-primary px-2 py-2 col-8", href: "/resume" },
-                                React.createElement("h3", null, "More"))))))));
+                                React.createElement("h4", null, "More about Me"))))))));
     };
     return PageIndex;
 }(React.Component));
