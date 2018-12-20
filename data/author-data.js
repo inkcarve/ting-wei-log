@@ -1,5 +1,5 @@
 var appLink = 'https://drive.google.com/open?id=1ixrg8WhWQChR_KTav5_e2EvtQomoCQ_D';
-var badgeNew = ' <span class=\"badge badge-primary text-white\">new</span>';
+var badgeNew = ' <span class=\"badge badge-primary text-white print-d-none\">new</span>';
 export default {
     basic: [
         { title: "姓名", titleEn: "Name", detail: " 林庭瑋 / Ting Wei Lin" },
@@ -96,22 +96,22 @@ export default {
         {
             title: "ReactNative Demo App (Renew Code-push)",
             titleEn: "",
-            detail: '從 Google Driver <a href="' + appLink + '" target="_blank">下載</a>，（只是作品並非產品，未上架 App Store，因此只提供 Android版本下載）'
+            detail: '從 Google Driver <a href="' + appLink + '" target="_blank"><span class="print-d-none">下載</span><span class="print-d-inlined-none ">https://drive.google.com/open?id=1ixrg8WhWQChR_KTav5_e2EvtQomoCQ_D</span></a>，（只是作品並非產品，未上架 App Store，因此只提供 Android版本下載）'
         },
         {
             title: "Road of Ting Wei",
             titleEn: "(Heroku 免費空間連不上或比較慢請見諒)",
-            detail: '<a href="https://road-of-ting-wei.herokuapp.com" target="_blank">Here</a>'
+            detail: '<a href="https://road-of-ting-wei.herokuapp.com" target="_blank"><span class="print-d-none">Here</span><span class="d-none print-d-inline">https://road-of-ting-wei.herokuapp.com</span></a>'
         },
         {
             title: "HSBC信用卡線上開戶",
             titleEn: "",
-            detail: '<a href="https://card.apply.hsbc.com.tw/hsbcoa/credit_card/select_your_card" target="_blank">Go Now!</a>'
+            detail: '<a href="https://card.apply.hsbc.com.tw/hsbcoa/credit_card/select_your_card" target="_blank"><span class="print-d-none">Go Now!</span><span class="d-none print-d-inline">https://card.apply.hsbc.com.tw/hsbcoa/oaadd</span></a>'
         },
         {
             title: "舊的個人網站",
             titleEn: "Old Personal Web Site(2015~2016)",
-            detail: '<a href="http://vincent0423.byethost3.com/index.html" target="_blank">Are You Sure want to go ?</a>'
+            detail: '<a href="http://vincent0423.byethost3.com/index.html" target="_blank"><span class="print-d-none">Are You Sure want to go ?</span><span class="d-none print-d-inline">http://vincent0423.byethost3.com/index.html</span></a>'
         }
     ],
     jobs: [
