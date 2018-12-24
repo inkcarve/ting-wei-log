@@ -109,7 +109,7 @@ export default {
         {
             title: "ReactNative Demo App (Renew Code-push)",
             titleEn: "",
-            detail: 'Doenload from <a href="' + appLink + '" target="_blank"><span class="print-d-none">Google Driver</span><span class="print-d-inline d-none ">https://drive.google.com/open?id=1ixrg8WhWQChR_KTav5_e2EvtQomoCQ_D</span></a>, Not Upload to App Store. Only Android version support download.'
+            detail: 'Download from <a href="' + appLink + '" target="_blank"><span class="print-d-none">Google Driver</span><span class="print-d-inline d-none ">https://drive.google.com/open?id=1ixrg8WhWQChR_KTav5_e2EvtQomoCQ_D</span></a>, Not Upload to App Store. Only Android version support download.'
         },
         {
             title: "Road of Ting Wei",

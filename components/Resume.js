@@ -41,27 +41,26 @@ var Resume = (function (_super) {
                             React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(obj.content) })))));
             });
         };
+        _this.mapDetailListItems = function (lists) {
+            return lists.map(function (obj, i) {
+                return (React.createElement("div", { key: i },
+                    React.createElement("h5", { className: "font-weight-normal title" },
+                        React.createElement("div", { className: "mb-1" }, obj.title ||
+                            (obj.titleEn && (React.createElement("span", null,
+                                obj.title,
+                                React.createElement("small", { className: "pl-1" },
+                                    obj.titleEn,
+                                    " :"))))),
+                        React.createElement("div", { className: "small detail" },
+                            React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(obj.detail) }))),
+                    React.createElement("div", { className: "detail-list" },
+                        React.createElement("h5", null, obj.listGroupTitle),
+                        obj.listGroup && (React.createElement(ListGroup, { className: "mb-4" }, _this.mapListGroupItem(obj.listGroup))))));
+            });
+        };
         return _this;
     }
     Resume.prototype.componentDidMount = function () { };
-    Resume.prototype.mapDetailListItems = function (lists) {
-        var _this = this;
-        return lists.map(function (obj, i) {
-            return (React.createElement("div", { key: i },
-                React.createElement("h5", { className: "font-weight-normal title" },
-                    React.createElement("div", { className: "mb-1" }, obj.title ||
-                        (obj.titleEn && (React.createElement("span", null,
-                            obj.title,
-                            React.createElement("small", { className: "pl-1" },
-                                obj.titleEn,
-                                " :"))))),
-                    React.createElement("div", { className: "small detail" },
-                        React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(obj.detail) }))),
-                React.createElement("div", { className: "detail-list" },
-                    React.createElement("h5", null, obj.listGroupTitle),
-                    obj.listGroup && (React.createElement(ListGroup, { className: "mb-4" }, _this.mapListGroupItem(obj.listGroup))))));
-        });
-    };
     Resume.prototype.print = function () {
         if (document.execCommand("print")) {
             return;

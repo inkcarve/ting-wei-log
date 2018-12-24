@@ -50,7 +50,7 @@ class Resume extends React.Component<any, any> {
     });
   }
 
-  private mapDetailListItems(lists) {
+  private mapDetailListItems = (lists:any)=> {
     return lists.map((obj, i) => {
       return (
         <div key={i}>

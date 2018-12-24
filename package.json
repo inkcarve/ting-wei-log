@@ -12,7 +12,7 @@
     "dev": "export NODE_ENV=dev && concurrently \"tsc --pretty --watch\" \"nodemon ./server/server.js\" ",
     "prebuild": "yarn tsc",
     "build": "next build",
-    "start": "next build && export NODE_ENV=production && node server/server.js"
+    "start": "next build && NODE_ENV=production node server/server.js"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.2.3",
