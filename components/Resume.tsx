@@ -28,7 +28,7 @@ class Resume extends React.Component<any, any> {
     super(props);
   }
 
-  private mapListGroupItem(lists) {
+  private mapListGroupItem=(lists:any) => {
     return lists.map((obj, i) => {
       return (
         <ListGroupItem key={i}>
@@ -123,7 +123,7 @@ class Resume extends React.Component<any, any> {
                 </h2>
                 <h6 className="text-muted font-weight-light print-d-none">
                   {/* 一個想跨足React-Native的網頁前端工程師 */}
-                  {this.mapDetailListItems(this.authorData.info)}
+                  {this.authorData && this.mapDetailListItems(this.authorData.info)}
                 </h6>
                 {/* <button className="btn btn-primary" onClick={()=>this.html2pdf('resume1')}></button> */}
               </div>
@@ -140,14 +140,14 @@ class Resume extends React.Component<any, any> {
               <div className="pl-md-4 col-12 col-md-8 col-lg-9 col-xl-10 detail-list">
                 <div className="col-12">
                   <h4 className="mb-3 detail-list-title section-title">
-                    {this.authorData.bigTitle.personalData}
+                    {this.authorData && this.authorData.bigTitle.personalData}
                   </h4>
                   <div className="row">
                     <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                      {this.mapDetailListItems(this.authorData.basic)}
+                      {this.authorData && this.mapDetailListItems(this.authorData.basic)}
                     </div>
                     <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                      {this.mapDetailListItems(this.authorData.contact)}
+                      {this.authorData && this.mapDetailListItems(this.authorData.contact)}
                     </div>
                   </div>
                 </div>
@@ -161,7 +161,7 @@ class Resume extends React.Component<any, any> {
                     {this.authorData.bigTitle.summary}
                   </h4>
                   {/* {this.mapDetailListItems(this.authorData.summary)} */}
-                  {this.authorData.summary.map((obj, i) => (
+                  {this.authorData && this.authorData.summary.map((obj, i) => (
                     <h5 className="title small font-weight-normal mb-2" key={i}>{obj.detail}</h5>
                   ))}
                   <hr className="my-4 mx-0" />
@@ -170,7 +170,7 @@ class Resume extends React.Component<any, any> {
                   <h4 className="mb-3 detail-list-title section-title">
                     {this.authorData.bigTitle.education}
                   </h4>
-                  {this.mapDetailListItems(this.authorData.education)}
+                  {this.authorData && this.mapDetailListItems(this.authorData.education)}
                   <hr className="my-4 mx-0" />
                 </div>
 
@@ -178,7 +178,7 @@ class Resume extends React.Component<any, any> {
                   <h4 className="mb-3 detail-list-title section-title">
                     {this.authorData.bigTitle.jobs}
                   </h4>
-                  {this.mapDetailListItems(this.authorData.jobs)}
+                  {this.authorData && this.mapDetailListItems(this.authorData.jobs)}
                   <hr className="my-4 mx-0" />
                 </div>
               </div>
@@ -188,14 +188,14 @@ class Resume extends React.Component<any, any> {
                   <h4 className="mb-3 detail-list-title section-title">
                     {this.authorData.bigTitle.skill}
                   </h4>
-                  {this.mapDetailListItems(this.authorData.skill)}
+                  {this.authorData && this.mapDetailListItems(this.authorData.skill)}
                   <hr className="my-4 mx-0" />
                 </div>
                 <div className="col-12 d-flex flex-column justify-content-center detail-list">
                   <h4 className="mb-3 detail-list-title section-title">
                     {this.authorData.bigTitle.otherSkill}
                   </h4>
-                  {this.mapDetailListItems(this.authorData.otherSkill)}
+                  {this.authorData && this.mapDetailListItems(this.authorData.otherSkill)}
                   <hr className="my-4 mx-0" />
                 </div>
               </div>
@@ -205,14 +205,14 @@ class Resume extends React.Component<any, any> {
                   <h4 className="mb-3 detail-list-title section-title">
                     {this.authorData.bigTitle.projects}
                   </h4>
-                  {this.mapDetailListItems(this.authorData.projects)}
+                  {this.authorData && this.mapDetailListItems(this.authorData.projects)}
                   <hr className="my-4 mx-0" />
                 </div>
                 <div className="col-12 d-flex flex-column justify-content-center detail-list">
                   <h4 className="mb-3 detail-list-title section-title">
                     {this.authorData.bigTitle.pay}
                   </h4>
-                  {this.mapDetailListItems(this.authorData.pay)}
+                  {this.authorData && this.mapDetailListItems(this.authorData.pay)}
                   <hr className="my-4 mx-0" />
                 </div>
                 <div className="col-12 d-flex flex-column justify-content-center detail-list">

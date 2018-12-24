@@ -91,7 +91,7 @@ export default {
     {
       title: "Other",
       titleEn: "",
-      detail: `redux${badgeNew}, Webpack, Jquery, NodeJs+Express, mobx...還有其他插件`,
+      detail: `redux${badgeNew}, Webpack, Jquery, NodeJs+Express, mobx...`,
       listGroup: [
         // {
         //     title:'ReactNative',
@@ -119,7 +119,7 @@ export default {
       title: "ReactNative Demo App (Renew Code-push)",
       titleEn: "",
       detail:
-        'Doenload from <a href="'+appLink+'" target="_blank"><span class="print-d-none">Google Driver</span><span class="print-d-inlined-none ">https://drive.google.com/open?id=1ixrg8WhWQChR_KTav5_e2EvtQomoCQ_D</span></a>, Not Upload to App Store. Only Android version support download.'
+        'Doenload from <a href="'+appLink+'" target="_blank"><span class="print-d-none">Google Driver</span><span class="print-d-inline d-none ">https://drive.google.com/open?id=1ixrg8WhWQChR_KTav5_e2EvtQomoCQ_D</span></a>, Not Upload to App Store. Only Android version support download.'
     },
     {
       title: "Road of Ting Wei",

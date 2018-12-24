@@ -109,7 +109,7 @@ export default {
         {
             title: "ReactNative Demo App (Renew Code-push)",
             titleEn: "",
-            detail: '從 Google Driver <a href="' + appLink + '" target="_blank"><span class="print-d-none">下載</span><span class="print-d-inlined-none ">https://drive.google.com/open?id=1ixrg8WhWQChR_KTav5_e2EvtQomoCQ_D</span></a>，（只是作品並非產品，未上架 App Store，因此只提供 Android版本下載）'
+            detail: '從 Google Driver <a href="' + appLink + '" target="_blank"><span class="print-d-none">下載</span><span class="print-d-inline d-none ">https://drive.google.com/open?id=1ixrg8WhWQChR_KTav5_e2EvtQomoCQ_D</span></a>，（只是作品並非產品，未上架 App Store，因此只提供 Android版本下載）'
         },
         {
             title: "Road of Ting Wei",
