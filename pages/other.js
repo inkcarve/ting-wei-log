@@ -17,7 +17,7 @@ var Counter = (function (_super) {
     __extends(Counter, _super);
     function Counter(props) {
         var _this = _super.call(this, props) || this;
-        _this.store = initStore(props.isServer, props.lastUpdate);
+        _this.store = initStore(false, props.lastUpdate);
         return _this;
     }
     Counter.getInitialProps = function (_a) {

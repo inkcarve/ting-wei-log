@@ -30,7 +30,7 @@ class ReduxTask extends React.Component<any, any> {
                 <div className="col-12 mb-md-4 text-right">
                   <h2 className="d-inline-block print-d-none text-primary">亮晶晶的小貓</h2><br/>
                   <h6 className="text-muted font-weight-light d-inline-block border-bottom pl-4 pb-2">
-                  <span className="text-warning">The Shining Cat</span><br/>
+                  <span className="text-warning">The Shining Cat (Not support english content now)</span><br/>
                     <small>一個建立在 Redux 與 React-Redux 的遊戲</small>
                     <div className=""/>
                   </h6>                  

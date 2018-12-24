@@ -8,27 +8,35 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import * as React from 'react';
-import { Provider } from 'mobx-react';
-import { initStore } from '../store/store';
-import Resume from '../components/Resume';
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+import * as React from "react";
+import { Provider, observer } from "mobx-react";
+import { initStore } from "../store/store";
+import Resume from "../components/Resume";
 var PageResume = (function (_super) {
     __extends(PageResume, _super);
     function PageResume(props) {
         var _this = _super.call(this, props) || this;
-        _this.store = initStore(props.isServer, props.lastUpdate);
+        _this.store = initStore(typeof window === undefined, props.lastUpdate);
         return _this;
     }
-    PageResume.getInitialProps = function (_a) {
-        var req = _a.req;
-        var isServer = !!req;
+    PageResume.getInitialProps = function () {
+        var isServer = typeof window === undefined;
         var store = initStore(isServer);
         return { lastUpdate: store.lastUpdate, isServer: isServer };
     };
     PageResume.prototype.render = function () {
         return (React.createElement(Provider, { store: this.store },
-            React.createElement(Resume, null)));
+            React.createElement(Resume, { store: this.store })));
     };
+    PageResume = __decorate([
+        observer
+    ], PageResume);
     return PageResume;
 }(React.Component));
 export default PageResume;

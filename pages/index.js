@@ -12,18 +12,19 @@ import * as React from "react";
 import { Provider } from "mobx-react";
 import { initStore } from "../store/store";
 import './index.scss';
+import { withNamespaces } from '../i18n/i18n';
 var PageIndex = (function (_super) {
     __extends(PageIndex, _super);
     function PageIndex(props) {
         var _this = _super.call(this, props) || this;
-        _this.store = initStore(props.isServer, props.lastUpdate);
+        _this.store = initStore(typeof window === undefined, props.lastUpdate);
         return _this;
     }
     PageIndex.getInitialProps = function (_a) {
         var req = _a.req;
-        var isServer = !!req;
+        var isServer = typeof window === undefined;
         var store = initStore(isServer);
-        return { lastUpdate: store.lastUpdate, isServer: isServer };
+        return { lastUpdate: store.lastUpdate, isServer: isServer, namespacesRequired: ['common', 'Index'] };
     };
     PageIndex.prototype.render = function () {
         return (React.createElement(Provider, { store: this.store },
@@ -33,9 +34,9 @@ var PageIndex = (function (_super) {
                         React.createElement("div", { className: "embed-responsive embed-responsive-16by9 position-relative index-bg-box d-flex align-items-center" },
                             React.createElement("div", { className: "d-none d-md-block col-md-5 text-right" },
                                 React.createElement("a", { className: "btn btn-outline-light mr-4 px-md-5 py-md-4 mb-3 col-md-12 col-lg-10 col-xl-8", href: "/redux-game" },
-                                    React.createElement("h3", null, "The Shining Cat")),
+                                    React.createElement("h3", null, this.props.t('reduxGame'))),
                                 React.createElement("a", { className: "btn btn-outline-light mr-4 px-md-5 py-md-4 col-md-12 col-lg-10 col-xl-8", href: "/resume" },
-                                    React.createElement("h3", null, "More about Me")))),
+                                    React.createElement("h3", null, this.props.t('author'))))),
                         React.createElement("div", { className: "d-md-none text-center my-5" },
                             React.createElement("a", { className: "btn btn-outline-primary px-2 py-2 mb-3 col-8", href: "/redux-game" },
                                 React.createElement("h4", null, "The Shining Cat")),
@@ -44,5 +45,5 @@ var PageIndex = (function (_super) {
     };
     return PageIndex;
 }(React.Component));
-export default PageIndex;
+export default withNamespaces(['Index', 'common'])(PageIndex);
 //# sourceMappingURL=index.js.map

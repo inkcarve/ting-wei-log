@@ -11,29 +11,33 @@ var __extends = (this && this.__extends) || (function () {
 import * as React from "react";
 import { Provider } from "mobx-react";
 import { initStore } from "../store/store";
+import { withNamespaces } from '../i18n/i18n';
 var PageAbout = (function (_super) {
     __extends(PageAbout, _super);
     function PageAbout(props) {
         var _this = _super.call(this, props) || this;
-        _this.store = initStore(props.isServer, props.lastUpdate);
+        _this.store = initStore(typeof window === undefined, props.lastUpdate);
         return _this;
     }
-    PageAbout.getInitialProps = function (_a) {
-        var req = _a.req;
-        var isServer = !!req;
+    PageAbout.getInitialProps = function () {
+        var isServer = !typeof window === undefined;
         var store = initStore(isServer);
-        return { lastUpdate: store.lastUpdate, isServer: isServer };
+        return { lastUpdate: store.lastUpdate, isServer: isServer, namespacesRequired: ['About'] };
     };
     PageAbout.prototype.render = function () {
         return (React.createElement(Provider, { store: this.store },
             React.createElement("div", null,
                 React.createElement("div", { className: "container-fluid pt-4" },
-                    React.createElement("h3", null, "Website :"),
+                    React.createElement("h3", null,
+                        this.props.t('website'),
+                        " :"),
                     React.createElement("h5", { className: "text-primary font-weight-normal mb-4" }, "ReactJs + NextJs + reactstrap + typescript + bootstrap4 + mobx + mobx-react"),
-                    React.createElement("h3", null, "The Shining Cat : "),
+                    React.createElement("h3", null,
+                        this.props.t('reduxGame'),
+                        " : "),
                     React.createElement("h5", { className: "text-primary font-weight-normal" }, "ReactJs + NextJs + reactstrap + typescript + bootstrap4 + redux + react-redux")))));
     };
     return PageAbout;
 }(React.Component));
-export default PageAbout;
+export default withNamespaces('About')(PageAbout);
 //# sourceMappingURL=about.js.map

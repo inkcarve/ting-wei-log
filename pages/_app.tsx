@@ -1,26 +1,25 @@
 import * as  React from 'react'
 import App, { Container } from 'next/app'
-import  Nav from '../components/Nav';
+import Nav from '../components/Nav';
+import { appWithTranslation } from '../i18n/i18n';
 import '../scss/core.scss';
 
-export default class MyApp extends App {
-  static async getInitialProps({ Component, router, ctx }) {
-    let pageProps = {}
+class MyApp extends App {
+  // static async getInitialProps({ Component, router, ctx }) {
+  //   let pageProps = {}
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
-    }
+  //   if (Component.getInitialProps) {
+  //     pageProps = await Component.getInitialProps(ctx)
+  //   }
 
-    return { pageProps }
-  }
+  //   return { ...pageProps}
+  // }
 
-  render () {
+  render() {
     const { Component, pageProps } = this.props
-
     return (
       <Container>
-        
-        <Nav />
+        <Nav/>
         <div className="main print-pt-0 print-mt-5">
         <Component {...pageProps} />
         </div>
@@ -28,3 +27,5 @@ export default class MyApp extends App {
     )
   }
 }
+
+export default appWithTranslation(MyApp)

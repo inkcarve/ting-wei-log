@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Provider } from "mobx-react";
+import { Provider, observer, inject } from "mobx-react";
 import "./Resume.scss";
 import {
   ListGroup,
@@ -10,31 +10,29 @@ import {
 import { initStore } from "../store/store";
 import { dangeriousHtmlMarkup } from "../common/html-service";
 import PrintTopNav from "../components/PrintTopNav";
+import { i18n, Link, withNamespaces } from "../i18n/i18n";
+import { observable, action } from "mobx";
+import authorData from "data/author-data";
+
 const printSvg = require("../static/image/_ionicons_svg_md-print.svg");
 const downloadSvg = require("../static/image/_ionicons_svg_md-download.svg");
 // import { html2pdf } from '../common/html2pdf';
+@inject("store")
+@observer
+class Resume extends React.Component<any, any> {
+  public authorData: any;
 
-export default class Resume extends React.Component<any, any> {
-  // private jj:string='ll';
-  private store: any;
-  private authorData: any;
-  static getInitialProps({ req }: { req: any }) {
-    const isServer = !!req;
-    const store = initStore(isServer);
-    return { lastUpdate: store.lastUpdate, isServer };
-  }
+  componentDidMount() {}
 
-  constructor(props: any) {
+  constructor(props) {
     super(props);
-    this.store = initStore(props.isServer, props.lastUpdate);
-    this.authorData = this.store.authorData;
   }
 
   private mapListGroupItem(lists) {
     return lists.map((obj, i) => {
       return (
         <ListGroupItem key={i}>
-          <h5 className="font-weight-normal title">
+          <h5 className="font-weight-normal title mb-2">
             <div>
               <h5 className="mb-1">
                 {obj.title}
@@ -92,135 +90,141 @@ export default class Resume extends React.Component<any, any> {
   // }
 
   print() {
-    if ( document.execCommand( 'print' ) ) {return;}
+    if (document.execCommand("print")) {
+      return;
+    }
     window.print();
   }
 
   render() {
+    this.authorData = this.props.store.authorData;
     return (
-      <Provider store={this.store}>
-        <div className="resume pt-4 print-pt-0">
-          <a
-            className="btn btn-outline-primary btn-tools btn-download print-d-none"
-            href={"static/file/Road of Ting-Wei.pdf?" + Date.now()}
-            target="_blank"
-          >
-            <div dangerouslySetInnerHTML={dangeriousHtmlMarkup(downloadSvg)} />
-          </a>
-          <button
-            className="btn btn-outline-primary btn-tools btn-print print-d-none"
-            onClick={e => this.print(e)}
-          >
-            <div dangerouslySetInnerHTML={dangeriousHtmlMarkup(printSvg)} />
-          </button>
-          <section className="header">
-            <PrintTopNav />
-            <div className="container-fluid">
-              <div className="row">
-                <div className="col-12 mb-3 text-right">
-                  <h2 className="d-inline-block print-d-none">關於我</h2>
-                  <h6 className="text-muted font-weight-light">
-                    一個想跨足React-Native的網頁前端工程師
-                  </h6>
-                  {/* <button className="btn btn-primary" onClick={()=>this.html2pdf('resume1')}></button> */}
+      <div className="resume pt-4 print-pt-0">
+        <a
+          className="btn btn-outline-primary btn-tools btn-download print-d-none"
+          href={`${this.authorData.pdfSrc}?${Date.now()}`}
+          target="_blank"
+        >
+          <div dangerouslySetInnerHTML={dangeriousHtmlMarkup(downloadSvg)} />
+        </a>
+        <button
+          className="btn btn-outline-primary btn-tools btn-print print-d-none"
+          onClick={e => this.print(e)}
+        >
+          <div dangerouslySetInnerHTML={dangeriousHtmlMarkup(printSvg)} />
+        </button>
+        <section className="header">
+          <PrintTopNav />
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-12 mb-3 text-right">
+                <h2 className="d-inline-block print-d-none">
+                  {this.authorData.bigTitle.about}
+                </h2>
+                <h6 className="text-muted font-weight-light print-d-none">
+                  {/* 一個想跨足React-Native的網頁前端工程師 */}
+                  {this.mapDetailListItems(this.authorData.info)}
+                </h6>
+                {/* <button className="btn btn-primary" onClick={()=>this.html2pdf('resume1')}></button> */}
+              </div>
+            </div>
+            <div className="row align-items-center">
+              <div className="col-12 col-md-4 col-lg-3 col-xl-2 image-box mb-5">
+                <div className="col-12">
+                  <img
+                    src="static/image/me.jpg"
+                    className="img-fluid img-me img-thumbnail rounded-circle"
+                  />
                 </div>
               </div>
-              <div className="row align-items-center">
-                <div className="col-12 col-md-4 col-lg-3 col-xl-2 image-box mb-5">
-                  <div className="col-12">
-                    <img
-                      src="static/image/me.jpg"
-                      className="img-fluid img-me img-thumbnail rounded-circle"
-                    />
-                  </div>
-                </div>
-                <div className="pl-md-4 col-12 col-md-8 col-lg-9 col-xl-10 detail-list">
-                  <div className="col-12">
-                    <h4 className="mb-3 detail-list-title section-title">
-                      基本資料 / PERSONAL DATA
-                    </h4>
-                    <div className="row">
-                      <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                        {this.mapDetailListItems(this.authorData.basic)}
-                      </div>
-                      <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                        {this.mapDetailListItems(this.authorData.contact)}
-                      </div>
+              <div className="pl-md-4 col-12 col-md-8 col-lg-9 col-xl-10 detail-list">
+                <div className="col-12">
+                  <h4 className="mb-3 detail-list-title section-title">
+                    {this.authorData.bigTitle.personalData}
+                  </h4>
+                  <div className="row">
+                    <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                      {this.mapDetailListItems(this.authorData.basic)}
+                    </div>
+                    <div className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                      {this.mapDetailListItems(this.authorData.contact)}
                     </div>
                   </div>
                 </div>
-                <hr className="my-4 mx-0" />
               </div>
-              <div className="row page-break-box">
-                <div className="col-12 col-lg-6">
-                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
-                    <h4 className="mb-3 detail-list-title section-title">
-                      自述 / ABOUT ME
-                    </h4>
-                    {this.mapDetailListItems(this.authorData.info)}
-                    <hr className="my-4 mx-0" />
-                  </div>
-                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
-                    <h4 className="mb-3 detail-list-title section-title">
-                      學歷 / EDUCATION
-                    </h4>
-                    {this.mapDetailListItems(this.authorData.education)}
-                    <hr className="my-4 mx-0" />
-                  </div>
-                  
-                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
-                    <h4 className="mb-3 detail-list-title section-title">
-                      工作經驗 / WORK EXPERIENCE
-                    </h4>
-                    {this.mapDetailListItems(this.authorData.jobs)}
-                    <hr className="my-4 mx-0" />
-                  </div>
-                  
+              <hr className="my-4 mx-0" />
+            </div>
+            <div className="row page-break-box">
+              <div className="col-12 col-lg-6">
+                <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                  <h4 className="mb-3 detail-list-title section-title">
+                    {this.authorData.bigTitle.summary}
+                  </h4>
+                  {/* {this.mapDetailListItems(this.authorData.summary)} */}
+                  {this.authorData.summary.map((obj, i) => (
+                    <h5 className="title small font-weight-normal mb-2" key={i}>{obj.detail}</h5>
+                  ))}
+                  <hr className="my-4 mx-0" />
                 </div>
-                <PrintTopNav />
-                <div className="col-12 col-lg-6">
-                
-                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
-                    <h4 className="mb-3 detail-list-title section-title">
-                      前端相關技能 / FRONTEND SKILL
-                    </h4>
-                    {this.mapDetailListItems(this.authorData.skill)}
-                    <hr className="my-4 mx-0" />
-                  </div>
-                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
-                    <h4 className="mb-3 detail-list-title section-title">
-                      非前端相關技能 / OTHER SKILL
-                    </h4>
-                    {this.mapDetailListItems(this.authorData.otherSkill)}
-                    <hr className="my-4 mx-0" />
-                  </div>
-                </div>
-                <PrintTopNav />
-                <div className="col-12 col-lg-6">
-                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
-                    <h4 className="mb-3 detail-list-title section-title">
-                      公開作品或專案 / ＷORKS OR PROJECTS
-                    </h4>
-                    {this.mapDetailListItems(this.authorData.projects)}
-                    <hr className="my-4 mx-0" />
-                  </div>
-                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
-                    <h4 className="mb-3 detail-list-title section-title">
-                      希望待遇 / EXPECTED SALARY
-                    </h4>
-                    {this.mapDetailListItems(this.authorData.pay)}
-                    <hr className="my-4 mx-0" />
-                  </div>
-                  <div className="col-12 d-flex flex-column justify-content-center detail-list">
-                    <h4 className="mb-3 detail-list-title section-title">
-                      自傳 / AUTOBIOGRAPHY
-                    </h4>
-                    {this.mapDetailListItems(this.authorData.autobiography)}
-                    <hr className="my-4 mx-0" />
-                  </div>
+                <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                  <h4 className="mb-3 detail-list-title section-title">
+                    {this.authorData.bigTitle.education}
+                  </h4>
+                  {this.mapDetailListItems(this.authorData.education)}
+                  <hr className="my-4 mx-0" />
                 </div>
 
-                {/*                <div className="col-12 col-lg-6 d-none print-d-block">
+                <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                  <h4 className="mb-3 detail-list-title section-title">
+                    {this.authorData.bigTitle.jobs}
+                  </h4>
+                  {this.mapDetailListItems(this.authorData.jobs)}
+                  <hr className="my-4 mx-0" />
+                </div>
+              </div>
+              <PrintTopNav />
+              <div className="col-12 col-lg-6">
+                <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                  <h4 className="mb-3 detail-list-title section-title">
+                    {this.authorData.bigTitle.skill}
+                  </h4>
+                  {this.mapDetailListItems(this.authorData.skill)}
+                  <hr className="my-4 mx-0" />
+                </div>
+                <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                  <h4 className="mb-3 detail-list-title section-title">
+                    {this.authorData.bigTitle.otherSkill}
+                  </h4>
+                  {this.mapDetailListItems(this.authorData.otherSkill)}
+                  <hr className="my-4 mx-0" />
+                </div>
+              </div>
+              <PrintTopNav />
+              <div className="col-12 col-lg-6">
+                <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                  <h4 className="mb-3 detail-list-title section-title">
+                    {this.authorData.bigTitle.projects}
+                  </h4>
+                  {this.mapDetailListItems(this.authorData.projects)}
+                  <hr className="my-4 mx-0" />
+                </div>
+                <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                  <h4 className="mb-3 detail-list-title section-title">
+                    {this.authorData.bigTitle.pay}
+                  </h4>
+                  {this.mapDetailListItems(this.authorData.pay)}
+                  <hr className="my-4 mx-0" />
+                </div>
+                <div className="col-12 d-flex flex-column justify-content-center detail-list">
+                  <h4 className="mb-3 detail-list-title section-title">
+                    {this.authorData.bigTitle.autobiography}
+                  </h4>
+                  {this.mapDetailListItems(this.authorData.autobiography)}
+                  <hr className="my-4 mx-0" />
+                </div>
+              </div>
+
+              {/*                <div className="col-12 col-lg-6 d-none print-d-block">
                   <div className="col-12 d-flex flex-column justify-content-center detail-list">
                     <h4 className="mb-3 detail-list-title section-title">
                       自傳 / AUTOBIOGRAPHY
@@ -229,11 +233,12 @@ export default class Resume extends React.Component<any, any> {
                     <hr className="my-4 mx-0" />
                   </div>
                 </div>*/}
-              </div>
             </div>
-          </section>
-        </div>
-      </Provider>
+          </div>
+        </section>
+      </div>
     );
   }
 }
+
+export default withNamespaces("common")(Resume);

@@ -8,33 +8,31 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 import * as React from "react";
-import { Provider } from "mobx-react";
+import { observer, inject } from "mobx-react";
 import "./Resume.scss";
 import { ListGroup, ListGroupItem } from "reactstrap";
-import { initStore } from "../store/store";
 import { dangeriousHtmlMarkup } from "../common/html-service";
 import PrintTopNav from "../components/PrintTopNav";
+import { withNamespaces } from "../i18n/i18n";
 var printSvg = require("../static/image/_ionicons_svg_md-print.svg");
 var downloadSvg = require("../static/image/_ionicons_svg_md-download.svg");
 var Resume = (function (_super) {
     __extends(Resume, _super);
     function Resume(props) {
-        var _this = _super.call(this, props) || this;
-        _this.store = initStore(props.isServer, props.lastUpdate);
-        _this.authorData = _this.store.authorData;
-        return _this;
+        return _super.call(this, props) || this;
     }
-    Resume.getInitialProps = function (_a) {
-        var req = _a.req;
-        var isServer = !!req;
-        var store = initStore(isServer);
-        return { lastUpdate: store.lastUpdate, isServer: isServer };
-    };
+    Resume.prototype.componentDidMount = function () { };
     Resume.prototype.mapListGroupItem = function (lists) {
         return lists.map(function (obj, i) {
             return (React.createElement(ListGroupItem, { key: i },
-                React.createElement("h5", { className: "font-weight-normal title" },
+                React.createElement("h5", { className: "font-weight-normal title mb-2" },
                     React.createElement("div", null,
                         React.createElement("h5", { className: "mb-1" },
                             obj.title,
@@ -64,77 +62,81 @@ var Resume = (function (_super) {
         });
     };
     Resume.prototype.print = function () {
-        if (document.execCommand('print')) {
+        if (document.execCommand("print")) {
             return;
         }
         window.print();
     };
     Resume.prototype.render = function () {
         var _this = this;
-        return (React.createElement(Provider, { store: this.store },
-            React.createElement("div", { className: "resume pt-4 print-pt-0" },
-                React.createElement("a", { className: "btn btn-outline-primary btn-tools btn-download print-d-none", href: "static/file/Road of Ting-Wei.pdf?" + Date.now(), target: "_blank" },
-                    React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(downloadSvg) })),
-                React.createElement("button", { className: "btn btn-outline-primary btn-tools btn-print print-d-none", onClick: function (e) { return _this.print(e); } },
-                    React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(printSvg) })),
-                React.createElement("section", { className: "header" },
-                    React.createElement(PrintTopNav, null),
-                    React.createElement("div", { className: "container-fluid" },
-                        React.createElement("div", { className: "row" },
-                            React.createElement("div", { className: "col-12 mb-3 text-right" },
-                                React.createElement("h2", { className: "d-inline-block print-d-none" }, "\u95DC\u65BC\u6211"),
-                                React.createElement("h6", { className: "text-muted font-weight-light" }, "\u4E00\u500B\u60F3\u8DE8\u8DB3React-Native\u7684\u7DB2\u9801\u524D\u7AEF\u5DE5\u7A0B\u5E2B"))),
-                        React.createElement("div", { className: "row align-items-center" },
-                            React.createElement("div", { className: "col-12 col-md-4 col-lg-3 col-xl-2 image-box mb-5" },
-                                React.createElement("div", { className: "col-12" },
-                                    React.createElement("img", { src: "static/image/me.jpg", className: "img-fluid img-me img-thumbnail rounded-circle" }))),
-                            React.createElement("div", { className: "pl-md-4 col-12 col-md-8 col-lg-9 col-xl-10 detail-list" },
-                                React.createElement("div", { className: "col-12" },
-                                    React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u57FA\u672C\u8CC7\u6599 / PERSONAL DATA"),
-                                    React.createElement("div", { className: "row" },
-                                        React.createElement("div", { className: "col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" }, this.mapDetailListItems(this.authorData.basic)),
-                                        React.createElement("div", { className: "col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" }, this.mapDetailListItems(this.authorData.contact))))),
-                            React.createElement("hr", { className: "my-4 mx-0" })),
-                        React.createElement("div", { className: "row page-break-box" },
-                            React.createElement("div", { className: "col-12 col-lg-6" },
-                                React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
-                                    React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u81EA\u8FF0 / ABOUT ME"),
-                                    this.mapDetailListItems(this.authorData.info),
-                                    React.createElement("hr", { className: "my-4 mx-0" })),
-                                React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
-                                    React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u5B78\u6B77 / EDUCATION"),
-                                    this.mapDetailListItems(this.authorData.education),
-                                    React.createElement("hr", { className: "my-4 mx-0" })),
-                                React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
-                                    React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u5DE5\u4F5C\u7D93\u9A57 / WORK EXPERIENCE"),
-                                    this.mapDetailListItems(this.authorData.jobs),
-                                    React.createElement("hr", { className: "my-4 mx-0" }))),
-                            React.createElement(PrintTopNav, null),
-                            React.createElement("div", { className: "col-12 col-lg-6" },
-                                React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
-                                    React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u524D\u7AEF\u76F8\u95DC\u6280\u80FD / FRONTEND SKILL"),
-                                    this.mapDetailListItems(this.authorData.skill),
-                                    React.createElement("hr", { className: "my-4 mx-0" })),
-                                React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
-                                    React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u975E\u524D\u7AEF\u76F8\u95DC\u6280\u80FD / OTHER SKILL"),
-                                    this.mapDetailListItems(this.authorData.otherSkill),
-                                    React.createElement("hr", { className: "my-4 mx-0" }))),
-                            React.createElement(PrintTopNav, null),
-                            React.createElement("div", { className: "col-12 col-lg-6" },
-                                React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
-                                    React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u516C\u958B\u4F5C\u54C1\u6216\u5C08\u6848 / \uFF37ORKS OR PROJECTS"),
-                                    this.mapDetailListItems(this.authorData.projects),
-                                    React.createElement("hr", { className: "my-4 mx-0" })),
-                                React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
-                                    React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u5E0C\u671B\u5F85\u9047 / EXPECTED SALARY"),
-                                    this.mapDetailListItems(this.authorData.pay),
-                                    React.createElement("hr", { className: "my-4 mx-0" })),
-                                React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
-                                    React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, "\u81EA\u50B3 / AUTOBIOGRAPHY"),
-                                    this.mapDetailListItems(this.authorData.autobiography),
-                                    React.createElement("hr", { className: "my-4 mx-0" })))))))));
+        this.authorData = this.props.store.authorData;
+        return (React.createElement("div", { className: "resume pt-4 print-pt-0" },
+            React.createElement("a", { className: "btn btn-outline-primary btn-tools btn-download print-d-none", href: this.authorData.pdfSrc + "?" + Date.now(), target: "_blank" },
+                React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(downloadSvg) })),
+            React.createElement("button", { className: "btn btn-outline-primary btn-tools btn-print print-d-none", onClick: function (e) { return _this.print(e); } },
+                React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(printSvg) })),
+            React.createElement("section", { className: "header" },
+                React.createElement(PrintTopNav, null),
+                React.createElement("div", { className: "container-fluid" },
+                    React.createElement("div", { className: "row" },
+                        React.createElement("div", { className: "col-12 mb-3 text-right" },
+                            React.createElement("h2", { className: "d-inline-block print-d-none" }, this.authorData.bigTitle.about),
+                            React.createElement("h6", { className: "text-muted font-weight-light print-d-none" }, this.mapDetailListItems(this.authorData.info)))),
+                    React.createElement("div", { className: "row align-items-center" },
+                        React.createElement("div", { className: "col-12 col-md-4 col-lg-3 col-xl-2 image-box mb-5" },
+                            React.createElement("div", { className: "col-12" },
+                                React.createElement("img", { src: "static/image/me.jpg", className: "img-fluid img-me img-thumbnail rounded-circle" }))),
+                        React.createElement("div", { className: "pl-md-4 col-12 col-md-8 col-lg-9 col-xl-10 detail-list" },
+                            React.createElement("div", { className: "col-12" },
+                                React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, this.authorData.bigTitle.personalData),
+                                React.createElement("div", { className: "row" },
+                                    React.createElement("div", { className: "col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" }, this.mapDetailListItems(this.authorData.basic)),
+                                    React.createElement("div", { className: "col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" }, this.mapDetailListItems(this.authorData.contact))))),
+                        React.createElement("hr", { className: "my-4 mx-0" })),
+                    React.createElement("div", { className: "row page-break-box" },
+                        React.createElement("div", { className: "col-12 col-lg-6" },
+                            React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
+                                React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, this.authorData.bigTitle.summary),
+                                this.authorData.summary.map(function (obj, i) { return (React.createElement("h5", { className: "title small font-weight-normal mb-2", key: i }, obj.detail)); }),
+                                React.createElement("hr", { className: "my-4 mx-0" })),
+                            React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
+                                React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, this.authorData.bigTitle.education),
+                                this.mapDetailListItems(this.authorData.education),
+                                React.createElement("hr", { className: "my-4 mx-0" })),
+                            React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
+                                React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, this.authorData.bigTitle.jobs),
+                                this.mapDetailListItems(this.authorData.jobs),
+                                React.createElement("hr", { className: "my-4 mx-0" }))),
+                        React.createElement(PrintTopNav, null),
+                        React.createElement("div", { className: "col-12 col-lg-6" },
+                            React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
+                                React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, this.authorData.bigTitle.skill),
+                                this.mapDetailListItems(this.authorData.skill),
+                                React.createElement("hr", { className: "my-4 mx-0" })),
+                            React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
+                                React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, this.authorData.bigTitle.otherSkill),
+                                this.mapDetailListItems(this.authorData.otherSkill),
+                                React.createElement("hr", { className: "my-4 mx-0" }))),
+                        React.createElement(PrintTopNav, null),
+                        React.createElement("div", { className: "col-12 col-lg-6" },
+                            React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
+                                React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, this.authorData.bigTitle.projects),
+                                this.mapDetailListItems(this.authorData.projects),
+                                React.createElement("hr", { className: "my-4 mx-0" })),
+                            React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
+                                React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, this.authorData.bigTitle.pay),
+                                this.mapDetailListItems(this.authorData.pay),
+                                React.createElement("hr", { className: "my-4 mx-0" })),
+                            React.createElement("div", { className: "col-12 d-flex flex-column justify-content-center detail-list" },
+                                React.createElement("h4", { className: "mb-3 detail-list-title section-title" }, this.authorData.bigTitle.autobiography),
+                                this.mapDetailListItems(this.authorData.autobiography),
+                                React.createElement("hr", { className: "my-4 mx-0" }))))))));
     };
+    Resume = __decorate([
+        inject("store"),
+        observer
+    ], Resume);
     return Resume;
 }(React.Component));
-export default Resume;
+export default withNamespaces("common")(Resume);
 //# sourceMappingURL=Resume.js.map

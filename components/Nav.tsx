@@ -14,7 +14,10 @@ import {
   // DropdownItem,
 } from "reactstrap";
 import Logo from "./Logo";
-export default class extends React.Component<any, any> {
+import { i18n, Link, withNamespaces } from '../i18n/i18n';
+import { initStore } from "../store/store";
+import { observable, action } from "mobx";
+class NavComponent extends React.Component<any, any> {
   // constructor(props:any) {
   //   super(props);
   //   // this.props.isOpen=false;
@@ -26,6 +29,24 @@ export default class extends React.Component<any, any> {
   //     // inNavbar: this.props.inNavbar
   //     // isOpen: this.props.isOpen
   //   };
+  // // }
+  private store:any;
+  static getInitialProps({ req }: { req: any }) {
+    const isServer = typeof window===undefined;
+    const store = initStore(isServer);
+    return { lastUpdate: store.lastUpdate, isServer , namespacesRequired: ['Nav'] };
+  }
+
+  constructor(props:any) {
+    super(props);
+    const isServer = typeof window===undefined;
+    this.store = initStore(isServer ,undefined)
+  }
+
+  // @observable store = initStore(this.props.isServer, this.props.lastUpdate);
+  // static async getInitialProps({ req }: { req: any }) {
+  //   const isServer = !!req;
+  //   return { namespacesRequired: ['Nav'] }
   // }
 
   state = {
@@ -43,6 +64,8 @@ export default class extends React.Component<any, any> {
   }
 
   render() {
+    // console.log(this.props.t)
+    // console.log(i18n.language)
     return (
       <Navbar className={`fixed-top print-d-none${this.state.isOpen ? ' open':''}`} color="light" light expand="md">
         <NavbarBrand href="/" className="d-flex align-items-center">
@@ -50,25 +73,25 @@ export default class extends React.Component<any, any> {
         </NavbarBrand>
         <NavbarToggler className="border-0" onClick={() => this.toggle()} />
         <Collapse isOpen={this.state.isOpen} navbar>
-          <Nav className="ml-auto" navbar>
+          <Nav className="ml-auto align-items-center" navbar>
             <NavItem className="print-d-none">
               <NavLink href="/index" className="text-center">
-                Index
+                {this.props.t('index')}
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/about" className="text-center">
-                About Here
+              {this.props.t('aboutHere')}
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/redux-game" className="text-center font-weight-bold">
-                Redux-Game 《The Shining Cat》
+              {this.props.t('reduxGame')}
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/resume" className="text-center">
-                Author
+              {this.props.t('author')}
               </NavLink>
             </NavItem>
             <NavItem>
@@ -78,6 +101,9 @@ export default class extends React.Component<any, any> {
               >
                 Github
               </NavLink>
+            </NavItem>
+            <NavItem>
+              <button className="mx-2" onClick={() => this.store.changeLanguage()}>{i18n.language === 'en'?'中文':'EN'}</button>
             </NavItem>
             {/*<UncontrolledDropdown >
                 <DropdownToggle nav caret>
@@ -102,3 +128,7 @@ export default class extends React.Component<any, any> {
     );
   }
 }
+
+export default withNamespaces('Nav')(NavComponent)
+
+// export default NavComponent

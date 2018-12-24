@@ -14,12 +14,6 @@ var Page = (function (_super) {
     function Page() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Page.prototype.componentDidMount = function () {
-        this.props.store.start();
-    };
-    Page.prototype.componentWillUnmount = function () {
-        this.props.store.stop();
-    };
     Page.prototype.render = function () {
         console.log(this);
         return (React.createElement("div", null, this.props.children));

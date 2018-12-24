@@ -39,7 +39,7 @@
                 ]
             }
         ],
-        "member-access":false,
+        "member-access": false,
         "no-any": false,
         "no-arg": false,
         "no-bitwise": true,
@@ -53,6 +53,7 @@
             "timeEnd",
             "trace"
         ],
+        "no-var-requires": false,
         "no-consecutive-blank-lines": true,
         "no-construct": true,
         "no-debugger": true,
@@ -65,6 +66,7 @@
         "no-trailing-whitespace": false,
         "no-unused-expression": true,
         "no-use-before-declare": true,
+        "no-submodule-imports":false,
         "one-line": [
             true,
             "check-catch",
@@ -72,11 +74,11 @@
             "check-open-brace",
             "check-whitespace"
         ],
-        "ordered-imports":false,
-        "object-literal-sort-keys":false,
+        "ordered-imports": false,
+        "object-literal-sort-keys": false,
         "quotemark": [false, "single", "jsx-double"],
         "radix": true,
-        "semicolon": [true, "always"],
+        "semicolon": [false, "always"],
         "switch-default": true,
 
         "trailing-comma": [false],

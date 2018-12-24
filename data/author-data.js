@@ -1,6 +1,19 @@
 var appLink = 'https://drive.google.com/open?id=1ixrg8WhWQChR_KTav5_e2EvtQomoCQ_D';
 var badgeNew = ' <span class=\"badge badge-primary text-white print-d-none\">new</span>';
 export default {
+    pdfSrc: 'static/file/Road of Ting-Wei.pdf',
+    bigTitle: {
+        personalData: '基本資料 / PERSONAL DATA',
+        about: '自述 / ABOUT ME',
+        education: '學歷 / EDUCATION',
+        jobs: '工作經驗 / WORK EXPERIENCE',
+        skill: '網頁相關技能 / SKILL OF WEB',
+        otherSkill: '其他技能 / OTHER SKILL',
+        project: '公開作品或專案 / ＷORKS OR PROJECTS',
+        pay: '希望待遇 / EXPECTED SALARY',
+        autobiography: '自傳 / AUTOBIOGRAPHY',
+        summary: '總覽 / SUMMARY OF QUALIFICATIONS'
+    },
     basic: [
         { title: "姓名", titleEn: "Name", detail: " 林庭瑋 / Ting Wei Lin" },
         { title: "生日", titleEn: "Birthday", detail: "1985.03.04" }
@@ -23,7 +36,7 @@ export default {
                 "<br>希望我們能一起繼續成就產品的美好。" }
     ],
     education: [
-        { title: "大學", titleEn: "University", detail: "元智大學通訊工程學系學士" }
+        { title: "", titleEn: "", detail: "元智大學通訊工程學系學士" }
     ],
     skill: [
         {
@@ -44,7 +57,7 @@ export default {
             listGroup: [
                 {
                     title: "React",
-                    content: "react-redux" + badgeNew + "\u3001mobx-react\u3001NextJs\u3001reactstrap"
+                    content: "react-redux" + badgeNew + "\u3001next-i18next" + badgeNew + "\u3001mobx-react\u3001NextJs\u3001reactstrap"
                 },
                 {
                     title: "Angular7",
@@ -120,7 +133,7 @@ export default {
                 {
                     title: "景丞科技股份有限公司",
                     titleEn: "網頁前端工程師，2016/08 ~ Present(在職)",
-                    content: '參與過<a href="https://card.apply.hsbc.com.tw/hsbcoa/credit_card/select_your_card" target="_blank">HSBC信用卡線上開戶</a>、王道銀行行動對帳單、深圳農商銀行對帳單（中國）、成都農商銀行對帳單（中國）、上海裕順內部對帳單專案（中國）...還有一些正在進行項目。<br>除了一般網頁製作，亦參與過 Web Accessibility 專案。'
+                    content: '參與過<a href="https://card.apply.hsbc.com.tw/hsbcoa/credit_card/select_your_card" target="_blank">HSBC信用卡線上開戶</a>、王道銀行行動對帳單、深圳農商銀行對帳單（中國）、成都農商銀行對帳單（中國）、上海裕順內部對帳單專案（中國）...還有一些正在進行項目。<br>相關經驗有 Angular、VueJs、AngularJs、Jquery、Bootstrap、無障礙網頁、CSP(Content Security Policy), 手機拍照並進行圖片裁切元件, 資料視覺化。'
                 },
                 {
                     title: "精銳合威股份有限公司",
@@ -130,7 +143,7 @@ export default {
                 {
                     title: "采霆科技有限公司",
                     titleEn: "網頁前端工程師，2015/11 ~ 2016/01",
-                    content: '負責公司承接專案前端製作'
+                    content: '負責公司承接專案前端製作，包含頁面設計'
                 },
                 {
                     title: "侏儸紀股份有限公司",
@@ -170,6 +183,29 @@ export default {
             title: '未來是未知數。',
             detail: '跨平台App也算競爭，雖然Flutter使用Dart，但或許能成為下個明日之星的選擇？未來是未知數，只待大家共同去探索、拓展與開創。'
         },
+    ],
+    summary: [
+        {
+            detail: '•	3年以上網頁前端工程師工作經驗'
+        },
+        {
+            detail: '•	3年平面視覺設計師經驗'
+        },
+        {
+            detail: '•	有知名前端框架 Angular, ReactJs and VueJs經驗'
+        },
+        {
+            detail: '•	無障礙網頁經驗（ WCAG 2.0 AA ）'
+        },
+        {
+            detail: '•	React Native App (跨平台 App) 開發經驗'
+        },
+        {
+            detail: '•	擁有自己學習新技能並實踐在專案上的能力與自信.'
+        },
+        {
+            detail: '•	將會不斷抱持著虛心學習的精神'
+        }
     ]
 };
 //# sourceMappingURL=author-data.js.map

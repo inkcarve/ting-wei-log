@@ -9,13 +9,13 @@ import * as React from 'react';
 
 
 class Page extends React.Component<any, any> {
-  componentDidMount () {
-    this.props.store.start()
-  }
+  // componentDidMount () {
+  //   this.props.store.start()
+  // }
 
-  componentWillUnmount () {
-    this.props.store.stop()
-  }
+  // componentWillUnmount () {
+  //   this.props.store.stop()
+  // }
 
   render () {
     console.log(this)

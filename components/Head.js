@@ -8,19 +8,18 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import * as React from 'react';
-import { Head } from 'next/document';
+import * as React from "react";
+import { Head } from "next/document";
 var HeadCustom = (function (_super) {
     __extends(HeadCustom, _super);
     function HeadCustom(props) {
         return _super.call(this, props) || this;
     }
     HeadCustom.prototype.render = function () {
-        console.log("headcustom");
         return (React.createElement(Head, null,
             React.createElement("title", null,
                 "Road of Ting-Wei ",
-                this.props.title && '-' + this.props.title),
+                this.props.title && "-" + this.props.title),
             React.createElement("meta", { charSet: "utf-8" }),
             React.createElement("meta", { httpEquiv: "x-ua-compatible", content: "ie=edge" }),
             React.createElement("meta", { name: "viewport", content: "initial-scale=1.0, width=device-width" }),

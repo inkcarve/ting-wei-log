@@ -5,19 +5,20 @@ import { initStore } from "../store/store";
 // import  Head from '../components/Head';
 // import  Nav from '../components/Nav';
 import './index.scss';
+import {withNamespaces } from '../i18n/i18n';
 
-export default class PageIndex extends React.Component<any, any> {
+class PageIndex extends React.Component<any, any> {
   // private jj:string='ll';
   private store: any;
   static getInitialProps({ req }: { req: any }) {
-    const isServer = !!req;
+    const isServer = typeof window===undefined;
     const store = initStore(isServer);
-    return { lastUpdate: store.lastUpdate, isServer };
+    return { lastUpdate: store.lastUpdate, isServer, namespacesRequired: ['common','Index'] };
   }
-
+  
   constructor(props: any) {
     super(props);
-    this.store = initStore(props.isServer, props.lastUpdate);
+    this.store = initStore(typeof window===undefined, props.lastUpdate);
   }
 
   render() {
@@ -28,8 +29,8 @@ export default class PageIndex extends React.Component<any, any> {
               <div className="col-12 p-0 position-relative">
                 <div className="embed-responsive embed-responsive-16by9 position-relative index-bg-box d-flex align-items-center">
                   <div className="d-none d-md-block col-md-5 text-right">
-                  <a className="btn btn-outline-light mr-4 px-md-5 py-md-4 mb-3 col-md-12 col-lg-10 col-xl-8" href="/redux-game"><h3>The Shining Cat</h3></a>
-                  <a className="btn btn-outline-light mr-4 px-md-5 py-md-4 col-md-12 col-lg-10 col-xl-8" href="/resume"><h3>More about Me</h3></a>
+                  <a className="btn btn-outline-light mr-4 px-md-5 py-md-4 mb-3 col-md-12 col-lg-10 col-xl-8" href="/redux-game"><h3>{this.props.t('reduxGame')}</h3></a>
+                  <a className="btn btn-outline-light mr-4 px-md-5 py-md-4 col-md-12 col-lg-10 col-xl-8" href="/resume"><h3>{this.props.t('author')}</h3></a>
                   </div>
                 </div>
                 <div className="d-md-none text-center my-5">
@@ -43,3 +44,5 @@ export default class PageIndex extends React.Component<any, any> {
     );
   }
 }
+
+export default withNamespaces(['Index','common'])(PageIndex)
