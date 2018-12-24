@@ -20,7 +20,7 @@ import "./Resume.scss";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import { dangeriousHtmlMarkup } from "../common/html-service";
 import PrintTopNav from "../components/PrintTopNav";
-import { withNamespaces } from "../i18n/i18n";
+import { i18n, withNamespaces } from "../i18n/i18n";
 var printSvg = require("../static/image/_ionicons_svg_md-print.svg");
 var downloadSvg = require("../static/image/_ionicons_svg_md-download.svg");
 var Resume = (function (_super) {
@@ -69,7 +69,12 @@ var Resume = (function (_super) {
     };
     Resume.prototype.render = function () {
         var _this = this;
-        this.authorData = this.props.store.authorData;
+        if (i18n.language === 'en') {
+            this.authorData = this.props.store.authorData_en;
+        }
+        else {
+            this.authorData = this.props.store.authorData;
+        }
         return (React.createElement("div", { className: "resume pt-4 print-pt-0" },
             React.createElement("a", { className: "btn btn-outline-primary btn-tools btn-download print-d-none", href: this.authorData.pdfSrc + "?" + Date.now(), target: "_blank" },
                 React.createElement("div", { dangerouslySetInnerHTML: dangeriousHtmlMarkup(downloadSvg) })),

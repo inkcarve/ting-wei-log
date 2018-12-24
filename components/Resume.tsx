@@ -97,7 +97,13 @@ class Resume extends React.Component<any, any> {
   }
 
   render() {
-    this.authorData = this.props.store.authorData;
+    // this.authorData = this.props.store.authorData;
+    // console.log(i18n.language)
+    if(i18n.language==='en'){
+      this.authorData = this.props.store.authorData_en
+    }else{
+      this.authorData = this.props.store.authorData
+    }
     return (
       <div className="resume pt-4 print-pt-0">
         <a

@@ -44,6 +44,7 @@ import authorData from "../data/author-data";
 import authorData_en from "../data/author-data-en";
 import { i18n } from '../i18n/i18n';
 var store;
+console.log(i18n.language);
 var Store = (function () {
     function Store(isServer, lastUpdate) {
         var _this = this;
@@ -51,6 +52,7 @@ var Store = (function () {
         this.light = false;
         this.language = i18n.language;
         this.authorData = i18n.language === 'en' ? authorData_en : authorData;
+        this.authorData_en = authorData_en;
         this.changeLanguage = function () { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 i18n.changeLanguage(i18n.language === 'en' ? 'zh_TW' : 'en');

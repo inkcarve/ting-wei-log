@@ -3,15 +3,15 @@ import authorData from "../data/author-data";
 import authorData_en from "../data/author-data-en";
 import { i18n, Link, withNamespaces } from '../i18n/i18n';
 let store: Store;
-
+console.log(i18n.language);
 class Store {
   @observable lastUpdate = 0;
   @observable light = false;
   @observable language = i18n.language;
   @observable authorData = i18n.language === 'en' ? authorData_en : authorData;
   private timer: any;
-  // public authorData: any;
-  // public authorData_en: any;
+  // public authorData: any=authorData;
+  public authorData_en: any=authorData_en;
   
   constructor(isServer: boolean, lastUpdate: any) {
     this.lastUpdate = lastUpdate;
