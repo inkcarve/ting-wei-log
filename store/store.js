@@ -51,7 +51,7 @@ var Store = (function () {
         this.lastUpdate = 0;
         this.light = false;
         this.language = i18n.language;
-        this.authorData = i18n.language === 'en' ? authorData_en : authorData;
+        this.authorData = authorData;
         this.authorData_en = authorData_en;
         this.changeLanguage = function () { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -74,9 +74,6 @@ var Store = (function () {
     __decorate([
         observable
     ], Store.prototype, "language", void 0);
-    __decorate([
-        observable
-    ], Store.prototype, "authorData", void 0);
     __decorate([
         action
     ], Store.prototype, "changeLanguage", void 0);
