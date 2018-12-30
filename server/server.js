@@ -67,9 +67,9 @@ app.prepare().then(function () { return __awaiter(_this, void 0, void 0, functio
         server.use(helmet({
             contentSecurityPolicy: {
                 directives: {
-                    defaultSrc: ["'self'", "'data:'"],
+                    defaultSrc: ["'self'", "data:"],
                     styleSrc: ["'self'", "'unsafe-inline'"],
-                    scriptSrc: ["'self'", "'unsafe-inline'"]
+                    scriptSrc: ["'self'", "'unsafe-inline'"],
                 }
             }
         }));

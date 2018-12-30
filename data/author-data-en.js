@@ -87,7 +87,7 @@ export default {
         {
             title: "Other",
             titleEn: "",
-            detail: "redux" + badgeNew + ", Webpack, Jquery, NodeJs+Express, mobx...",
+            detail: "redux" + badgeNew + ", Webpack, Jquery, NodeJs+Express+helmetJs" + badgeNew + ", mobx...",
             listGroup: []
         }
     ],

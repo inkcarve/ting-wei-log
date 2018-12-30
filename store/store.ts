@@ -1,7 +1,7 @@
 import { action, observable, computed } from "mobx";
 import authorData from "../data/author-data";
 import authorData_en from "../data/author-data-en";
-import { i18n, Link, withNamespaces } from '../i18n/i18n';
+import { i18n } from '../i18n/i18n';
 let store: Store;
 console.log(i18n.language);
 class Store {

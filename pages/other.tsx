@@ -5,23 +5,23 @@ import Head from '../components/Head';
 import Nav from '../components/Nav';
 export default class Counter extends React.Component<any, any> {
   private store:any;
-  static getInitialProps ({ req }) {
+  static getInitialProps({ req }) {
     const isServer = !!req
     const store = initStore(isServer)
     return { lastUpdate: store.lastUpdate, isServer }
   }
 
-  constructor (props) {
+  constructor(props:any) {
     super(props)
     this.store = initStore(false, props.lastUpdate)
   }
 
-  render () {
+  render() {
     return (
       <Provider store={this.store}>
       <div>
-      <Head></Head>
-      <Nav></Nav>
+      <Head/>
+      <Nav/>
       <div className="container">
         {/*<Page title='' linkTo='/other' />*/}
         <h1>React + NextJs + reactstrap</h1>

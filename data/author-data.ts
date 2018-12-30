@@ -91,7 +91,7 @@ export default {
     {
       title: "其他",
       titleEn: "Other",
-      detail: `redux${badgeNew}、Webpack、Jquery、NodeJs+Express、mobx...還有其他插件`,
+      detail: `redux${badgeNew}、Webpack、Jquery、NodeJs+Express+helmetJs${badgeNew}、mobx...還有其他插件`,
       listGroup: [
         // {
         //     title:'ReactNative',
@@ -168,7 +168,7 @@ export default {
         //     '負責公司專案協助'
         // },
         {
-          title: "侏儸紀股份有限公司",
+          title: "侏羅紀股份有限公司",
           titleEn: "網站美編/行銷專員專員，2012/03 ~ 2015/02",
           content:
             '負責網站管理、banner與活動頁製作維護，協助平面美編事務'

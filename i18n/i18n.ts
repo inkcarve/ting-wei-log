@@ -1,4 +1,4 @@
-const NextI18Next = require('next-i18next')
+const NextI18Next:any = require('next-i18next')
 
 // options of next-i18next https://github.com/isaachinman/next-i18next#options
 const optionsNexti18next = { 

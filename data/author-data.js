@@ -87,7 +87,7 @@ export default {
         {
             title: "其他",
             titleEn: "Other",
-            detail: "redux" + badgeNew + "\u3001Webpack\u3001Jquery\u3001NodeJs+Express\u3001mobx...\u9084\u6709\u5176\u4ED6\u63D2\u4EF6",
+            detail: "redux" + badgeNew + "\u3001Webpack\u3001Jquery\u3001NodeJs+Express+helmetJs" + badgeNew + "\u3001mobx...\u9084\u6709\u5176\u4ED6\u63D2\u4EF6",
             listGroup: []
         }
     ],
@@ -146,7 +146,7 @@ export default {
                     content: '負責公司承接專案前端製作，包含頁面設計'
                 },
                 {
-                    title: "侏儸紀股份有限公司",
+                    title: "侏羅紀股份有限公司",
                     titleEn: "網站美編/行銷專員專員，2012/03 ~ 2015/02",
                     content: '負責網站管理、banner與活動頁製作維護，協助平面美編事務'
                 },
