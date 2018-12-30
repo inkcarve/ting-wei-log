@@ -44,8 +44,9 @@ var next = require("next");
 var mobxReact = require("mobx-react");
 var nextI18NextMiddleware = require("next-i18next/middleware");
 var nextI18next = require("../i18n/i18n");
-var app = next({ dev: process.env.NODE_ENV !== 'production' });
+var app = next({ dev: process.env.NODE_ENV !== "production" });
 var handle = app.getRequestHandler();
+var helmet = require("helmet");
 mobxReact.useStaticRendering(true);
 if (typeof global.window === undefined) {
     global.window = {
@@ -62,6 +63,16 @@ app.prepare().then(function () { return __awaiter(_this, void 0, void 0, functio
     var server;
     return __generator(this, function (_a) {
         server = express();
+        server.use(helmet());
+        server.use(helmet({
+            contentSecurityPolicy: {
+                directives: {
+                    defaultSrc: ["'self'", "'data:'"],
+                    styleSrc: ["'self'", "'unsafe-inline'"],
+                    scriptSrc: ["'self'", "'unsafe-inline'"]
+                }
+            }
+        }));
         nextI18NextMiddleware(nextI18next, app, server);
         server.get("*", function (req, res) {
             return handle(req, res);

@@ -8,10 +8,11 @@ const next = require("next");
 const mobxReact = require("mobx-react");
 const nextI18NextMiddleware = require("next-i18next/middleware");
 const nextI18next = require("../i18n/i18n");
-const app = next({ dev: process.env.NODE_ENV !== 'production' });
+const app = next({ dev: process.env.NODE_ENV !== "production" });
 const handle = app.getRequestHandler();
-
+const helmet = require("helmet");
 mobxReact.useStaticRendering(true);
+
 if (typeof global.window === undefined) {
   // global.window = {}
   global.window = {
@@ -25,8 +26,20 @@ if (typeof global.window === undefined) {
   global.btoa = () => {};
 }
 
-app.prepare().then(async() => {
+app.prepare().then(async () => {
   const server = express();
+  server.use(helmet());
+  server.use(
+    helmet({
+      contentSecurityPolicy: {
+        directives: {
+          defaultSrc: ["'self'", "'data:'"],
+          styleSrc: ["'self'", "'unsafe-inline'"],
+          scriptSrc: ["'self'", "'unsafe-inline'"]
+        }
+      }
+    })
+  );
   nextI18NextMiddleware(nextI18next, app, server);
   // Additional middleware which will set headers that we need on each request.
   // router.use(function(req, res, next) {
