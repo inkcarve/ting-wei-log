@@ -39,10 +39,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { action, observable } from "mobx";
+import { action, observable, computed } from "mobx";
 import authorData from "../data/author-data";
 import authorData_en from "../data/author-data-en";
-import { i18n } from '../i18n/i18n';
+import { i18n } from "../i18n/i18n";
 var store;
 console.log(i18n.language);
 var Store = (function () {
@@ -51,13 +51,18 @@ var Store = (function () {
         this.lastUpdate = 0;
         this.light = false;
         this.language = i18n.language;
-        this.authorData = authorData;
-        this.authorData_en = authorData_en;
+        this.authorData = this.checkIfChinese() ? authorData : authorData_en;
         this.changeLanguage = function () { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                i18n.changeLanguage(i18n.language === 'en' ? 'zh_TW' : 'en');
+                i18n.changeLanguage(this.checkIfChinese() ? "en" : "zh_TW");
+                this.applyLanguage();
+                return [2];
+            });
+        }); };
+        this.applyLanguage = function () { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
                 this.language = i18n.language;
-                this.authorData = i18n.language === 'en' ? authorData_en : authorData;
+                this.authorData = this.checkIfChinese() ? authorData : authorData_en;
                 console.log(this.language);
                 return [2];
             });
@@ -65,6 +70,19 @@ var Store = (function () {
         this.stop = function () { return clearInterval(_this.timer); };
         this.lastUpdate = lastUpdate;
     }
+    Store.prototype.checkIfChinese = function () {
+        if (!i18n.language) {
+            return;
+        }
+        return i18n.language.search('zh') !== -1;
+    };
+    Object.defineProperty(Store.prototype, "toggleLanguageBtnText", {
+        get: function () {
+            return this.checkIfChinese() ? "EN" : "中文";
+        },
+        enumerable: true,
+        configurable: true
+    });
     __decorate([
         observable
     ], Store.prototype, "lastUpdate", void 0);
@@ -75,22 +93,31 @@ var Store = (function () {
         observable
     ], Store.prototype, "language", void 0);
     __decorate([
+        observable
+    ], Store.prototype, "authorData", void 0);
+    __decorate([
         action
     ], Store.prototype, "changeLanguage", void 0);
+    __decorate([
+        action
+    ], Store.prototype, "applyLanguage", void 0);
+    __decorate([
+        computed
+    ], Store.prototype, "toggleLanguageBtnText", null);
     return Store;
 }());
 export function initStore(isServer, lastUpdate) {
     if (lastUpdate === void 0) { lastUpdate = Date.now(); }
     if (isServer) {
-        console.log('server store');
+        console.log("server store");
         return new Store(isServer, lastUpdate);
     }
     else {
         if (!store) {
-            console.log('new store');
+            console.log("new store");
             store = new Store(isServer, lastUpdate);
         }
-        console.log('store exist');
+        console.log("store exist");
         return store;
     }
 }

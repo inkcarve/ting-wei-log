@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 import * as React from "react";
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 import Logo from "./Logo";
-import { i18n, withNamespaces } from '../i18n/i18n';
+import { withNamespaces } from '../i18n/i18n';
 import { initStore } from "../store/store";
 var NavComponent = (function (_super) {
     __extends(NavComponent, _super);
@@ -55,7 +55,7 @@ var NavComponent = (function (_super) {
                     React.createElement(NavItem, null,
                         React.createElement(NavLink, { href: "https://github.com/inkcarve", className: "text-center" }, "Github")),
                     React.createElement(NavItem, null,
-                        React.createElement("button", { className: "mx-2 btn btn-outline-primary rounded-0", onClick: function () { return _this.store.changeLanguage(); } }, i18n.language === 'en' ? '中文' : 'EN'))))));
+                        React.createElement("button", { className: "mx-2 btn btn-outline-primary rounded-0", onClick: function () { return _this.store.changeLanguage(); } }, this.store.toggleLanguageBtnText))))));
     };
     return NavComponent;
 }(React.Component));

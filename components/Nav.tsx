@@ -16,7 +16,9 @@ import {
 import Logo from "./Logo";
 import { i18n, withNamespaces } from '../i18n/i18n';
 import { initStore } from "../store/store";
-// import { observable, action } from "mobx";
+import { computed } from "mobx";
+
+
 class NavComponent extends React.Component<any, any> {
   // constructor(props:any) {
   //   super(props);
@@ -47,6 +49,10 @@ class NavComponent extends React.Component<any, any> {
   // static async getInitialProps({ req }: { req: any }) {
   //   const isServer = !!req;
   //   return { namespacesRequired: ['Nav'] }
+  // }
+
+  // @computed get toggleLanguageBtn(){
+  //   return this.
   // }
 
   state = {
@@ -103,7 +109,7 @@ class NavComponent extends React.Component<any, any> {
               </NavLink>
             </NavItem>
             <NavItem>
-              <button className="mx-2 btn btn-outline-primary rounded-0" onClick={() => this.store.changeLanguage()}>{i18n.language === 'en'?'中文':'EN'}</button>
+              <button className="mx-2 btn btn-outline-primary rounded-0" onClick={() => this.store.changeLanguage()}>{this.store.toggleLanguageBtnText}</button>
             </NavItem>
             {/*<UncontrolledDropdown >
                 <DropdownToggle nav caret>

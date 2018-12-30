@@ -9,7 +9,7 @@ export default {
         jobs: 'WORK EXPERIENCE',
         skill: 'FRONTEND SKILL',
         otherSkill: 'OTHER SKILL',
-        project: 'ＷORKS OR PROJECTS',
+        projects: 'ＷORKS OR PROJECTS',
         pay: 'EXPECTED SALARY',
         autobiography: 'AUTOBIOGRAPHY',
         summary: 'SUMMARY OF QUALIFICATIONS'

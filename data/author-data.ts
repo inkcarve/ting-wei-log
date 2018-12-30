@@ -9,7 +9,7 @@ export default {
     jobs:'工作經驗 / WORK EXPERIENCE',
     skill:'網頁相關技能 / SKILL OF WEB',
     otherSkill:'其他技能 / OTHER SKILL',
-    project:'公開作品或專案 / ＷORKS OR PROJECTS',
+    projects:'公開作品或專案 / ＷORKS OR PROJECTS',
     pay:'希望待遇 / EXPECTED SALARY',
     autobiography: '自傳 / AUTOBIOGRAPHY',
     summary:'總覽 / SUMMARY OF QUALIFICATIONS'
