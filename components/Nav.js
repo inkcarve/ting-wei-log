@@ -20,15 +20,15 @@ var NavComponent = (function (_super) {
         _this.state = {
             isOpen: false
         };
-        var isServer = typeof window === undefined;
+        var isServer = typeof window === 'undefined';
         _this.store = initStore(isServer, undefined);
         return _this;
     }
     NavComponent.getInitialProps = function (_a) {
         var req = _a.req;
-        var isServer = typeof window === undefined;
+        var isServer = typeof window === 'undefined';
         var store = initStore(isServer);
-        return { lastUpdate: store.lastUpdate, isServer: isServer, namespacesRequired: ['Nav'] };
+        return { isServer: isServer, namespacesRequired: ['Nav'] };
     };
     NavComponent.prototype.toggle = function () {
         console.log("toggle");
@@ -48,6 +48,8 @@ var NavComponent = (function (_super) {
                         React.createElement(NavLink, { href: "/index", className: "text-center" }, this.props.t('index'))),
                     React.createElement(NavItem, null,
                         React.createElement(NavLink, { href: "/about", className: "text-center" }, this.props.t('aboutHere'))),
+                    React.createElement(NavItem, null,
+                        React.createElement(NavLink, { href: "/vr", className: "text-center font-weight-bold" }, "VR")),
                     React.createElement(NavItem, null,
                         React.createElement(NavLink, { href: "/redux-game", className: "text-center font-weight-bold" }, this.props.t('reduxGame'))),
                     React.createElement(NavItem, null,

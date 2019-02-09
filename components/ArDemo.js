@@ -15,29 +15,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import * as React from "react";
-import { Provider, observer } from "mobx-react";
-import { initStore } from "../store/store";
-import Resume from "../components/Resume";
-var PageResume = (function (_super) {
-    __extends(PageResume, _super);
-    function PageResume(props) {
+import { observer, inject } from "mobx-react";
+import "./ArDemo.scss";
+import 'aframe';
+import 'aframe-particle-system-component';
+import { withNamespaces } from "../i18n/i18n";
+var printSvg = require("../static/image/_ionicons_svg_md-print.svg");
+var downloadSvg = require("../static/image/_ionicons_svg_md-download.svg");
+var ArDemo = (function (_super) {
+    __extends(ArDemo, _super);
+    function ArDemo(props) {
         var _this = _super.call(this, props) || this;
-        _this.store = initStore(typeof window === 'undefined', props.lastUpdate);
+        _this.props.store.applyLanguage();
         return _this;
     }
-    PageResume.getInitialProps = function () {
-        var isServer = typeof window === 'undefined';
-        var store = initStore(isServer);
-        return { lastUpdate: store.lastUpdate, isServer: isServer };
+    ArDemo.prototype.print = function () {
+        if (document.execCommand("print")) {
+            return;
+        }
+        window.print();
     };
-    PageResume.prototype.render = function () {
-        return (React.createElement(Provider, { store: this.store },
-            React.createElement(Resume, { store: this.store })));
+    ArDemo.prototype.render = function () {
+        return (React.createElement("div", { className: "ar-demo pt-4 print-pt-0" }));
     };
-    PageResume = __decorate([
+    ArDemo = __decorate([
+        inject("store"),
         observer
-    ], PageResume);
-    return PageResume;
+    ], ArDemo);
+    return ArDemo;
 }(React.Component));
-export default PageResume;
-//# sourceMappingURL=resume.js.map
+export default withNamespaces("common")(ArDemo);
+//# sourceMappingURL=ArDemo.js.map

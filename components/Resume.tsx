@@ -1,18 +1,22 @@
 import * as React from "react";
 import { observer, inject } from "mobx-react";
 import "./Resume.scss";
-import {
-  ListGroup,
-  ListGroupItem
-  // ListGroupItemHeading,
-  // ListGroupItemText
-} from "reactstrap";
+// import {
+//   ListGroup,
+//   ListGroupItem
+//   // ListGroupItemHeading,
+//   // ListGroupItemText
+// } from "reactstrap";
 // import { initStore } from "../store/store";
 import { dangeriousHtmlMarkup } from "../common/html-service";
 import PrintTopNav from "../components/PrintTopNav";
-import { i18n, withNamespaces } from "../i18n/i18n";
+import {
+  //  i18n,
+   withNamespaces } from "../i18n/i18n";
 import MapDetailListItems from "./MapDetailListItems";
-import { observable, computed } from "mobx";
+import {
+  //  observable,
+   computed } from "mobx";
 // import { observable, action } from "mobx";
 // import authorData from "data/author-data";
 

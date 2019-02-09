@@ -32,7 +32,7 @@ class Store {
     this.language = i18n.language;
     this.authorData = this.checkIfChinese() ? authorData : authorData_en;
     // this.light = !this.light;
-    console.log(this.language);
+    // console.log(this.language);
   };
 
   @computed get toggleLanguageBtnText() {

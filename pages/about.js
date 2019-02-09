@@ -16,11 +16,11 @@ var PageAbout = (function (_super) {
     __extends(PageAbout, _super);
     function PageAbout(props) {
         var _this = _super.call(this, props) || this;
-        _this.store = initStore(typeof window === undefined, props.lastUpdate);
+        _this.store = initStore(typeof window === 'undefined', props.lastUpdate);
         return _this;
     }
     PageAbout.getInitialProps = function () {
-        var isServer = !typeof window === undefined;
+        var isServer = !typeof window === 'undefined';
         var store = initStore(isServer);
         return { lastUpdate: store.lastUpdate, isServer: isServer, namespacesRequired: ['About'] };
     };

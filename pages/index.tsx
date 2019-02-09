@@ -11,14 +11,14 @@ class PageIndex extends React.Component<any, any> {
   // private jj:string='ll';
   private store: any;
   static getInitialProps({ req }: { req: any }) {
-    const isServer = typeof window===undefined;
+    const isServer = typeof window==='undefined';
     const store = initStore(isServer);
     return { lastUpdate: store.lastUpdate, isServer, namespacesRequired: ['common','Index'] };
   }
   
   constructor(props: any) {
     super(props);
-    this.store = initStore(typeof window===undefined, props.lastUpdate);
+    this.store = initStore(typeof window==='undefined', props.lastUpdate);
   }
 
   render() {

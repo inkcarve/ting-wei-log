@@ -63,7 +63,6 @@ var Store = (function () {
             return __generator(this, function (_a) {
                 this.language = i18n.language;
                 this.authorData = this.checkIfChinese() ? authorData : authorData_en;
-                console.log(this.language);
                 return [2];
             });
         }); };

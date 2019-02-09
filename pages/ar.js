@@ -17,27 +17,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import * as React from "react";
 import { Provider, observer } from "mobx-react";
 import { initStore } from "../store/store";
-import Resume from "../components/Resume";
-var PageResume = (function (_super) {
-    __extends(PageResume, _super);
-    function PageResume(props) {
+import ArDemo from "../components/ArDemo";
+var PageAr = (function (_super) {
+    __extends(PageAr, _super);
+    function PageAr(props) {
         var _this = _super.call(this, props) || this;
         _this.store = initStore(typeof window === 'undefined', props.lastUpdate);
         return _this;
     }
-    PageResume.getInitialProps = function () {
+    PageAr.getInitialProps = function () {
         var isServer = typeof window === 'undefined';
         var store = initStore(isServer);
         return { lastUpdate: store.lastUpdate, isServer: isServer };
     };
-    PageResume.prototype.render = function () {
+    PageAr.prototype.render = function () {
         return (React.createElement(Provider, { store: this.store },
-            React.createElement(Resume, { store: this.store })));
+            React.createElement(ArDemo, { store: this.store })));
     };
-    PageResume = __decorate([
+    PageAr = __decorate([
         observer
-    ], PageResume);
-    return PageResume;
+    ], PageAr);
+    return PageAr;
 }(React.Component));
-export default PageResume;
-//# sourceMappingURL=resume.js.map
+export default PageAr;
+//# sourceMappingURL=ar.js.map

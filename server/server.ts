@@ -11,33 +11,15 @@ const nextI18next = require("../i18n/i18n");
 const app = next({ dev: process.env.NODE_ENV !== "production" });
 const handle = app.getRequestHandler();
 const helmet = require("helmet");
+const contentSecurityPolicy = require("./csp");
 mobxReact.useStaticRendering(true);
-
-if (typeof global.window === undefined) {
-  // global.window = {}
-  global.window = {
-    document: {
-      createElementNS: () => {
-        return {};
-      }
-    }
-  };
-  global.navigator = {};
-  global.btoa = () => {};
-}
 
 app.prepare().then(async () => {
   const server = express();
   server.use(helmet());
   server.use(
     helmet({
-      contentSecurityPolicy: {
-        directives: {
-          defaultSrc: ["'self'", "data:"],
-          styleSrc: ["'self'", "'unsafe-inline'"],
-          scriptSrc: ["'self'", "'unsafe-inline'"],
-        }
-      }
+      contentSecurityPolicy
     })
   );
   nextI18NextMiddleware(nextI18next, app, server);

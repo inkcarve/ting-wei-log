@@ -17,27 +17,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import * as React from "react";
 import { Provider, observer } from "mobx-react";
 import { initStore } from "../store/store";
-import Resume from "../components/Resume";
-var PageResume = (function (_super) {
-    __extends(PageResume, _super);
-    function PageResume(props) {
+import VrDemo from "../components/VrDemo";
+var PageVr = (function (_super) {
+    __extends(PageVr, _super);
+    function PageVr(props) {
         var _this = _super.call(this, props) || this;
         _this.store = initStore(typeof window === 'undefined', props.lastUpdate);
         return _this;
     }
-    PageResume.getInitialProps = function () {
+    PageVr.getInitialProps = function () {
         var isServer = typeof window === 'undefined';
+        console.log('isServer ' + isServer);
+        console.log(typeof window);
         var store = initStore(isServer);
         return { lastUpdate: store.lastUpdate, isServer: isServer };
     };
-    PageResume.prototype.render = function () {
+    PageVr.prototype.render = function () {
         return (React.createElement(Provider, { store: this.store },
-            React.createElement(Resume, { store: this.store })));
+            React.createElement(VrDemo, null)));
     };
-    PageResume = __decorate([
+    PageVr = __decorate([
         observer
-    ], PageResume);
-    return PageResume;
+    ], PageVr);
+    return PageVr;
 }(React.Component));
-export default PageResume;
-//# sourceMappingURL=resume.js.map
+export default PageVr;
+//# sourceMappingURL=vr.js.map

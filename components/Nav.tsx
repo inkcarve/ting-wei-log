@@ -34,14 +34,14 @@ class NavComponent extends React.Component<any, any> {
   // // }
   private store:any;
   static getInitialProps({ req }: { req: any }) {
-    const isServer = typeof window===undefined;
+    const isServer = typeof window === 'undefined';
     const store = initStore(isServer);
-    return { lastUpdate: store.lastUpdate, isServer , namespacesRequired: ['Nav'] };
+    return { isServer , namespacesRequired: ['Nav'] };
   }
 
   constructor(props:any) {
     super(props);
-    const isServer = typeof window===undefined;
+    const isServer = typeof window==='undefined';
     this.store = initStore(isServer ,undefined)
   }
 
@@ -88,6 +88,11 @@ class NavComponent extends React.Component<any, any> {
             <NavItem>
               <NavLink href="/about" className="text-center">
               {this.props.t('aboutHere')}
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/vr" className="text-center font-weight-bold">
+              VR
               </NavLink>
             </NavItem>
             <NavItem>

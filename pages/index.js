@@ -17,12 +17,12 @@ var PageIndex = (function (_super) {
     __extends(PageIndex, _super);
     function PageIndex(props) {
         var _this = _super.call(this, props) || this;
-        _this.store = initStore(typeof window === undefined, props.lastUpdate);
+        _this.store = initStore(typeof window === 'undefined', props.lastUpdate);
         return _this;
     }
     PageIndex.getInitialProps = function (_a) {
         var req = _a.req;
-        var isServer = typeof window === undefined;
+        var isServer = typeof window === 'undefined';
         var store = initStore(isServer);
         return { lastUpdate: store.lastUpdate, isServer: isServer, namespacesRequired: ['common', 'Index'] };
     };

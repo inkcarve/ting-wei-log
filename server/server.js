@@ -47,31 +47,15 @@ var nextI18next = require("../i18n/i18n");
 var app = next({ dev: process.env.NODE_ENV !== "production" });
 var handle = app.getRequestHandler();
 var helmet = require("helmet");
+var contentSecurityPolicy = require("./csp");
 mobxReact.useStaticRendering(true);
-if (typeof global.window === undefined) {
-    global.window = {
-        document: {
-            createElementNS: function () {
-                return {};
-            }
-        }
-    };
-    global.navigator = {};
-    global.btoa = function () { };
-}
 app.prepare().then(function () { return __awaiter(_this, void 0, void 0, function () {
     var server;
     return __generator(this, function (_a) {
         server = express();
         server.use(helmet());
         server.use(helmet({
-            contentSecurityPolicy: {
-                directives: {
-                    defaultSrc: ["'self'", "data:"],
-                    styleSrc: ["'self'", "'unsafe-inline'"],
-                    scriptSrc: ["'self'", "'unsafe-inline'"],
-                }
-            }
+            contentSecurityPolicy: contentSecurityPolicy
         }));
         nextI18NextMiddleware(nextI18next, app, server);
         server.get("*", function (req, res) {

@@ -10,14 +10,14 @@ import { withNamespaces } from '../i18n/i18n';
 class PageAbout extends React.Component<any, any> {
   private store: any;
   static getInitialProps() {
-    const isServer = !typeof window===undefined;
+    const isServer = !typeof window==='undefined';
     const store = initStore(isServer);
     return { lastUpdate: store.lastUpdate, isServer, namespacesRequired:['About'] };
   }
 
   constructor(props:any) {
     super(props);
-    this.store = initStore(typeof window===undefined, props.lastUpdate);
+    this.store = initStore(typeof window==='undefined', props.lastUpdate);
   }
 
   render() {
