@@ -93,13 +93,15 @@ class VrDemo extends React.Component<any, any> {
     console.log(AFRAME);
   }
 
-  loadendCallback = ()=>{
+  @action loadendCallback = ()=>{
       setTimeout(()=>{
-        this.modalToggle();
+        // this.modalToggle();
+        this.loadingEnd = true;
       }, 500 );
   }
   // timerLoadEnvGltf:any = null;
   // time = 0;
+  @observable loadingEnd = false;
   componentDidMount(){
     const envGltfImg = document.createElement('img');
     envGltfImg.src = 'static/gltf/fantasy_sky_background/textures/Material__25__background_JPG_002_emissive.jpg';
@@ -286,12 +288,19 @@ class VrDemo extends React.Component<any, any> {
         <Modal isOpen={this.modalShow} className="modal-dialog-centered">
 
           <ModalBody>
-          <div className="d-flex justify-content-center">
+            <div className={`${this.loadingEnd && 'd-none'}`}>
+          <div className="d-flex justify-content-center mt-3">
             <div className="spinner-border text-primary" role="status">
               <span className="sr-only">Loading...</span>
             </div>
           </div>
-          <h6 className="text-center mt-3">Loading</h6>
+          <h6 className="text-center mt-3 mb-0">Loading</h6>
+          </div>
+          <div className={`${!this.loadingEnd && 'd-none'}`}>
+          <h3 className="text-center mt-3 text-primary">OK!</h3>
+          </div>
+          <h5 className="text-center my-4">Find the Box in this VR space</h5>
+          <div className={`text-center mb-3 ${!this.loadingEnd && 'd-none'}`}><Button color="primary" onClick={this.modalToggle} disabled={!this.loadingEnd}><h4>Go</h4></Button></div>
           </ModalBody>
 
         </Modal>

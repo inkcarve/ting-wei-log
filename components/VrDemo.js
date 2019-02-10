@@ -51,7 +51,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 import * as React from "react";
 import { observer, inject } from "mobx-react";
-import { Modal, ModalBody } from 'reactstrap';
+import { Button, Modal, ModalBody } from 'reactstrap';
 import { withNamespaces } from "../i18n/i18n";
 import { observable, action } from "mobx";
 var AframeReact;
@@ -61,9 +61,10 @@ var VrDemo = (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.loadendCallback = function () {
             setTimeout(function () {
-                _this.modalToggle();
+                _this.loadingEnd = true;
             }, 500);
         };
+        _this.loadingEnd = false;
         _this.modalShow = true;
         _this.modalToggle = function () {
             _this.modalShow = !_this.modalShow;
@@ -152,11 +153,24 @@ var VrDemo = (function (_super) {
             React.createElement("div", null,
                 React.createElement(Modal, { isOpen: this.modalShow, className: "modal-dialog-centered" },
                     React.createElement(ModalBody, null,
-                        React.createElement("div", { className: "d-flex justify-content-center" },
-                            React.createElement("div", { className: "spinner-border text-primary", role: "status" },
-                                React.createElement("span", { className: "sr-only" }, "Loading..."))),
-                        React.createElement("h6", { className: "text-center mt-3" }, "Loading"))))));
+                        React.createElement("div", { className: "" + (this.loadingEnd && 'd-none') },
+                            React.createElement("div", { className: "d-flex justify-content-center mt-3" },
+                                React.createElement("div", { className: "spinner-border text-primary", role: "status" },
+                                    React.createElement("span", { className: "sr-only" }, "Loading..."))),
+                            React.createElement("h6", { className: "text-center mt-3 mb-0" }, "Loading")),
+                        React.createElement("div", { className: "" + (!this.loadingEnd && 'd-none') },
+                            React.createElement("h3", { className: "text-center mt-3 text-primary" }, "OK!")),
+                        React.createElement("h5", { className: "text-center my-4" }, "Find the Box in this VR space"),
+                        React.createElement("div", { className: "text-center mb-3 " + (!this.loadingEnd && 'd-none') },
+                            React.createElement(Button, { color: "primary", onClick: this.modalToggle, disabled: !this.loadingEnd },
+                                React.createElement("h4", null, "Go"))))))));
     };
+    __decorate([
+        action
+    ], VrDemo.prototype, "loadendCallback", void 0);
+    __decorate([
+        observable
+    ], VrDemo.prototype, "loadingEnd", void 0);
     __decorate([
         observable
     ], VrDemo.prototype, "modalShow", void 0);
