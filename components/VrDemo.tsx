@@ -124,7 +124,7 @@ class VrDemo extends React.Component<any, any> {
     }
 
     return (
-      <div className="ar-demo pt-4">
+      <div className="vr-demo pt-4">
         <a-scene data-aframe-inspector="true">
           <a-assets>
             <a-asset-item

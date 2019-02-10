@@ -130,7 +130,7 @@ var VrDemo = (function (_super) {
         if (typeof window === 'undefined') {
             return null;
         }
-        return (React.createElement("div", { className: "ar-demo pt-4" },
+        return (React.createElement("div", { className: "vr-demo pt-4" },
             React.createElement("a-scene", { "data-aframe-inspector": "true" },
                 React.createElement("a-assets", null,
                     React.createElement("a-asset-item", { "env-gltf": "", id: "envGltf", src: "static/gltf/fantasy_sky_background/scene.gltf" })),
