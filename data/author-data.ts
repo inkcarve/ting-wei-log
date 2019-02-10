@@ -91,7 +91,7 @@ export default {
     {
       title: "其他",
       titleEn: "Other",
-      detail: `redux${badgeNew}、Webpack、Jquery、NodeJs+Express+helmetJs${badgeNew}、mobx...還有其他插件`,
+      detail: `A-Frame${badgeNew}, redux${badgeNew}、Webpack、Jquery、NodeJs+Express+helmetJs${badgeNew}、mobx...還有其他插件`,
       listGroup: [
         // {
         //     title:'ReactNative',

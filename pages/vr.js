@@ -33,6 +33,10 @@ var PageVr = (function (_super) {
         return { lastUpdate: store.lastUpdate, isServer: isServer };
     };
     PageVr.prototype.render = function () {
+        if (typeof window === 'undefined') {
+            return (React.createElement("div", null,
+                React.createElement("h2", { className: "d-none" }, "VR Demo")));
+        }
         return (React.createElement(Provider, { store: this.store },
             React.createElement(VrDemo, null)));
     };

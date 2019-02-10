@@ -25,6 +25,14 @@ export default class PageVr extends React.Component<any, any> {
   // }
 
   render() {
+
+    if(typeof window=== 'undefined'){
+      return (
+        <div>
+          <h2 className="d-none">VR Demo</h2>
+        </div>
+      )
+    }
       
     return (
       <Provider store={this.store}>

@@ -107,19 +107,11 @@ var Store = (function () {
 }());
 export function initStore(isServer, lastUpdate) {
     if (lastUpdate === void 0) { lastUpdate = Date.now(); }
-    if (isServer) {
-        console.log("server store");
-        if (!store) {
-            return new Store(isServer, lastUpdate);
-        }
+    if (!store) {
+        console.log("new store");
+        store = new Store(isServer, lastUpdate);
     }
-    else {
-        if (!store) {
-            console.log("new store");
-            store = new Store(isServer, lastUpdate);
-        }
-        console.log("store exist");
-        return store;
-    }
+    console.log("store exist");
+    return store;
 }
 //# sourceMappingURL=store.js.map

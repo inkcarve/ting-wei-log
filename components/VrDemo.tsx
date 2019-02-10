@@ -35,7 +35,6 @@ let AframeReact: any;
 @inject("store")
 @observer
 class VrDemo extends React.Component<any, any> {
-  // public authorData: any;
 
   UNSAFE_componentWillMount() {
     if (typeof window === 'undefined') {
@@ -114,11 +113,9 @@ class VrDemo extends React.Component<any, any> {
 
   render() {
     if (typeof window=== 'undefined') {
-      return <div> Vr demo</div>;
+      return null;
     }
-    // if (!AframeReact) {
-    //   return null;
-    // }
+
     return (
       <div className="ar-demo pt-4">
         <a-scene data-aframe-inspector="true">

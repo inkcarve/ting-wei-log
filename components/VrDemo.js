@@ -124,7 +124,7 @@ var VrDemo = (function (_super) {
     };
     VrDemo.prototype.render = function () {
         if (typeof window === 'undefined') {
-            return React.createElement("div", null, " Vr demo");
+            return null;
         }
         return (React.createElement("div", { className: "ar-demo pt-4" },
             React.createElement("a-scene", { "data-aframe-inspector": "true" },

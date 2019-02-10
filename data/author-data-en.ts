@@ -91,7 +91,7 @@ export default {
     {
       title: "Other",
       titleEn: "",
-      detail: `redux${badgeNew}, Webpack, Jquery, NodeJs+Express+helmetJs${badgeNew}, mobx...`,
+      detail: `A-Frame${badgeNew}, redux${badgeNew}, Webpack, Jquery, NodeJs+Express+helmetJs${badgeNew}, mobx...`,
       listGroup: [
         // {
         //     title:'ReactNative',

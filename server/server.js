@@ -48,6 +48,7 @@ var nextI18next = require("../i18n/i18n");
 var app = next({ dev: process.env.NODE_ENV !== "production" });
 var handle = app.getRequestHandler();
 var helmet = require("helmet");
+var contentSecurityPolicy = require("./csp");
 var numCPUs = require('os').cpus().length;
 mobxReact.useStaticRendering(true);
 app.prepare().then(function () { return __awaiter(_this, void 0, void 0, function () {
@@ -56,13 +57,7 @@ app.prepare().then(function () { return __awaiter(_this, void 0, void 0, functio
         server = express();
         server.use(helmet());
         server.use(helmet({
-            contentSecurityPolicy: {
-                directives: {
-                    defaultSrc: ["'self'", "data:", "cdn.aframe.io", "https://cdn.rawgit.com", "https://raw.githubusercontent.com"],
-                    styleSrc: ["'self'", "'unsafe-inline'"],
-                    scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-                }
-            }
+            contentSecurityPolicy: contentSecurityPolicy
         }));
         nextI18NextMiddleware(nextI18next, app, server);
         server.get("*", function (req, res) {
