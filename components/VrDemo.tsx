@@ -1,6 +1,6 @@
 import * as React from "react";
 import { observer, inject } from "mobx-react";
-import "./ArDemo.scss";
+// import "./ArDemo.scss";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 // import 'aframe';
 // import 'aframe-particle-system-component';

@@ -109,7 +109,9 @@ export function initStore(isServer, lastUpdate) {
     if (lastUpdate === void 0) { lastUpdate = Date.now(); }
     if (isServer) {
         console.log("server store");
-        return new Store(isServer, lastUpdate);
+        if (!store) {
+            return new Store(isServer, lastUpdate);
+        }
     }
     else {
         if (!store) {

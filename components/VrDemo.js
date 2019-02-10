@@ -51,7 +51,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 import * as React from "react";
 import { observer, inject } from "mobx-react";
-import "./ArDemo.scss";
 import { Modal, ModalBody } from 'reactstrap';
 import { withNamespaces } from "../i18n/i18n";
 import { observable, action } from "mobx";

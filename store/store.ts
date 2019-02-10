@@ -45,7 +45,10 @@ class Store {
 export function initStore(isServer: boolean, lastUpdate = Date.now()) {
   if (isServer) {
     console.log("server store");
-    return new Store(isServer, lastUpdate);
+    // return ;
+    if (!store) {
+      return new Store(isServer, lastUpdate);
+    }
   } else {
     if (!store) {
       console.log("new store");

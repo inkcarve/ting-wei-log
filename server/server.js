@@ -49,43 +49,32 @@ var app = next({ dev: process.env.NODE_ENV !== "production" });
 var handle = app.getRequestHandler();
 var helmet = require("helmet");
 var numCPUs = require('os').cpus().length;
-if (cluster.isMaster && typeof numCPUs !== 'undefined') {
-    console.log("Master " + process.pid + " is running");
-    for (var i = 0; i < numCPUs; i++) {
-        cluster.fork();
-    }
-    cluster.on('exit', function (worker, code, signal) {
-        console.log("worker " + worker.process.pid + " died");
-    });
-}
-else {
-    mobxReact.useStaticRendering(true);
-    app.prepare().then(function () { return __awaiter(_this, void 0, void 0, function () {
-        var server;
-        return __generator(this, function (_a) {
-            server = express();
-            server.use(helmet());
-            server.use(helmet({
-                contentSecurityPolicy: {
-                    directives: {
-                        defaultSrc: ["'self'", "data:", "cdn.aframe.io", "https://cdn.rawgit.com", "https://raw.githubusercontent.com"],
-                        styleSrc: ["'self'", "'unsafe-inline'"],
-                        scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-                    }
+mobxReact.useStaticRendering(true);
+app.prepare().then(function () { return __awaiter(_this, void 0, void 0, function () {
+    var server;
+    return __generator(this, function (_a) {
+        server = express();
+        server.use(helmet());
+        server.use(helmet({
+            contentSecurityPolicy: {
+                directives: {
+                    defaultSrc: ["'self'", "data:", "cdn.aframe.io", "https://cdn.rawgit.com", "https://raw.githubusercontent.com"],
+                    styleSrc: ["'self'", "'unsafe-inline'"],
+                    scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
                 }
-            }));
-            nextI18NextMiddleware(nextI18next, app, server);
-            server.get("*", function (req, res) {
-                return handle(req, res);
-            });
-            server.listen(port, function (err) {
-                if (err) {
-                    throw err;
-                }
-                console.log("> Ready on http://localhost:" + port);
-            });
-            return [2];
+            }
+        }));
+        nextI18NextMiddleware(nextI18next, app, server);
+        server.get("*", function (req, res) {
+            return handle(req, res);
         });
-    }); });
-}
+        server.listen(port, function (err) {
+            if (err) {
+                throw err;
+            }
+            console.log("> Ready on http://localhost:" + port);
+        });
+        return [2];
+    });
+}); });
 //# sourceMappingURL=server.js.map

@@ -15,18 +15,18 @@ const helmet = require("helmet");
 // const contentSecurityPolicy = require("./csp");
 const numCPUs = require('os').cpus().length;
 
-if (cluster.isMaster && typeof numCPUs !== 'undefined') {
-  console.log(`Master ${process.pid} is running`);
+// if (cluster.isMaster && typeof numCPUs !== 'undefined') {
+//   console.log(`Master ${process.pid} is running`);
 
-  // Fork workers.
-  for (let i = 0; i < numCPUs; i++) {
-    cluster.fork();
-  }
+//   // Fork workers.
+//   for (let i = 0; i < numCPUs; i++) {
+//     cluster.fork();
+//   }
 
-  cluster.on('exit', (worker:any, code:any, signal:any) => {
-    console.log(`worker ${worker.process.pid} died`);
-  });
-} else {
+//   cluster.on('exit', (worker:any, code:any, signal:any) => {
+//     console.log(`worker ${worker.process.pid} died`);
+//   });
+// } else {
 
 mobxReact.useStaticRendering(true);
 
@@ -79,4 +79,4 @@ app.prepare().then(async () => {
     console.log(`> Ready on http://localhost:${port}`);
   });
 });
-}
+// }
