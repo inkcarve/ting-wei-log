@@ -12,10 +12,10 @@ const nextI18next = require("../i18n/i18n");
 const app = next({ dev: process.env.NODE_ENV !== "production" });
 const handle = app.getRequestHandler();
 const helmet = require("helmet");
-const contentSecurityPolicy = require("./csp");
+// const contentSecurityPolicy = require("./csp");
 const numCPUs = require('os').cpus().length;
 
-if (cluster.isMaster) {
+if (cluster.isMaster && typeof numCPUs !== 'undefined') {
   console.log(`Master ${process.pid} is running`);
 
   // Fork workers.
@@ -35,7 +35,13 @@ app.prepare().then(async () => {
   server.use(helmet());
   server.use(
     helmet({
-      contentSecurityPolicy
+      contentSecurityPolicy:{
+        directives: {
+          defaultSrc: ["'self'", "data:", "cdn.aframe.io", "https://cdn.rawgit.com", "https://raw.githubusercontent.com"],
+          styleSrc: ["'self'", "'unsafe-inline'"],
+          scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+        }
+      }
     })
   );
   nextI18NextMiddleware(nextI18next, app, server);

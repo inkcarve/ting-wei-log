@@ -48,9 +48,8 @@ var nextI18next = require("../i18n/i18n");
 var app = next({ dev: process.env.NODE_ENV !== "production" });
 var handle = app.getRequestHandler();
 var helmet = require("helmet");
-var contentSecurityPolicy = require("./csp");
 var numCPUs = require('os').cpus().length;
-if (cluster.isMaster) {
+if (cluster.isMaster && typeof numCPUs !== 'undefined') {
     console.log("Master " + process.pid + " is running");
     for (var i = 0; i < numCPUs; i++) {
         cluster.fork();
@@ -67,7 +66,13 @@ else {
             server = express();
             server.use(helmet());
             server.use(helmet({
-                contentSecurityPolicy: contentSecurityPolicy
+                contentSecurityPolicy: {
+                    directives: {
+                        defaultSrc: ["'self'", "data:", "cdn.aframe.io", "https://cdn.rawgit.com", "https://raw.githubusercontent.com"],
+                        styleSrc: ["'self'", "'unsafe-inline'"],
+                        scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+                    }
+                }
             }));
             nextI18NextMiddleware(nextI18next, app, server);
             server.get("*", function (req, res) {
