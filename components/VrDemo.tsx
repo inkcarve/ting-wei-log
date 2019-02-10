@@ -93,11 +93,18 @@ class VrDemo extends React.Component<any, any> {
     console.log(AFRAME);
   }
 
+  loadendCallback = ()=>{
+      setTimeout(()=>{
+        this.modalToggle();
+      }, 500 );
+  }
+  // timerLoadEnvGltf:any = null;
+  // time = 0;
   componentDidMount(){
-    const envGltf = window.document.getElementById("envGltf");
-    envGltf.addEventListener('loaded',()=>{
-      this.modalToggle();
-    });
+    const envGltfImg = document.createElement('img');
+    envGltfImg.src = 'static/gltf/fantasy_sky_background/textures/Material__25__background_JPG_002_emissive.jpg';
+    envGltfImg.onload = this.loadendCallback;
+    console.log(envGltfImg);
   }
 
   @observable modalShow = true;

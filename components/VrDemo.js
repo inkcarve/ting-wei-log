@@ -59,6 +59,11 @@ var VrDemo = (function (_super) {
     __extends(VrDemo, _super);
     function VrDemo(props) {
         var _this = _super.call(this, props) || this;
+        _this.loadendCallback = function () {
+            setTimeout(function () {
+                _this.modalToggle();
+            }, 500);
+        };
         _this.modalShow = true;
         _this.modalToggle = function () {
             _this.modalShow = !_this.modalShow;
@@ -116,11 +121,10 @@ var VrDemo = (function (_super) {
         console.log(AFRAME);
     };
     VrDemo.prototype.componentDidMount = function () {
-        var _this = this;
-        var envGltf = window.document.getElementById("envGltf");
-        envGltf.addEventListener('loaded', function () {
-            _this.modalToggle();
-        });
+        var envGltfImg = document.createElement('img');
+        envGltfImg.src = 'static/gltf/fantasy_sky_background/textures/Material__25__background_JPG_002_emissive.jpg';
+        envGltfImg.onload = this.loadendCallback;
+        console.log(envGltfImg);
     };
     VrDemo.prototype.render = function () {
         if (typeof window === 'undefined') {
