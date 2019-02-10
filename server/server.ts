@@ -4,6 +4,7 @@ const express = require("express");
 const router = express.Router();
 const { createServer } = require("http");
 const { parse } = require("url");
+const cluster = require('cluster');
 const next = require("next");
 const mobxReact = require("mobx-react");
 const nextI18NextMiddleware = require("next-i18next/middleware");
@@ -12,6 +13,21 @@ const app = next({ dev: process.env.NODE_ENV !== "production" });
 const handle = app.getRequestHandler();
 const helmet = require("helmet");
 const contentSecurityPolicy = require("./csp");
+const numCPUs = require('os').cpus().length;
+
+if (cluster.isMaster) {
+  console.log(`Master ${process.pid} is running`);
+
+  // Fork workers.
+  for (let i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on('exit', (worker:any, code:any, signal:any) => {
+    console.log(`worker ${worker.process.pid} died`);
+  });
+} else {
+
 mobxReact.useStaticRendering(true);
 
 app.prepare().then(async () => {
@@ -57,3 +73,4 @@ app.prepare().then(async () => {
     console.log(`> Ready on http://localhost:${port}`);
   });
 });
+}

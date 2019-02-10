@@ -40,6 +40,7 @@ var express = require("express");
 var router = express.Router();
 var createServer = require("http").createServer;
 var parse = require("url").parse;
+var cluster = require('cluster');
 var next = require("next");
 var mobxReact = require("mobx-react");
 var nextI18NextMiddleware = require("next-i18next/middleware");
@@ -48,26 +49,38 @@ var app = next({ dev: process.env.NODE_ENV !== "production" });
 var handle = app.getRequestHandler();
 var helmet = require("helmet");
 var contentSecurityPolicy = require("./csp");
-mobxReact.useStaticRendering(true);
-app.prepare().then(function () { return __awaiter(_this, void 0, void 0, function () {
-    var server;
-    return __generator(this, function (_a) {
-        server = express();
-        server.use(helmet());
-        server.use(helmet({
-            contentSecurityPolicy: contentSecurityPolicy
-        }));
-        nextI18NextMiddleware(nextI18next, app, server);
-        server.get("*", function (req, res) {
-            return handle(req, res);
-        });
-        server.listen(port, function (err) {
-            if (err) {
-                throw err;
-            }
-            console.log("> Ready on http://localhost:" + port);
-        });
-        return [2];
+var numCPUs = require('os').cpus().length;
+if (cluster.isMaster) {
+    console.log("Master " + process.pid + " is running");
+    for (var i = 0; i < numCPUs; i++) {
+        cluster.fork();
+    }
+    cluster.on('exit', function (worker, code, signal) {
+        console.log("worker " + worker.process.pid + " died");
     });
-}); });
+}
+else {
+    mobxReact.useStaticRendering(true);
+    app.prepare().then(function () { return __awaiter(_this, void 0, void 0, function () {
+        var server;
+        return __generator(this, function (_a) {
+            server = express();
+            server.use(helmet());
+            server.use(helmet({
+                contentSecurityPolicy: contentSecurityPolicy
+            }));
+            nextI18NextMiddleware(nextI18next, app, server);
+            server.get("*", function (req, res) {
+                return handle(req, res);
+            });
+            server.listen(port, function (err) {
+                if (err) {
+                    throw err;
+                }
+                console.log("> Ready on http://localhost:" + port);
+            });
+            return [2];
+        });
+    }); });
+}
 //# sourceMappingURL=server.js.map
